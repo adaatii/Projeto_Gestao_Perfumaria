@@ -1,1 +1,6 @@
-# Progeto_Gestão_Perfumaria
+# Projeto_Gestão_Perfumaria
+
+Respositório para o Projeto das disciplinas: Engenharia de Software 1, 
+Linguagem de Programação e Interação Humano Computador.
+
+
