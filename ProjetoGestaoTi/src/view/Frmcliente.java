@@ -689,13 +689,13 @@ public class Frmcliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisaActionPerformed
 
     private void txtPesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyPressed
-        String nome = "%"+txtPesquisa.getText()+"%";
-        
-        ClientesDao dao = new ClientesDao();
-        List<Clientes> lista  = dao.buscaClienteNome(nome);
-        DefaultTableModel dado = (DefaultTableModel)tabelaCliente.getModel();
-        dado.setNumRows(0);
-        
+//        String nome = "%"+txtPesquisa.getText()+"%";
+//        
+//        ClientesDao dao = new ClientesDao();
+//        List<Clientes> lista  = dao.buscaClienteNome(nome);
+//        DefaultTableModel dado = (DefaultTableModel)tabelaCliente.getModel();
+//        dado.setNumRows(0);
+//        
 //        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
 //            for(Clientes cont: lista){
 //                dado.addRow(new Object[]{
@@ -716,7 +716,7 @@ public class Frmcliente extends javax.swing.JFrame {
 //                });
 //            }
 //        }
-        
+//        
     }//GEN-LAST:event_txtPesquisaKeyPressed
 
     /**
