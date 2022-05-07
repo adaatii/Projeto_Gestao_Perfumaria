@@ -112,14 +112,14 @@ public class Formfuncionarios extends javax.swing.JFrame {
         btnLimpar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(4, 45, 125));
+        jPanel1.setBackground(new java.awt.Color(14, 89, 235));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -653,12 +653,12 @@ public class Formfuncionarios extends javax.swing.JFrame {
 
         String nome = "%" + txtPesquisa.getText() + "%";
 
-        ClientesDao dao = new ClientesDao();
-        List<Clientes> lista = dao.buscaClienteNome(nome);
+        FuncionariosDao dao = new FuncionariosDao();
+        List<Funcionarios> lista = dao.buscaFuncionarioNome(nome);
         DefaultTableModel dado = (DefaultTableModel) tabelaFuncionario.getModel();
         dado.setNumRows(0);
 
-        for (Clientes cont : lista) {
+        for (Funcionarios cont : lista) {
             dado.addRow(new Object[]{
                 cont.getId(),
                 cont.getNome(),
@@ -667,6 +667,9 @@ public class Formfuncionarios extends javax.swing.JFrame {
                 cont.getTelefone(),
                 cont.getCelular(),
                 cont.getEmail(),
+                cont.getSenha(),
+                cont.getCargo(),
+                cont.getNivel_acesso(),
                 cont.getCep(),
                 cont.getEndereco(),
                 cont.getNumero(),
@@ -683,13 +686,13 @@ public class Formfuncionarios extends javax.swing.JFrame {
     private void txtPesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyPressed
 //        String nome = "%"+txtPesquisa.getText()+"%";
 //        
-//        ClientesDao dao = new ClientesDao();
-//        List<Clientes> lista  = dao.buscaClienteNome(nome);
-//        DefaultTableModel dado = (DefaultTableModel)tabelaCliente.getModel();
+//        FuncionariosDao dao = new FuncionariosDao();
+//        List<Funcionarios> lista  = dao.buscaFuncionarioNome(nome);
+//        DefaultTableModel dado = (DefaultTableModel)tabelaFuncionario.getModel();
 //        dado.setNumRows(0);
 //        
 //        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-//            for(Clientes cont: lista){
+//            for(Funcionarios cont: lista){
 //                dado.addRow(new Object[]{
 //                   cont.getId(),
 //                   cont.getNome(),
@@ -697,7 +700,10 @@ public class Formfuncionarios extends javax.swing.JFrame {
 //                   cont.getCpf(),
 //                   cont.getTelefone(),
 //                   cont.getCelular(),
-//                   cont.getEmail(),
+////                 cont.getEmail(),
+//                   cont.getSenha(),
+//                   cont.getCargo(),
+//                   cont.getNivel_acesso(),
 //                   cont.getCep(),
 //                   cont.getEndereco(),
 //                   cont.getNumero(),               
@@ -708,7 +714,7 @@ public class Formfuncionarios extends javax.swing.JFrame {
 //                });
 //            }
 //        }
-//        
+        
     }//GEN-LAST:event_txtPesquisaKeyPressed
 
     /**

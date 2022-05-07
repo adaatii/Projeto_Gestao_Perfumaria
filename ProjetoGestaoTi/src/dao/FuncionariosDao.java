@@ -13,6 +13,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import jdbc.ConnectionFactory;
 import model.Funcionarios;
+import view.FormMenu;
 
 /**
  *
@@ -175,4 +176,82 @@ public class FuncionariosDao {
         }
     }
 
+    //Metodo Buscar Funcionario por nome - retorna uma Lista
+    public List<Funcionarios> buscaFuncionarioNome(String nome){
+        
+        try {
+            
+            //1° Criar a Lista 
+            List<Funcionarios> lista = new ArrayList<>();
+            
+            //2° Criar o sql, organizar e executar
+            //Comando SQL (seleciona tudo da tabela clientes)
+            String sql ="select * from tb_funcionarios where nome like ?";          
+            PreparedStatement stmt =con.prepareStatement(sql);
+            stmt.setString(1, nome);
+            ResultSet rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Funcionarios obj = new Funcionarios();
+                obj.setId(rs.getInt("id"));
+                obj.setNome(rs.getString("nome"));
+                obj.setRg(rs.getString("rg"));
+                obj.setCpf(rs.getString("cpf"));
+                obj.setEmail(rs.getString("email"));
+                obj.setSenha(rs.getString("senha"));
+                obj.setCargo(rs.getString("cargo"));
+                obj.setNivel_acesso(rs.getString("nivel_acesso"));
+                obj.setTelefone(rs.getString("telefone"));
+                obj.setCelular(rs.getString("celular"));
+                obj.setCep(rs.getString("cep"));
+                obj.setEndereco(rs.getString("endereco"));
+                obj.setNumero(rs.getInt("numero"));
+                obj.setComplemento(rs.getString("complemento"));
+                obj.setBairro(rs.getString("bairro"));
+                obj.setCidade(rs.getString("cidade"));
+                obj.setUf(rs.getString("estado"));
+                
+                lista.add(obj);
+            }
+            
+            return lista;
+                    
+            
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"Erro: "+erro);
+            return null;
+        }
+    
+    }
+    
+    //Método Efetua Login
+    public void efetuaLogin(String email, String senha){
+        try {
+            //1° passo -SQL
+            String sql = "select*from tb_funcionarios where email=? and senha=?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.setString(2, senha);
+            
+            ResultSet rs= stmt.executeQuery();
+            
+            if(rs.next()){
+                //Usuario Logou
+                JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
+                FormMenu menu = new FormMenu();
+                menu.setVisible(true);
+            }else{
+                //Dados incorretos
+                JOptionPane.showMessageDialog(null, "Dados incorretos");
+            }
+            
+            
+            
+            
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro: "+erro);
+        }
+        
+        
+    }
 }
