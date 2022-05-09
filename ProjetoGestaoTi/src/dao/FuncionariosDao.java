@@ -56,6 +56,7 @@ public class FuncionariosDao {
             stmt.setString(14, obj.getBairro());
             stmt.setString(15, obj.getCidade());
             stmt.setString(16, obj.getUf());
+        
 
             //Executar o comando SQL
             stmt.execute();
@@ -102,7 +103,7 @@ public class FuncionariosDao {
                 obj.setBairro(rs.getString("bairro"));
                 obj.setCidade(rs.getString("cidade"));
                 obj.setUf(rs.getString("estado"));
-
+                
                 lista.add(obj);
             }
 
@@ -141,6 +142,7 @@ public class FuncionariosDao {
             stmt.setString(15, obj.getCidade());
             stmt.setString(16, obj.getUf());            
             stmt.setInt(17, obj.getId());
+          
 
             //Executar o comando SQL
             stmt.execute();
@@ -210,7 +212,7 @@ public class FuncionariosDao {
                 obj.setBairro(rs.getString("bairro"));
                 obj.setCidade(rs.getString("cidade"));
                 obj.setUf(rs.getString("estado"));
-                
+                                
                 lista.add(obj);
             }
             

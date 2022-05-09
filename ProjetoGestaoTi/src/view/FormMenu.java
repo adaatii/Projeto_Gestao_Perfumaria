@@ -26,41 +26,99 @@ public class FormMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu9 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jMenu1.setText("Clientes");
-        jMenuBar1.add(jMenu1);
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/customer(small).png"))); // NOI18N
+        jMenu7.setText("Clientes");
 
-        jMenu2.setText("Funcionários");
-        jMenuBar1.add(jMenu2);
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem1.setText("Controle de Clientes");
+        jMenu7.add(jMenuItem1);
 
-        jMenu3.setText("Fornecedores");
-        jMenuBar1.add(jMenu3);
+        jMenuBar2.add(jMenu7);
 
-        jMenu4.setText("Vendas");
-        jMenuBar1.add(jMenu4);
+        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/employee(small).png"))); // NOI18N
+        jMenu9.setText("Funcionários");
 
-        jMenu5.setText("Configirações");
-        jMenuBar1.add(jMenu5);
+        jMenuItem2.setText("Controle de Funcionários");
+        jMenu9.add(jMenuItem2);
 
-        setJMenuBar(jMenuBar1);
+        jMenuBar2.add(jMenu9);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/supplier(small).png"))); // NOI18N
+        jMenu1.setText("Fornecedores");
+
+        jMenuItem3.setText("Controle de Fornecedores");
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/boxes(small).png"))); // NOI18N
+        jMenu2.setText("Produtos");
+
+        jMenuItem4.setText("Controle de Estoque");
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setText("Consulta de Produtos");
+        jMenu2.add(jMenuItem5);
+
+        jMenuBar2.add(jMenu2);
+
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/trade(small).png"))); // NOI18N
+        jMenu3.setText("Vendas");
+
+        jMenuItem6.setText("Abrir Ponto de Venda");
+        jMenu3.add(jMenuItem6);
+
+        jMenuItem7.setText("Posição do Dia");
+        jMenu3.add(jMenuItem7);
+
+        jMenuItem8.setText("Histórico de Vendas");
+        jMenu3.add(jMenuItem8);
+
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/settings(small).png"))); // NOI18N
+        jMenu4.setText("Configurações");
+
+        jMenuItem9.setText("Trocar de Usuário");
+        jMenu4.add(jMenuItem9);
+
+        jMenuBar2.add(jMenu4);
+
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logout(small).png"))); // NOI18N
+        jMenu5.setText("Sair");
+        jMenuBar2.add(jMenu5);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
+            .addGap(0, 991, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 276, Short.MAX_VALUE)
+            .addGap(0, 325, Short.MAX_VALUE)
         );
 
         pack();
@@ -107,6 +165,17 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }

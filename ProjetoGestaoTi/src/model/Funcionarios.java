@@ -14,6 +14,9 @@ public class Funcionarios extends Clientes{
     private String senha;
     private String cargo;
     private String nivel_acesso;
+    
+
+    
 
     public String getSenha() {
         return senha;

@@ -4,12 +4,9 @@
  */
 package view;
 
-import dao.ClientesDao;
 import dao.FuncionariosDao;
-import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import model.Clientes;
 import model.Funcionarios;
 import model.Utilitarios;
 
@@ -45,7 +42,8 @@ public class Formfuncionarios extends javax.swing.JFrame {
                 cont.getBairro(),
                 cont.getCidade(),
                 cont.getComplemento(),
-                cont.getUf()
+                cont.getUf(),
+               
             });
         }
     }
@@ -556,6 +554,7 @@ public class Formfuncionarios extends javax.swing.JFrame {
         obj.setBairro(txtBairro.getText());
         obj.setCidade(txtCidade.getText());
         obj.setUf(cbUf.getSelectedItem().toString());
+        
 
         FuncionariosDao dao = new FuncionariosDao();
         dao.cadastrarFuncionarios(obj);
@@ -590,6 +589,7 @@ public class Formfuncionarios extends javax.swing.JFrame {
         txtCidade.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 14).toString());
         txtComplemento.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 15).toString());
         cbUf.setSelectedItem(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 16).toString());
+        
 
     }//GEN-LAST:event_tabelaFuncionarioMouseClicked
 
@@ -614,6 +614,7 @@ public class Formfuncionarios extends javax.swing.JFrame {
         obj.setCidade(txtCidade.getText());
         obj.setUf(cbUf.getSelectedItem().toString());        
         obj.setId(Integer.parseInt(txtCodigo.getText()));
+       
 
         FuncionariosDao dao = new FuncionariosDao();
         dao.alterarFuncionarios(obj);
@@ -676,7 +677,8 @@ public class Formfuncionarios extends javax.swing.JFrame {
                 cont.getBairro(),
                 cont.getCidade(),
                 cont.getComplemento(),
-                cont.getUf()
+                cont.getUf(),
+                
             });
 
         }

@@ -80,6 +80,11 @@ public class Formlogin extends javax.swing.JFrame {
         });
 
         btnSair.setText("SAIR");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,11 +146,17 @@ public class Formlogin extends javax.swing.JFrame {
             FuncionariosDao dao = new FuncionariosDao();
             
             dao.efetuaLogin(email, senha);
-            this.dispose();
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: ");
         }
+    
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
