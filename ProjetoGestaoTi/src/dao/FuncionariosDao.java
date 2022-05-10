@@ -79,7 +79,7 @@ public class FuncionariosDao {
             List<Funcionarios> lista = new ArrayList<>();
 
             //2° Criar o sql, organizar e executar
-            //Comando SQL (seleciona tudo da tabela clientes)
+            //Comando SQL (seleciona tudo da tabela funcionarios)
             String sql = "select * from tb_funcionarios";
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
