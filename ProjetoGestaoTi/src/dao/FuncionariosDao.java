@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import jdbc.ConnectionFactory;
 import model.Funcionarios;
 import view.FormMenu;
+import view.FormLogin;
 
 /**
  *
@@ -241,10 +242,12 @@ public class FuncionariosDao {
                 //Usuario Logou
                 JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
                 FormMenu menu = new FormMenu();
+                menu.usuarioLogado = rs.getString("nome");
                 menu.setVisible(true);
             }else{
                 //Dados incorretos
                 JOptionPane.showMessageDialog(null, "Dados incorretos");
+                new FormLogin().setVisible(true);
             }
             
             
