@@ -68,7 +68,7 @@ public class ProdutosDao {
 
             //2° Criar o sql, organizar e executar
             //Comando SQL (seleciona tudo da tabela produtos)
-            String sql = "select p.id,p.descricao,p.preco,p.qtd_estoque,f.nome from tb_produtos as p "
+            String sql = "select p.id,p.descricao,p.preco,p.qtd_estoque,f.nome, f.cnpj from tb_produtos as p "
                     + "inner join tb_fornecedores as f on (p.for_id = f.id)";            
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
@@ -82,6 +82,7 @@ public class ProdutosDao {
                 obj.setQtd_estoque(rs.getInt("p.qtd_estoque"));
                 
                 f.setNome(rs.getString(("f.nome")));
+
                 
                 obj.setFornecedor(f);
                 

@@ -464,6 +464,7 @@ public class FormProdutos extends javax.swing.JFrame {
 
         for (Fornecedores f : listafornecedores) {
 
+            
             cbFornecedores.addItem(f);
 
         }
