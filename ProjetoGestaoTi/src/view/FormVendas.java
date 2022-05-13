@@ -24,9 +24,8 @@ public class FormVendas extends javax.swing.JFrame {
 
     double total, preco, subtotal, rem;
     int qtd;
-    
-    DefaultTableModel carrinho;
 
+    DefaultTableModel carrinho;
 
     public FormVendas() {
         initComponents();
@@ -285,31 +284,29 @@ public class FormVendas extends javax.swing.JFrame {
         painelDadosProdutosLayout.setHorizontalGroup(
             painelDadosProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelDadosProdutosLayout.createSequentialGroup()
-                .addGroup(painelDadosProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(16, 16, 16)
+                .addGroup(painelDadosProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelDadosProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(painelDadosProdutosLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
+                        .addComponent(txtCodigoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(btnBuscarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnLimparProduto))
+                    .addComponent(txtDescricao)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDadosProdutosLayout.createSequentialGroup()
                         .addGroup(painelDadosProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(painelDadosProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAdicionarItem)
                             .addGroup(painelDadosProdutosLayout.createSequentialGroup()
-                                .addComponent(txtCodigoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(55, 55, 55)
-                                .addComponent(btnBuscarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(btnLimparProduto))
-                            .addComponent(txtDescricao)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDadosProdutosLayout.createSequentialGroup()
                                 .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(painelDadosProdutosLayout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(btnAdicionarItem)))
+                                .addComponent(jLabel10)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -375,21 +372,24 @@ public class FormVendas extends javax.swing.JFrame {
         painelCarrinho.setLayout(painelCarrinhoLayout);
         painelCarrinhoLayout.setHorizontalGroup(
             painelCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
             .addGroup(painelCarrinhoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(259, 259, 259)
-                .addComponent(txtValorExcluido, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(241, 241, 241)
+                .addComponent(txtValorExcluido, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         painelCarrinhoLayout.setVerticalGroup(
             painelCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelCarrinhoLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(painelCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtValorExcluido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
+                .addGroup(painelCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                    .addGroup(painelCarrinhoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(txtValorExcluido, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -414,7 +414,7 @@ public class FormVendas extends javax.swing.JFrame {
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
                 .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -434,9 +434,9 @@ public class FormVendas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(747, 747, 747)
+                        .addGap(668, 668, 668)
                         .addComponent(btnPagamento)
-                        .addGap(66, 66, 66)
+                        .addGap(71, 71, 71)
                         .addComponent(btnCancelar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -492,12 +492,11 @@ public class FormVendas extends javax.swing.JFrame {
         // Botão Cancelar Venda
 
 
-
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagamentoActionPerformed
-      //Botão Pagamento
-      
+        //Botão Pagamento
+
     }//GEN-LAST:event_btnPagamentoActionPerformed
 
     private void txtCpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCpfKeyPressed
@@ -543,73 +542,66 @@ public class FormVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparClienteActionPerformed
 
     private void btnLimparProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparProdutoActionPerformed
-       new Utilitarios().LimparTela(painelDadosProdutos);
+        new Utilitarios().LimparTela(painelDadosProdutos);
     }//GEN-LAST:event_btnLimparProdutoActionPerformed
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
         //busca CLiente por CPF:
-       
 
-            Clientes obj = new Clientes();
-            ClientesDao dao = new ClientesDao();
+        Clientes obj = new Clientes();
+        ClientesDao dao = new ClientesDao();
 
-            obj = dao.buscaClienteCpf(txtCpf.getText());
-            txtNome.setText(obj.getNome());
-        
+        obj = dao.buscaClienteCpf(txtCpf.getText());
+        txtNome.setText(obj.getNome());
+
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     private void btnAdicionarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarItemActionPerformed
         // Adicionar item:
         qtd = Integer.parseInt(txtQtd.getText());
         preco = Double.parseDouble(txtPreco.getText());
-        
-        subtotal = qtd*preco;
-        
+
+        subtotal = qtd * preco;
+
         total += subtotal;
         txtTotal.setText(String.valueOf(total));
-        
+
         //Adicionar o produto no carrinho
-        
-        carrinho = (DefaultTableModel)tabelaItens.getModel();
-        
+        carrinho = (DefaultTableModel) tabelaItens.getModel();
+
         carrinho.addRow(new Object[]{
             txtCodigoProduto.getText(),
             txtDescricao.getText(),
             txtQtd.getText(),
             txtPreco.getText(),
             subtotal
-            
+
         });
-        
-        
+
+
     }//GEN-LAST:event_btnAdicionarItemActionPerformed
 
     private void tabelaItensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaItensMouseClicked
         // TODO add your handling code here:
-      
-           txtValorExcluido.setText(tabelaItens.getValueAt(tabelaItens.getSelectedRow(), 4).toString());
-       
+
+        txtValorExcluido.setText(tabelaItens.getValueAt(tabelaItens.getSelectedRow(), 4).toString());
+
     }//GEN-LAST:event_tabelaItensMouseClicked
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
-         carrinho = (DefaultTableModel)tabelaItens.getModel();
-         
-            
-        
-            carrinho.removeRow(tabelaItens.getSelectedRow());
-            tabelaItens.setModel(carrinho);
-            
-           
-            rem = Double.parseDouble(txtValorExcluido.getText());
-            
-                        
-            total = total - rem;
-            txtTotal.setText(String.valueOf(total));
-            txtValorExcluido.setText("");
-            
-         
-            
+        carrinho = (DefaultTableModel) tabelaItens.getModel();
+
+        carrinho.removeRow(tabelaItens.getSelectedRow());
+        tabelaItens.setModel(carrinho);
+
+        rem = Double.parseDouble(txtValorExcluido.getText());
+
+        total = total - rem;
+        txtTotal.setText(String.valueOf(total));
+        txtValorExcluido.setText("");
+
+
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
