@@ -158,7 +158,7 @@ public class FuncionariosDao {
     }
 
     //Método Excluir Funcionário
-    public void exluirFuncionarios(Funcionarios obj) {
+    public void excluirFuncionarios(Funcionarios obj) {
         try {
             //Criar comando SQL deleta nos campos da tabela Clientes os valores 
 

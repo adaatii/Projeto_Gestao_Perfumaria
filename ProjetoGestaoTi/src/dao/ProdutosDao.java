@@ -139,6 +139,43 @@ public class ProdutosDao {
         }
         
     }
+        //Busca Produto por código
+     public Produtos buscaProdutosCodigo (int id) {
+        
+        try {
+
+            
+            //Criar o sql, organizar e executar
+            //Comando SQL (seleciona tudo da tabela produtos)
+            String sql = "select p.id,p.descricao,p.preco,p.qtd_estoque,f.nome from tb_produtos as p "
+                    + "inner join tb_fornecedores as f on (p.for_id = f.id) where p.id= ?";            
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);            
+            ResultSet rs = stmt.executeQuery();
+            Produtos obj = new Produtos();
+            Fornecedores f = new Fornecedores();
+            
+            if (rs.next()) {
+               
+                obj.setId(rs.getInt("p.id"));
+                obj.setDescricao(rs.getString("p.descricao"));
+                obj.setPreco(rs.getDouble("p.preco"));
+                obj.setQtd_estoque(rs.getInt("p.qtd_estoque"));
+                
+                f.setNome(rs.getString(("f.nome")));
+                
+                obj.setFornecedor(f);
+                            
+            }
+            
+            return obj;
+            
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro: " + erro);
+            return null;
+        }
+        
+    }
     
     /**
      * Método Alterar Produtos

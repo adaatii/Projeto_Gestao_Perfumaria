@@ -101,7 +101,7 @@ public class ClientesDao {
     }
 
     //Metodo Excluir Cliente
-    public void exluirCliente(Clientes obj) {
+    public void excluirCliente(Clientes obj) {
         try {
             //Criar comando SQL deleta nos campos da tabela Clientes os valores 
 
@@ -209,39 +209,47 @@ public class ClientesDao {
         }
 
     }
+    
+    //Metodo Buscar Cliente por CPF - retorna uma Lista
+    public Clientes buscaClienteCpf(String cpf) {
 
-//    public Clientes consultaCpf(String cpf){
-//        try {
-//            //1 passo - criar o sql , organizar e executar.
-//            String sql = "select * from tb_clientes where nome = ?";
-//            PreparedStatement stmt = con.prepareStatement(sql);
-//            stmt.setString(1, cpf);
-//
-//            ResultSet rs = stmt.executeQuery();
-//            Clientes obj = new Clientes();
-//
-//            if (rs.next()) {
-//
-//                obj.setId(rs.getInt("id"));
-//                obj.setNome(rs.getString("nome"));
-//                obj.setRg(rs.getString("rg"));
-//                obj.setCpf(rs.getString("cpf"));
-//                obj.setEmail(rs.getString("email"));
-//                obj.setTelefone(rs.getString("telefone"));
-//                obj.setCelular(rs.getString("celular"));
-//                obj.setCep(rs.getString("cep"));
-//                obj.setEndereco(rs.getString("endereco"));
-//                obj.setNumero(rs.getInt("numero"));
-//                obj.setComplemento(rs.getString("complemento"));
-//                obj.setBairro(rs.getString("bairro"));
-//                obj.setCidade(rs.getString("cidade"));
-//                obj.setUf(rs.getString("estado"));
-//            }
-//            return obj;
-//        }catch (Exception erro) {
-//            JOptionPane.showMessageDialog(null, "Cliente não encontrado!");
-//            return null;
-//        }
-//    
-//    }
+         try {
+            // Criar o sql, organizar e executar
+            //Comando SQL (seleciona tudo da tabela Fornecedores)
+            String sql = "select * from tb_clientes where cpf=?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, cpf);
+
+            ResultSet rs = stmt.executeQuery();
+            Clientes obj = new Clientes();
+
+
+            if (rs.next()) {
+
+                obj.setId(rs.getInt("id"));
+                obj.setNome(rs.getString("nome"));
+                obj.setRg(rs.getString("rg"));
+                obj.setCpf(rs.getString("cpf"));               
+                obj.setEmail(rs.getString("email"));
+                obj.setTelefone(rs.getString("telefone"));
+                obj.setCelular(rs.getString("celular"));
+                obj.setCep(rs.getString("cep"));
+                obj.setEndereco(rs.getString("endereco"));
+                obj.setNumero(rs.getInt("numero"));
+                obj.setComplemento(rs.getString("complemento"));
+                obj.setBairro(rs.getString("bairro"));
+                obj.setCidade(rs.getString("cidade"));
+                obj.setUf(rs.getString("estado"));
+            }
+
+            return obj;
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Fornecedor não encontrado!");
+            return null;
+        }
+
+    }
+
+
 }

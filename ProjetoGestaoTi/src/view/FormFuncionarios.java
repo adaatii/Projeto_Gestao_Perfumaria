@@ -629,7 +629,7 @@ public class FormFuncionarios extends javax.swing.JFrame {
         obj.setId(Integer.parseInt(txtCodigo.getText()));
 
         FuncionariosDao dao = new FuncionariosDao();
-        dao.exluirFuncionarios(obj);
+        dao.excluirFuncionarios(obj);
 
         new Utilitarios().LimparTela(painelDadosCadastro);
 

@@ -5,7 +5,6 @@
 package view;
 
 import dao.ClientesDao;
-import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Clientes;
@@ -15,7 +14,7 @@ import model.Utilitarios;
  *
  * @author adaatii
  */
-public class FormCliente extends javax.swing.JFrame {
+public class FormClientes extends javax.swing.JFrame {
 
     /**
      * Método Lista na tabela
@@ -47,7 +46,7 @@ public class FormCliente extends javax.swing.JFrame {
         }
     }
 
-    public FormCliente() {
+    public FormClientes() {
         initComponents();
     }
 
@@ -623,7 +622,7 @@ public class FormCliente extends javax.swing.JFrame {
         obj.setId(Integer.parseInt(txtCodigo.getText()));
 
         ClientesDao dao = new ClientesDao();
-        dao.exluirCliente(obj);
+        dao.excluirCliente(obj);
 
         new Utilitarios().LimparTela(painelDadosCadastro);
 
@@ -719,14 +718,18 @@ public class FormCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -735,7 +738,7 @@ public class FormCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormCliente().setVisible(true);
+                new FormClientes().setVisible(true);
             }
         });
     }

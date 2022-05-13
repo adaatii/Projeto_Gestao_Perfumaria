@@ -562,7 +562,7 @@ public class FormFornecedores extends javax.swing.JFrame {
         obj.setId(Integer.parseInt(txtCodigo.getText()));
 
         FornecedoresDao dao = new FornecedoresDao();
-        dao.exluirFornecedor(obj);
+        dao.excluirFornecedor(obj);
 
         new Utilitarios().LimparTela(painelDadosCadastro);
 

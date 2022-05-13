@@ -65,7 +65,7 @@ public class FornecedoresDao {
     }
     
     //Método Excluir Fornecedores
-    public void exluirFornecedor(Fornecedores obj){
+    public void excluirFornecedor(Fornecedores obj){
         try {
             //Criar comando SQL deleta nos campos da tabela Clientes os valores 
                        
