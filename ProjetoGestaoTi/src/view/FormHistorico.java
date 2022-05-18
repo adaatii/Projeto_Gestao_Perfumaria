@@ -129,13 +129,14 @@ public class FormHistorico extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel10)
                         .addComponent(txtDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnPesquisar)))
+                        .addComponent(btnPesquisar))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(txtDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -182,64 +183,63 @@ public class FormHistorico extends javax.swing.JFrame {
         //Receber as datas
         try {
             DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        
-        LocalDate data_inicial = LocalDate.parse(txtDataInicial.getText(), formatar);
-        LocalDate data_final = LocalDate.parse(txtDataFinal.getText(), formatar);
-       
-        VendasDao dao = new VendasDao();
-        List<Vendas> lista = dao.listarVendasPeriodo(data_inicial, data_final);
-        
-        DefaultTableModel dados = (DefaultTableModel)tabelaHistorico.getModel();
-        dados.setNumRows(0);
-        
-        for(Vendas v : lista){
-            dados.addRow(new Object[]{
-               v.getId(),
-               v.getData_venda(),
-               v.getCliente().getNome(),
-               v.getTotal_venda(),
-               v.getObs()
-            });
-        }
-        
+
+            LocalDate data_inicial = LocalDate.parse(txtDataInicial.getText(), formatar);
+            LocalDate data_final = LocalDate.parse(txtDataFinal.getText(), formatar);
+
+            VendasDao dao = new VendasDao();
+            List<Vendas> lista = dao.listarVendasPeriodo(data_inicial, data_final);
+
+            DefaultTableModel dados = (DefaultTableModel) tabelaHistorico.getModel();
+            dados.setNumRows(0);
+
+            for (Vendas v : lista) {
+                dados.addRow(new Object[]{
+                    v.getId(),
+                    v.getData_venda(),
+                    v.getCliente().getNome(),
+                    v.getTotal_venda(),
+                    v.getObs()
+
+                });
+            }
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Digite a data inicial e final");
         }
-        
+
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void tabelaHistoricoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaHistoricoMouseClicked
         //Clicar em uma venda:
-        
+
         FormDetalhesVenda tela = new FormDetalhesVenda();
-        
+
         tela.txtCliente.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 2).toString());
-        tela.txtTotalVenda.setText("R$ "+tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 3).toString());
+        tela.txtTotalVenda.setText("R$ " + tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 3).toString());
         tela.txtData.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 1).toString());
         tela.txtObs.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 4).toString());
-        
-        
+
         int id_venda = Integer.parseInt(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 0).toString());
         //Dados Itens Comprados
-        
+
         ItemVenda item = new ItemVenda();
         ItemVendaDao dao_itens = new ItemVendaDao();
         List<ItemVenda> litens = dao_itens.listarItensVenda(id_venda);
-        
+
         DefaultTableModel dado = (DefaultTableModel) tela.tabelaVendidos.getModel();
         dado.setNumRows(0);
 
         for (ItemVenda cont : litens) {
             dado.addRow(new Object[]{
-                
                 cont.getProduto().getDescricao(),
                 cont.getQtd(),
-                cont.getProduto().getPreco(),                
+                cont.getProduto().getPreco(),
                 cont.getSubtotal()
-               
+
             });
         }
-        
+
         tela.setVisible(true);
     }//GEN-LAST:event_tabelaHistoricoMouseClicked
 

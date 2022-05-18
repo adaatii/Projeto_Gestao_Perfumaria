@@ -222,69 +222,71 @@ public class FormPagamentos extends javax.swing.JFrame {
         if(op == 1){
             double pagcartao, pagdinheiro, pagcheque, totalpago, totalvenda, troco;
 
-        pagcartao = Double.parseDouble(txtCartao.getText());
-        pagcheque = Double.parseDouble(txtCheque.getText());
-        pagdinheiro = Double.parseDouble(txtDinheiro.getText());
-        totalvenda = Double.parseDouble(txtTotal.getText());
+            pagcartao = Double.parseDouble(txtCartao.getText());
+            pagcheque = Double.parseDouble(txtCheque.getText());
+            pagdinheiro = Double.parseDouble(txtDinheiro.getText());
+            totalvenda = Double.parseDouble(txtTotal.getText());
 
-        // Calculo do Troco
-        totalpago = pagcartao + pagcheque + pagdinheiro;
+            // Calculo do Troco
+            totalpago = pagcartao + pagcheque + pagdinheiro;
 
-        troco = totalpago - totalvenda;
-        txtTroco.setText(String.valueOf(troco));
-        if (totalpago >= totalvenda) {
-            Vendas objvenda = new Vendas();
+            troco = totalpago - totalvenda;
+            txtTroco.setText(String.valueOf(troco));
+            if (totalpago >= totalvenda) {
+                Vendas objvenda = new Vendas();
 
-            // Dados do cliente (ID)
-            objvenda.setCliente(cliente);
+                // Dados do cliente (ID)
+                objvenda.setCliente(cliente);
 
-            //Pega data atual        
-            Date data = new Date();
-            SimpleDateFormat dataEUA = new SimpleDateFormat("yyyy-MM-dd");
-            String datamysql = dataEUA.format(data);
+                //Pega data atual        
+                Date data = new Date();
+                SimpleDateFormat dataEUA = new SimpleDateFormat("yyyy-MM-dd");
+                String datamysql = dataEUA.format(data);
 
-            objvenda.setData_venda(datamysql);
+                objvenda.setData_venda(datamysql);
 
-            // Total da venda
-            objvenda.setTotal_venda(totalvenda);
+                // Total da venda
+                objvenda.setTotal_venda(totalvenda);
 
-            //Observações
-            objvenda.setObs(txtObs.getText());
+                //Observações
+                objvenda.setObs(txtObs.getText());
 
-            VendasDao dao_venda = new VendasDao();
-            dao_venda.cadastrarVenda(objvenda);
+                VendasDao dao_venda = new VendasDao();
+                dao_venda.cadastrarVenda(objvenda);
             
-            //Retornar o ID da ultima venda realizada
-            objvenda.setId(dao_venda.retornaUltimaVenda());
+                //Retornar o ID da ultima venda realizada
+                objvenda.setId(dao_venda.retornaUltimaVenda());
             
             //System.out.println("Id da ultima venda "+ objvenda.getId());
-            //Cadastrando os produtos na tabela itensvendas
+                //Cadastrando os produtos na tabela itensvendas
             
-            for(int i = 0 ;i < carrinho.getRowCount(); i++){
-                int qtd_estoque, qtd_comprada,qtd_atualizada;
+                for(int i = 0 ;i < carrinho.getRowCount(); i++){
+                    int qtd_estoque, qtd_comprada,qtd_atualizada;
                 
-                Produtos objp = new Produtos();
-                ProdutosDao dao_produtos = new ProdutosDao();
+                    Produtos objp = new Produtos();
+                    ProdutosDao dao_produtos = new ProdutosDao();
                         
                  
-                ItemVenda item = new ItemVenda();
-                item.setVenda(objvenda);
+                    ItemVenda item = new ItemVenda();
+                    item.setVenda(objvenda);
                 
                
-                objp.setId(Integer.parseInt(carrinho.getValueAt(i,0).toString()));
-                item.setProduto(objp);
-                item.setQtd(Integer.parseInt(carrinho.getValueAt(i,2).toString()));
-                item.setSubtotal(Double.parseDouble(carrinho.getValueAt(i,4).toString()));
+                    objp.setId(Integer.parseInt(carrinho.getValueAt(i,0).toString()));
+                    item.setProduto(objp);
+                    item.setQtd(Integer.parseInt(carrinho.getValueAt(i,2).toString()));
+                    item.setSubtotal(Double.parseDouble(carrinho.getValueAt(i,4).toString()));
                 
-                //Baixa no estoque
-                qtd_estoque = dao_produtos.retornaEstoqueAtual(objp.getId());
-                qtd_comprada = Integer.parseInt(carrinho.getValueAt(i,2).toString());
-                qtd_atualizada = qtd_estoque - qtd_comprada;
+                    //Baixa no estoque
+                    qtd_estoque = dao_produtos.retornaEstoqueAtual(objp.getId());
+                    qtd_comprada = Integer.parseInt(carrinho.getValueAt(i,2).toString());
+                    qtd_atualizada = qtd_estoque - qtd_comprada;
+//                    System.out.println(qtd_estoque);
+//                    System.out.println(qtd_atualizada);
                 
-                dao_produtos.baixarEstoque(objp.getId(), qtd_comprada);
+                    dao_produtos.baixarEstoque(objp.getId(), qtd_atualizada);
                 
-                ItemVendaDao daoitem = new ItemVendaDao();
-                daoitem.cadastrarItem(item);
+                    ItemVendaDao daoitem = new ItemVendaDao();
+                    daoitem.cadastrarItem(item);
                 
                 
             }

@@ -9,6 +9,7 @@ import dao.ProdutosDao;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Clientes;
 import model.Produtos;
@@ -536,10 +537,13 @@ public class FormVendas extends javax.swing.JFrame {
         Produtos obj = new Produtos();
         ProdutosDao dao = new ProdutosDao();
 
-        obj = dao.buscaProdutosCodigo(Integer.parseInt(txtCodigoProduto.getText()));
+        obj = dao.buscaProdutosCodigo(Integer.parseInt(txtCodigoProduto.getText()));        
+      
+            txtDescricao.setText(obj.getDescricao());
+            txtPreco.setText(String.valueOf(obj.getPreco()));
+        
 
-        txtDescricao.setText(obj.getDescricao());
-        txtPreco.setText(String.valueOf(obj.getPreco()));
+        
     }//GEN-LAST:event_btnBuscarProdutoActionPerformed
 
     private void btnLimparClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparClienteActionPerformed
@@ -563,7 +567,15 @@ public class FormVendas extends javax.swing.JFrame {
 
     private void btnAdicionarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarItemActionPerformed
         // Adicionar item:
+        Produtos obj = new Produtos();
+        ProdutosDao dao = new ProdutosDao();
+
+        obj = dao.buscaProdutosCodigo(Integer.parseInt(txtCodigoProduto.getText()));
+        
         qtd = Integer.parseInt(txtQtd.getText());
+          
+        
+        if(obj.getQtd_estoque() > 0 && obj.getQtd_estoque() >= qtd){
         preco = Double.parseDouble(txtPreco.getText());
 
         subtotal = qtd * preco;
@@ -580,10 +592,16 @@ public class FormVendas extends javax.swing.JFrame {
             txtQtd.getText(),
             txtPreco.getText(),
             subtotal
-
+            
         });
+        
+             new Utilitarios().LimparTela(painelDadosProdutos);
+        }else{
+            JOptionPane.showMessageDialog(null, "Quantidade maior que disponivel no estoque. O estoque é: " + obj.getQtd_estoque());
+            txtQtd.setText("");
+       }
 
-        new Utilitarios().LimparTela(painelDadosProdutos);
+       
 
 
     }//GEN-LAST:event_btnAdicionarItemActionPerformed
