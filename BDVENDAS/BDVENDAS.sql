@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 06-Maio-2022 às 05:40
+-- Tempo de geração: 18-Maio-2022 às 22:49
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 7.4.29
 
@@ -76,6 +76,14 @@ CREATE TABLE `tb_fornecedores` (
   `estado` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `tb_fornecedores`
+--
+
+INSERT INTO `tb_fornecedores` (`id`, `nome`, `cnpj`, `email`, `telefone`, `celular`, `cep`, `endereco`, `numero`, `complemento`, `bairro`, `cidade`, `estado`) VALUES
+(1, 'Dell ltda', '45.124.554/5125-55', 'dell@dell', '(15) 4516 - 1561', '(41) 1 5484 - 8156', '18481 - 515', 'Rua da Dell', 4545, '', 'Jardim Dell', 'Dell', 'SP'),
+(2, 'HP ltda', '45.816.195/4548-94', 'hp@hp', '(65) 6546 - 5464', '(58) 6 6546 - 4565', '65654 - 678', 'Rua da HP', 4545, '', 'Jardim HP', 'HP', 'SP');
+
 -- --------------------------------------------------------
 
 --
@@ -107,9 +115,8 @@ CREATE TABLE `tb_funcionarios` (
 --
 
 INSERT INTO `tb_funcionarios` (`id`, `nome`, `rg`, `cpf`, `email`, `senha`, `cargo`, `nivel_acesso`, `telefone`, `celular`, `cep`, `endereco`, `numero`, `complemento`, `bairro`, `cidade`, `estado`) VALUES
-(1, 'Savio Castro', '55.556.666-6', '777.777.888-88', 'savio@fatec', '123456', 'Vendedor', 'Usuário', '(88) 8888 - 9999', '(55) 5 5666 - 6666', '12700 - 000', 'rua da papola', 123, '', 'por ai ', 'Cruzeiro', 'SP'),
-(2, 'Alberto PAulo', '55.556.666-6', '777.777.888-88', 'savio@fatec', '123456', 'Vendedor', 'Usuário', '(88) 8888 - 9999', '(55) 5 5666 - 6666', '12700 - 000', 'rua da papola', 123, '', 'por ai ', 'Cruzeiro', 'SP'),
-(3, 'PEdro PAulo Silva', '55.556.666-6', '777.777.888-88', 'savio@fatec', '123456', 'Vendedor', 'Usuário', '(88) 8888 - 9999', '(55) 5 5666 - 6666', '12700 - 000', 'rua da papola', 123, '', 'por ai ', 'Cruzeiro', 'SP');
+(1, 'Savio Castro', '55.556.666-6', '777.777.888-88', 'savio@fatec', '123456', 'Vendedor', 'Administrador', '(88) 8888 - 9999', '(55) 5 5666 - 6666', '12700 - 000', 'rua da papola', 123, '', 'por ai ', 'Cruzeiro', 'SP'),
+(2, 'Alberto PAulo', '55.556.666-6', '777.777.888-88', 'alberto@fatec', '123456', 'Vendedor', 'Usuário', '(88) 8888 - 9999', '(55) 5 5666 - 6666', '12700 - 000', 'rua da papola', 123, '', 'por ai ', 'Cruzeiro', 'SP');
 
 -- --------------------------------------------------------
 
@@ -125,6 +132,22 @@ CREATE TABLE `tb_itensvendas` (
   `subtotal` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `tb_itensvendas`
+--
+
+INSERT INTO `tb_itensvendas` (`id`, `venda_id`, `produto_id`, `qtd`, `subtotal`) VALUES
+(1, 13, 1, 2, '460.00'),
+(2, 24, 1, 3, '690.00'),
+(3, 24, 2, 1, '2000.00'),
+(4, 25, 4, 2, '260.00'),
+(5, 26, 3, 2, '3600.00'),
+(6, 27, 4, 3, '390.00'),
+(7, 28, 2, 1, '2000.00'),
+(8, 29, 2, 1, '2000.00'),
+(9, 29, 1, 1, '230.00'),
+(10, 30, 4, 4, '520.00');
+
 -- --------------------------------------------------------
 
 --
@@ -139,6 +162,16 @@ CREATE TABLE `tb_produtos` (
   `for_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `tb_produtos`
+--
+
+INSERT INTO `tb_produtos` (`id`, `descricao`, `preco`, `qtd_estoque`, `for_id`) VALUES
+(1, 'Mouse wireless', '230.00', 1, 2),
+(2, 'Notebook Inspiron', '2000.00', 6, 1),
+(3, 'Monitor ultrawide', '1800.00', 2, 1),
+(4, 'Teclado wireless', '130.00', 4, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -152,6 +185,20 @@ CREATE TABLE `tb_vendas` (
   `total_venda` decimal(10,2) DEFAULT NULL,
   `observacoes` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tb_vendas`
+--
+
+INSERT INTO `tb_vendas` (`id`, `cliente_id`, `data_venda`, `total_venda`, `observacoes`) VALUES
+(13, 4, '2022-05-17 00:00:00', '460.00', ''),
+(24, 4, '2022-05-17 00:00:00', '2690.00', ''),
+(25, 4, '2022-05-17 00:00:00', '260.00', ''),
+(26, 5, '2022-05-17 00:00:00', '3600.00', ''),
+(27, 8, '2022-05-17 00:00:00', '390.00', ''),
+(28, 6, '2022-05-17 00:00:00', '2000.00', ''),
+(29, 5, '2022-05-17 00:00:00', '2230.00', ''),
+(30, 8, '2022-05-18 00:00:00', '520.00', 'embalar presente');
 
 --
 -- Índices para tabelas despejadas
@@ -205,37 +252,37 @@ ALTER TABLE `tb_vendas`
 -- AUTO_INCREMENT de tabela `tb_clientes`
 --
 ALTER TABLE `tb_clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `tb_fornecedores`
 --
 ALTER TABLE `tb_fornecedores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tb_funcionarios`
 --
 ALTER TABLE `tb_funcionarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `tb_itensvendas`
 --
 ALTER TABLE `tb_itensvendas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `tb_produtos`
 --
 ALTER TABLE `tb_produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tb_vendas`
 --
 ALTER TABLE `tb_vendas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Restrições para despejos de tabelas
