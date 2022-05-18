@@ -240,10 +240,30 @@ public class FuncionariosDao {
             
             if(rs.next()){
                 //Usuario Logou
+                
+                //Usuario Admin
+                if(rs.getString("nivel_acesso").equals("Administrador")){
                 JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
                 FormMenu menu = new FormMenu();
                 menu.usuarioLogado = rs.getString("nome");
                 menu.setVisible(true);
+                }
+                //Usuario normal
+                else if(rs.getString("nivel_acesso").equals("Usuário")){
+                JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
+                FormMenu menu = new FormMenu();
+                menu.usuarioLogado = rs.getString("nome");
+                
+                //Desabilitando menus
+                
+                menu.menuPosicaoDia.setEnabled(false);
+                menu.menuPosicaoDia.setVisible(false);
+                menu.menuHistoricoVendas.setEnabled(false);
+                menu.setVisible(true);
+                    
+                }
+                
+                
             }else{
                 //Dados incorretos
                 JOptionPane.showMessageDialog(null, "Dados incorretos");

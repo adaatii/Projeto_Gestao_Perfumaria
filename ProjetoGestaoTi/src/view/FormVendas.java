@@ -9,8 +9,6 @@ import dao.ProdutosDao;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import model.Fornecedores;
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Clientes;
 import model.Produtos;
@@ -22,6 +20,7 @@ import model.Utilitarios;
  */
 public class FormVendas extends javax.swing.JFrame {
 
+    Clientes obj = new Clientes();
     double total, preco, subtotal, rem;
     int qtd;
 
@@ -433,7 +432,7 @@ public class FormVendas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(668, 668, 668)
+                        .addGap(662, 662, 662)
                         .addComponent(btnPagamento)
                         .addGap(71, 71, 71)
                         .addComponent(btnCancelar))
@@ -497,13 +496,20 @@ public class FormVendas extends javax.swing.JFrame {
     private void btnPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagamentoActionPerformed
         //Botão Pagamento
 
+        FormPagamentos telap = new FormPagamentos();
+        telap.txtTotal.setText(String.valueOf(total));
+        telap.cliente = obj; // ID do cliente
+        telap.carrinho = carrinho;
+        telap.setVisible(true);
+        this.dispose();
+
+
     }//GEN-LAST:event_btnPagamentoActionPerformed
 
     private void txtCpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCpfKeyPressed
         //busca CLiente por CPF
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
-            Clientes obj = new Clientes();
             ClientesDao dao = new ClientesDao();
 
             obj = dao.buscaClienteCpf(txtCpf.getText());
@@ -548,7 +554,6 @@ public class FormVendas extends javax.swing.JFrame {
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
         //busca CLiente por CPF:
 
-        Clientes obj = new Clientes();
         ClientesDao dao = new ClientesDao();
 
         obj = dao.buscaClienteCpf(txtCpf.getText());
@@ -564,7 +569,7 @@ public class FormVendas extends javax.swing.JFrame {
         subtotal = qtd * preco;
 
         total += subtotal;
-        txtTotal.setText(String.valueOf(total));
+        txtTotal.setText("R$ "+String.valueOf(total));
 
         //Adicionar o produto no carrinho
         carrinho = (DefaultTableModel) tabelaItens.getModel();
@@ -577,8 +582,8 @@ public class FormVendas extends javax.swing.JFrame {
             subtotal
 
         });
-        
-         new Utilitarios().LimparTela(painelDadosProdutos);
+
+        new Utilitarios().LimparTela(painelDadosProdutos);
 
 
     }//GEN-LAST:event_btnAdicionarItemActionPerformed
@@ -600,7 +605,7 @@ public class FormVendas extends javax.swing.JFrame {
         rem = Double.parseDouble(txtValorExcluido.getText());
 
         total = total - rem;
-        txtTotal.setText(String.valueOf(total));
+        txtTotal.setText("R$ " + String.valueOf(total));
         txtValorExcluido.setText("");
 
 

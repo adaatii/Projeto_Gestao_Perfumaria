@@ -8,6 +8,7 @@ import dao.FornecedoresDao;
 import dao.ProdutosDao;
 import model.Fornecedores;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Produtos;
 import model.Utilitarios;
@@ -408,15 +409,21 @@ public class FormProdutos extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // Botão Excluir
+        int op;
+        Object[] options = { "Cancelar", "Confirmar" };
+        op = JOptionPane.showOptionDialog(null, "Clique Confirmar para continuar", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+        if(op == 1){
+            Produtos obj = new Produtos();
 
-        Produtos obj = new Produtos();
+            obj.setId(Integer.parseInt(txtCodigo.getText()));
 
-        obj.setId(Integer.parseInt(txtCodigo.getText()));
+            ProdutosDao dao = new ProdutosDao();
+            dao.excluirProduto(obj);
 
-        ProdutosDao dao = new ProdutosDao();
-        dao.excluirProduto(obj);
+            new Utilitarios().LimparTela(painelDadosCadastro);
+        }           
 
-        new Utilitarios().LimparTela(painelDadosCadastro);
+        
 
 
     }//GEN-LAST:event_btnExcluirActionPerformed

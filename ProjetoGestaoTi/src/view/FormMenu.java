@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author adaatii
@@ -40,13 +42,13 @@ public class FormMenu extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        menuPosicaoDia = new javax.swing.JMenuItem();
+        menuHistoricoVendas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
+        menuTrocarUsuario = new javax.swing.JMenuItem();
+        menuSair = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -121,25 +123,35 @@ public class FormMenu extends javax.swing.JFrame {
         jMenuItem6.setText("Abrir Ponto de Venda");
         jMenu3.add(jMenuItem6);
 
-        jMenuItem7.setText("Posição do Dia");
-        jMenu3.add(jMenuItem7);
+        menuPosicaoDia.setText("Posição do Dia");
+        jMenu3.add(menuPosicaoDia);
 
-        jMenuItem8.setText("Histórico de Vendas");
-        jMenu3.add(jMenuItem8);
+        menuHistoricoVendas.setText("Histórico de Vendas");
+        jMenu3.add(menuHistoricoVendas);
 
         jMenuBar2.add(jMenu3);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/settings(small).png"))); // NOI18N
         jMenu4.setText("Configurações");
 
-        jMenuItem9.setText("Trocar de Usuário");
-        jMenu4.add(jMenuItem9);
+        menuTrocarUsuario.setText("Trocar de Usuário");
+        menuTrocarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTrocarUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu4.add(menuTrocarUsuario);
 
         jMenuBar2.add(jMenu4);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logout(small).png"))); // NOI18N
-        jMenu5.setText("Sair");
-        jMenuBar2.add(jMenu5);
+        menuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logout(small).png"))); // NOI18N
+        menuSair.setText("Sair");
+        menuSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSairActionPerformed(evt);
+            }
+        });
+        jMenuBar2.add(menuSair);
 
         setJMenuBar(jMenuBar2);
 
@@ -165,6 +177,23 @@ public class FormMenu extends javax.swing.JFrame {
 //       this.setVisible(true);
         lblUsuario.setText(usuarioLogado);
     }//GEN-LAST:event_formWindowActivated
+
+    private void menuTrocarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTrocarUsuarioActionPerformed
+       FormLogin login = new FormLogin();
+       this.dispose();
+       login.setVisible(true);
+              
+    }//GEN-LAST:event_menuTrocarUsuarioActionPerformed
+
+    private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
+        int op;
+        
+        op = JOptionPane.showConfirmDialog(null, "Deseja sair ?");
+        
+        if(op == 0){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_menuSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,7 +236,6 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
@@ -217,10 +245,11 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblUsuario;
+    public javax.swing.JMenuItem menuHistoricoVendas;
+    public javax.swing.JMenuItem menuPosicaoDia;
+    private javax.swing.JMenu menuSair;
+    private javax.swing.JMenuItem menuTrocarUsuario;
     // End of variables declaration//GEN-END:variables
 }

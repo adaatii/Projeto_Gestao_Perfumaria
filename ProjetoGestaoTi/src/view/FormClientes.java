@@ -6,6 +6,7 @@ package view;
 
 import dao.ClientesDao;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Clientes;
 import model.Utilitarios;
@@ -616,15 +617,23 @@ public class FormClientes extends javax.swing.JFrame {
         /**
          * Botão Excluir
          */ 
+        
+//        int op;
+//        op = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir?");
+        int op;
+        Object[] options = { "Cancelar", "Confirmar" };
+        op = JOptionPane.showOptionDialog(null, "Clique Confirmar para continuar", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+        if(op == 1){
+            Clientes obj = new Clientes();
 
-        Clientes obj = new Clientes();
+            obj.setId(Integer.parseInt(txtCodigo.getText()));
 
-        obj.setId(Integer.parseInt(txtCodigo.getText()));
+            ClientesDao dao = new ClientesDao();
+            dao.excluirCliente(obj);
 
-        ClientesDao dao = new ClientesDao();
-        dao.excluirCliente(obj);
-
-        new Utilitarios().LimparTela(painelDadosCadastro);
+            new Utilitarios().LimparTela(painelDadosCadastro);
+        }                
+       
 
 //            txtNome.setText("");
 //            txtRg.setText("");

@@ -6,6 +6,7 @@ package view;
 
 import dao.FuncionariosDao;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Funcionarios;
 import model.Utilitarios;
@@ -621,21 +622,6 @@ public class FormFuncionarios extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnEditarActionPerformed
 
-    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // Botão Excluir
-
-        Funcionarios obj = new Funcionarios();
-
-        obj.setId(Integer.parseInt(txtCodigo.getText()));
-
-        FuncionariosDao dao = new FuncionariosDao();
-        dao.excluirFuncionarios(obj);
-
-        new Utilitarios().LimparTela(painelDadosCadastro);
-
-
-    }//GEN-LAST:event_btnExcluirActionPerformed
-
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // Limpa todos os campos:
 
@@ -677,6 +663,24 @@ public class FormFuncionarios extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_txtPesquisaKeyPressed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // Botão Excluir
+        int op;
+        Object[] options = { "Cancelar", "Confirmar" };
+        op = JOptionPane.showOptionDialog(null, "Clique Confirmar para continuar", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+        if(op == 1){
+            Funcionarios obj = new Funcionarios();
+
+            obj.setId(Integer.parseInt(txtCodigo.getText()));
+
+            FuncionariosDao dao = new FuncionariosDao();
+            dao.excluirFuncionarios(obj);
+
+            new Utilitarios().LimparTela(painelDadosCadastro);
+        }
+
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments

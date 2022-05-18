@@ -6,6 +6,7 @@ package view;
 
 import dao.FornecedoresDao;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Fornecedores;
 import model.Utilitarios;
@@ -556,15 +557,21 @@ public class FormFornecedores extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // Botão Excluir
+        int op;
+        Object[] options = { "Cancelar", "Confirmar" };
+        op = JOptionPane.showOptionDialog(null, "Clique Confirmar para continuar", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+        if(op == 1){
+            Fornecedores obj = new Fornecedores();
 
-        Fornecedores obj = new Fornecedores();
+            obj.setId(Integer.parseInt(txtCodigo.getText()));
 
-        obj.setId(Integer.parseInt(txtCodigo.getText()));
+            FornecedoresDao dao = new FornecedoresDao();
+            dao.excluirFornecedor(obj);
 
-        FornecedoresDao dao = new FornecedoresDao();
-        dao.excluirFornecedor(obj);
+            new Utilitarios().LimparTela(painelDadosCadastro);
+        }           
 
-        new Utilitarios().LimparTela(painelDadosCadastro);
+       
 
 
 
