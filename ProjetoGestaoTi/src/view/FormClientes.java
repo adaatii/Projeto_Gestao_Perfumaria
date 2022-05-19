@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Clientes;
 import model.Utilitarios;
+import controller.Funcoes;
 
 /**
  *
@@ -101,6 +102,7 @@ public class FormClientes extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        btnRetornar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -453,6 +455,16 @@ public class FormClientes extends javax.swing.JFrame {
             }
         });
 
+        btnRetornar.setBackground(new java.awt.Color(14, 89, 235));
+        btnRetornar.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btnRetornar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRetornar.setText("RETORNAR");
+        btnRetornar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetornarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -467,13 +479,15 @@ public class FormClientes extends javax.swing.JFrame {
                 .addComponent(btnLimpar)
                 .addGap(44, 44, 44)
                 .addComponent(btnExcluir)
+                .addGap(18, 18, 18)
+                .addComponent(btnRetornar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(painelCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 1209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnEditar, btnExcluir, btnLimpar, btnSalvar});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnEditar, btnExcluir, btnLimpar, btnRetornar, btnSalvar});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -487,11 +501,12 @@ public class FormClientes extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnLimpar)
                         .addComponent(btnExcluir)
-                        .addComponent(btnEditar)))
+                        .addComponent(btnEditar)
+                        .addComponent(btnRetornar)))
                 .addGap(0, 13, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnEditar, btnExcluir, btnLimpar, btnSalvar});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnEditar, btnExcluir, btnLimpar, btnRetornar, btnSalvar});
 
         pack();
         setLocationRelativeTo(null);
@@ -522,22 +537,7 @@ public class FormClientes extends javax.swing.JFrame {
         dao.cadastrarCliente(obj);
 
         new Utilitarios().LimparTela(painelDadosCadastro);
-/**
- * txtNome.setText("");
-*txtRg.setText("");
-*txtCpf.setText("");
-*txtEmail.setText("");           
-* txtTelefone.setText("");
-*txtCelular.setText("");
-*txtCep.setText("");
-*txtEndereco.setText("");
-*txtNumero.setText("");
-*txtComplemento.setText("");
-*txtBairro.setText("");    
-* txtCidade.setText("");
-*txtCodigo.setText("");
- */
-//            
+        
 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -597,20 +597,6 @@ public class FormClientes extends javax.swing.JFrame {
 
         new Utilitarios().LimparTela(painelDadosCadastro);
 
-//            txtNome.setText("");
-//            txtRg.setText("");
-//            txtCpf.setText("");
-//            txtEmail.setText("");
-//            txtTelefone.setText("");
-//            txtCelular.setText("");
-//            txtCep.setText("");
-//            txtEndereco.setText("");
-//            txtNumero.setText("");
-//            txtComplemento.setText("");
-//            txtBairro.setText("");
-//            txtCidade.setText("");
-//            txtCodigo.setText("");
-
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
@@ -618,9 +604,6 @@ public class FormClientes extends javax.swing.JFrame {
          * Botão Excluir
          */ 
         
-        
-//        int op;
-//        op = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir?");
         int op;
         Object[] options = { "Cancelar", "Confirmar" };
         op = JOptionPane.showOptionDialog(null, "Clique Confirmar para continuar", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
@@ -646,21 +629,6 @@ public class FormClientes extends javax.swing.JFrame {
 
         new Utilitarios().LimparTela(painelDadosCadastro);
         new Utilitarios().LimparTela(painelDadosConsulta);
-
-//            txtNome.setText("");
-//            txtRg.setText("");
-//            txtCpf.setText("");
-//            txtEmail.setText("");
-//            txtTelefone.setText("");
-//            txtCelular.setText("");
-//            txtCep.setText("");
-//            txtEndereco.setText("");
-//            txtNumero.setText("");
-//            txtComplemento.setText("");
-//            txtBairro.setText("");
-//            txtCidade.setText("");
-//            txtCodigo.setText("");
-
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void txtPesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyPressed
@@ -698,52 +666,23 @@ public class FormClientes extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtPesquisaKeyPressed
 
+    private void btnRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornarActionPerformed
+        // TODO add your handling code here:
+       Funcoes obj = new Funcoes();
+       obj.retornar();
+       this.dispose();
+    }//GEN-LAST:event_btnRetornarActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormClientes().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnRetornar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbUf;
     private javax.swing.JLabel jLabel1;
