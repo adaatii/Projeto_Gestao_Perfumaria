@@ -618,6 +618,7 @@ public class FormClientes extends javax.swing.JFrame {
          * Botão Excluir
          */ 
         
+        
 //        int op;
 //        op = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir?");
         int op;
@@ -635,19 +636,6 @@ public class FormClientes extends javax.swing.JFrame {
         }                
        
 
-//            txtNome.setText("");
-//            txtRg.setText("");
-//            txtCpf.setText("");
-//            txtEmail.setText("");
-//            txtTelefone.setText("");
-//            txtCelular.setText("");
-//            txtCep.setText("");
-//            txtEndereco.setText("");
-//            txtNumero.setText("");
-//            txtComplemento.setText("");
-//            txtBairro.setText("");
-//            txtCidade.setText("");
-//            txtCodigo.setText("");
 
     }//GEN-LAST:event_btnExcluirActionPerformed
 

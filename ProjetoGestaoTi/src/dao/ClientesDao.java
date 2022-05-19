@@ -118,7 +118,7 @@ public class ClientesDao {
             JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
 
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro: " + erro);
+            JOptionPane.showMessageDialog(null, "Erro: Cliente não pode ser Excluido." );
         }
 
     }
