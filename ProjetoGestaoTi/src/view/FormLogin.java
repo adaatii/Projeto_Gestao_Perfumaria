@@ -65,12 +65,15 @@ public class FormLogin extends javax.swing.JFrame {
         );
 
         txtEmail.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        txtEmail.setText("diego@uol.com");
 
         jLabel6.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         jLabel6.setText("E-mail:");
 
         jLabel19.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         jLabel19.setText("Senha:");
+
+        txtSenha.setText("123456");
 
         btnEntrar.setBackground(new java.awt.Color(14, 89, 235));
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));

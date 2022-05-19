@@ -32,18 +32,18 @@ public class FormMenu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mnCliente = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mnFuncionario = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        mnFornecedor = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        mnEstoque = new javax.swing.JMenuItem();
+        mnProduto = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        menuPosicaoDia = new javax.swing.JMenuItem();
-        menuHistoricoVendas = new javax.swing.JMenuItem();
+        mnVenda = new javax.swing.JMenuItem();
+        mnPosicaoDia = new javax.swing.JMenuItem();
+        mnHistoricoVenda = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menuTrocarUsuario = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
@@ -85,49 +85,54 @@ public class FormMenu extends javax.swing.JFrame {
         jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/customer(small).png"))); // NOI18N
         jMenu7.setText("Clientes");
 
-        jMenuItem1.setText("Controle de Clientes");
-        jMenu7.add(jMenuItem1);
+        mnCliente.setText("Controle de Clientes");
+        mnCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnClienteActionPerformed(evt);
+            }
+        });
+        jMenu7.add(mnCliente);
 
         jMenuBar2.add(jMenu7);
 
         jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/employee(small).png"))); // NOI18N
         jMenu9.setText("Funcionários");
 
-        jMenuItem2.setText("Controle de Funcionários");
-        jMenu9.add(jMenuItem2);
+        mnFuncionario.setText("Controle de Funcionários");
+        jMenu9.add(mnFuncionario);
 
         jMenuBar2.add(jMenu9);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/supplier(small).png"))); // NOI18N
         jMenu1.setText("Fornecedores");
 
-        jMenuItem3.setText("Controle de Fornecedores");
-        jMenu1.add(jMenuItem3);
+        mnFornecedor.setText("Controle de Fornecedores");
+        jMenu1.add(mnFornecedor);
 
         jMenuBar2.add(jMenu1);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/boxes(small).png"))); // NOI18N
         jMenu2.setText("Produtos");
 
-        jMenuItem4.setText("Controle de Estoque");
-        jMenu2.add(jMenuItem4);
+        mnEstoque.setText("Controle de Estoque");
+        jMenu2.add(mnEstoque);
 
-        jMenuItem5.setText("Consulta de Produtos");
-        jMenu2.add(jMenuItem5);
+        mnProduto.setText("Consulta de Produtos");
+        jMenu2.add(mnProduto);
 
         jMenuBar2.add(jMenu2);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/trade(small).png"))); // NOI18N
         jMenu3.setText("Vendas");
 
-        jMenuItem6.setText("Abrir Ponto de Venda");
-        jMenu3.add(jMenuItem6);
+        mnVenda.setText("Abrir Ponto de Venda");
+        jMenu3.add(mnVenda);
 
-        menuPosicaoDia.setText("Posição do Dia");
-        jMenu3.add(menuPosicaoDia);
+        mnPosicaoDia.setText("Posição do Dia");
+        jMenu3.add(mnPosicaoDia);
 
-        menuHistoricoVendas.setText("Histórico de Vendas");
-        jMenu3.add(menuHistoricoVendas);
+        mnHistoricoVenda.setText("Histórico de Vendas");
+        jMenu3.add(mnHistoricoVenda);
 
         jMenuBar2.add(jMenu3);
 
@@ -146,6 +151,11 @@ public class FormMenu extends javax.swing.JFrame {
 
         menuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logout(small).png"))); // NOI18N
         menuSair.setText("Sair");
+        menuSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuSairMousePressed(evt);
+            }
+        });
         menuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuSairActionPerformed(evt);
@@ -169,6 +179,7 @@ public class FormMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -186,50 +197,29 @@ public class FormMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuTrocarUsuarioActionPerformed
 
     private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
+    }//GEN-LAST:event_menuSairActionPerformed
+
+    private void menuSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMousePressed
+        // TODO add your handling code here:
         int op;
-        
-        op = JOptionPane.showConfirmDialog(null, "Deseja sair ?");
-        
-        if(op == 0){
+        Object[] options = { "Cancelar", "Confirmar" };
+        op = JOptionPane.showOptionDialog(null, "Clique Confirmar para Sair", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+        if(op == 1){
+
             System.exit(0);
         }
-    }//GEN-LAST:event_menuSairActionPerformed
+    }//GEN-LAST:event_menuSairMousePressed
+
+    private void mnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnClienteActionPerformed
+        // TODO add your handling code here:
+        FormClientes tela = new FormClientes();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_mnClienteActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormMenu().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -239,17 +229,17 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblUsuario;
-    public javax.swing.JMenuItem menuHistoricoVendas;
-    public javax.swing.JMenuItem menuPosicaoDia;
     private javax.swing.JMenu menuSair;
     private javax.swing.JMenuItem menuTrocarUsuario;
+    private javax.swing.JMenuItem mnCliente;
+    private javax.swing.JMenuItem mnEstoque;
+    private javax.swing.JMenuItem mnFornecedor;
+    private javax.swing.JMenuItem mnFuncionario;
+    public javax.swing.JMenuItem mnHistoricoVenda;
+    public javax.swing.JMenuItem mnPosicaoDia;
+    private javax.swing.JMenuItem mnProduto;
+    private javax.swing.JMenuItem mnVenda;
     // End of variables declaration//GEN-END:variables
 }

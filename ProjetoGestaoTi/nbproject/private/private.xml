@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/adaatii/Documentos/Github/Projeto_Controle_Vendas_Loja_TI/ProjetoGestaoTi/src/view/FormProdutos.java</file>
-            <file>file:/home/adaatii/Documentos/Github/Projeto_Controle_Vendas_Loja_TI/ProjetoGestaoTi/src/dao/ProdutosDao.java</file>
-            <file>file:/home/adaatii/Documentos/Github/Projeto_Controle_Vendas_Loja_TI/ProjetoGestaoTi/src/view/FormLogin.java</file>
+            <file>file:/C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/ProjetoGestaoTi/src/model/Fornecedores.java</file>
+            <file>file:/C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/ProjetoGestaoTi/src/view/FormMenu.java</file>
+            <file>file:/C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/ProjetoGestaoTi/src/view/FormClientes.java</file>
+            <file>file:/C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/ProjetoGestaoTi/src/model/Clientes.java</file>
+            <file>file:/C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/ProjetoGestaoTi/src/dao/ClientesDao.java</file>
         </group>
     </open-files>
 </project-private>

@@ -256,9 +256,9 @@ public class FuncionariosDao {
                 
                 //Desabilitando menus
                 
-                menu.menuPosicaoDia.setEnabled(false);
-                menu.menuPosicaoDia.setVisible(false);
-                menu.menuHistoricoVendas.setEnabled(false);
+                menu.mnPosicaoDia.setEnabled(false);
+                menu.mnPosicaoDia.setVisible(false);
+                menu.mnHistoricoVenda.setEnabled(false);
                 menu.setVisible(true);
                     
                 }
