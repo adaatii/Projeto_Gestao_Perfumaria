@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.Funcoes;
 import dao.ProdutosDao;
 import dao.VendasDao;
 import java.time.LocalDate;
@@ -58,6 +59,7 @@ public class FormEstoque extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnRetornar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -84,21 +86,35 @@ public class FormEstoque extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Estoque");
 
+        btnRetornar.setBackground(new java.awt.Color(14, 89, 235));
+        btnRetornar.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btnRetornar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRetornar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Voltar(small).png"))); // NOI18N
+        btnRetornar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetornarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(3, 3, 3)
+                .addComponent(btnRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(606, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(jLabel1)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -113,7 +129,6 @@ public class FormEstoque extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel11.setText("Qtd:");
 
-        txtDescricao.setBackground(new java.awt.Color(255, 255, 255));
         txtDescricao.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
 
         txtQtd.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
@@ -279,6 +294,13 @@ public class FormEstoque extends javax.swing.JFrame {
         
     }//GEN-LAST:event_tabelaEstoqueMouseClicked
 
+    private void btnRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornarActionPerformed
+        // TODO add your handling code here:
+        Funcoes obj = new Funcoes();
+        obj.retornar();
+        this.dispose();
+    }//GEN-LAST:event_btnRetornarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -286,6 +308,7 @@ public class FormEstoque extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnRetornar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
