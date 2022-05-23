@@ -4,7 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/ProjetoGestaoTi/src/view/FormLogin.java</file>
+            <file>file:/C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/ProjetoGestaoTi/src/dao/FuncionariosDao.java</file>
+            <file>file:/C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/ProjetoGestaoTi/src/view/FormMenu.java</file>
             <file>file:/C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/ProjetoGestaoTi/src/view/FormClientes.java</file>
+            <file>file:/C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/ProjetoGestaoTi/src/controller/Funcoes.java</file>
         </group>
     </open-files>
 </project-private>

@@ -4,7 +4,12 @@
  */
 package view;
 
+import dao.FuncionariosDao;
+import java.security.interfaces.RSAKey;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -221,7 +226,10 @@ public class FormMenu extends javax.swing.JFrame {
        //Deixar a tela maximizada
 //       this.setExtendedState(this.MAXIMIZED_BOTH);
 //       this.setVisible(true);
+     
+        
         lblUsuario.setText(usuarioLogado);
+        
     }//GEN-LAST:event_formWindowActivated
 
     private void menuTrocarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTrocarUsuarioActionPerformed
@@ -249,7 +257,8 @@ public class FormMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         FormClientes tela = new FormClientes();
         tela.setVisible(true);
-        this.dispose();
+        this.setVisible(false);
+        //this.dispose();
     }//GEN-LAST:event_mnClienteActionPerformed
 
     private void mnFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnFuncionarioActionPerformed
@@ -314,7 +323,7 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblUsuario;
+    public javax.swing.JLabel lblUsuario;
     private javax.swing.JMenu menuSair;
     private javax.swing.JMenuItem menuTrocarUsuario;
     private javax.swing.JMenuItem mnCliente;
