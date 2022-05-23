@@ -4,7 +4,12 @@
  */
 package view;
 
+import dao.FuncionariosDao;
+import java.security.interfaces.RSAKey;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -99,6 +104,11 @@ public class FormMenu extends javax.swing.JFrame {
         jMenu9.setText("Funcionários");
 
         mnFuncionario.setText("Controle de Funcionários");
+        mnFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnFuncionarioActionPerformed(evt);
+            }
+        });
         jMenu9.add(mnFuncionario);
 
         jMenuBar2.add(jMenu9);
@@ -107,6 +117,11 @@ public class FormMenu extends javax.swing.JFrame {
         jMenu1.setText("Fornecedores");
 
         mnFornecedor.setText("Controle de Fornecedores");
+        mnFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnFornecedorActionPerformed(evt);
+            }
+        });
         jMenu1.add(mnFornecedor);
 
         jMenuBar2.add(jMenu1);
@@ -115,9 +130,19 @@ public class FormMenu extends javax.swing.JFrame {
         jMenu2.setText("Produtos");
 
         mnEstoque.setText("Controle de Estoque");
+        mnEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnEstoqueActionPerformed(evt);
+            }
+        });
         jMenu2.add(mnEstoque);
 
         mnProduto.setText("Consulta de Produtos");
+        mnProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnProdutoActionPerformed(evt);
+            }
+        });
         jMenu2.add(mnProduto);
 
         jMenuBar2.add(jMenu2);
@@ -126,12 +151,27 @@ public class FormMenu extends javax.swing.JFrame {
         jMenu3.setText("Vendas");
 
         mnVenda.setText("Abrir Ponto de Venda");
+        mnVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnVendaActionPerformed(evt);
+            }
+        });
         jMenu3.add(mnVenda);
 
         mnPosicaoDia.setText("Posição do Dia");
+        mnPosicaoDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnPosicaoDiaActionPerformed(evt);
+            }
+        });
         jMenu3.add(mnPosicaoDia);
 
         mnHistoricoVenda.setText("Histórico de Vendas");
+        mnHistoricoVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnHistoricoVendaActionPerformed(evt);
+            }
+        });
         jMenu3.add(mnHistoricoVenda);
 
         jMenuBar2.add(jMenu3);
@@ -186,7 +226,10 @@ public class FormMenu extends javax.swing.JFrame {
        //Deixar a tela maximizada
 //       this.setExtendedState(this.MAXIMIZED_BOTH);
 //       this.setVisible(true);
+     
+        
         lblUsuario.setText(usuarioLogado);
+        
     }//GEN-LAST:event_formWindowActivated
 
     private void menuTrocarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTrocarUsuarioActionPerformed
@@ -214,8 +257,58 @@ public class FormMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         FormClientes tela = new FormClientes();
         tela.setVisible(true);
-        this.dispose();
+        this.setVisible(false);
+        //this.dispose();
     }//GEN-LAST:event_mnClienteActionPerformed
+
+    private void mnFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnFuncionarioActionPerformed
+        // TODO add your handling code here:
+        FormFuncionarios tela = new FormFuncionarios();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_mnFuncionarioActionPerformed
+
+    private void mnFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnFornecedorActionPerformed
+        // TODO add your handling code here:
+        FormFornecedores tela = new FormFornecedores();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_mnFornecedorActionPerformed
+
+    private void mnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnEstoqueActionPerformed
+        // TODO add your handling code here:
+        FormEstoque tela = new FormEstoque();
+        tela.setVisible(true);
+        this.dispose();        
+    }//GEN-LAST:event_mnEstoqueActionPerformed
+
+    private void mnProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnProdutoActionPerformed
+        // TODO add your handling code here:
+        FormProdutos tela = new FormProdutos();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_mnProdutoActionPerformed
+
+    private void mnHistoricoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnHistoricoVendaActionPerformed
+        // TODO add your handling code here:
+        FormHistorico tela = new FormHistorico();
+        tela.setVisible(true);
+        this.dispose();        
+    }//GEN-LAST:event_mnHistoricoVendaActionPerformed
+
+    private void mnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnVendaActionPerformed
+        // TODO add your handling code here:
+        FormVendas tela = new FormVendas();
+        tela.setVisible(true);
+        this.dispose();             
+    }//GEN-LAST:event_mnVendaActionPerformed
+
+    private void mnPosicaoDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnPosicaoDiaActionPerformed
+        // TODO add your handling code here:
+        FormTotalVendaDia tela = new FormTotalVendaDia();
+        tela.setVisible(true);
+        this.dispose();           
+    }//GEN-LAST:event_mnPosicaoDiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,7 +323,7 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblUsuario;
+    public javax.swing.JLabel lblUsuario;
     private javax.swing.JMenu menuSair;
     private javax.swing.JMenuItem menuTrocarUsuario;
     private javax.swing.JMenuItem mnCliente;

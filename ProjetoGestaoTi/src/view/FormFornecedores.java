@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.Funcoes;
 import dao.FornecedoresDao;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -59,6 +60,7 @@ public class FormFornecedores extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnRetornar = new javax.swing.JButton();
         painelCadastro = new javax.swing.JTabbedPane();
         painelDadosCadastro = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -110,20 +112,34 @@ public class FormFornecedores extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Fornecedores");
 
+        btnRetornar.setBackground(new java.awt.Color(14, 89, 235));
+        btnRetornar.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btnRetornar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRetornar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Voltar(small).png"))); // NOI18N
+        btnRetornar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetornarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(3, 3, 3)
+                .addComponent(btnRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel1)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
@@ -617,6 +633,13 @@ public class FormFornecedores extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtPesquisaKeyPressed
 
+    private void btnRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornarActionPerformed
+        // TODO add your handling code here:
+        Funcoes obj = new Funcoes();
+        obj.retornar();
+        this.dispose();
+    }//GEN-LAST:event_btnRetornarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -624,6 +647,7 @@ public class FormFornecedores extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnRetornar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbUf;
     private javax.swing.JLabel jLabel1;
