@@ -123,6 +123,11 @@ public class FormProdutos extends javax.swing.JFrame {
         );
 
         painelCadastro.setBackground(new java.awt.Color(255, 255, 255));
+        painelCadastro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                painelCadastroMouseClicked(evt);
+            }
+        });
 
         painelDadosCadastro.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -373,6 +378,13 @@ public class FormProdutos extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // Carrega a lista
         listar();
+        
+        FornecedoresDao daof = new FornecedoresDao();
+        List<Fornecedores> listafornecedores = daof.listarFornecedor();
+
+        for (Fornecedores f : listafornecedores) {
+            cbFornecedores.addItem(f);
+        }
     }//GEN-LAST:event_formWindowActivated
 
     private void tabelaProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProdutosMouseClicked
@@ -390,11 +402,6 @@ public class FormProdutos extends javax.swing.JFrame {
         
         cbFornecedores.removeAllItems();
         cbFornecedores.getModel().setSelectedItem(f);
-        
-        
-                
-        
-       
 
     }//GEN-LAST:event_tabelaProdutosMouseClicked
 
@@ -406,8 +413,6 @@ public class FormProdutos extends javax.swing.JFrame {
         obj.setDescricao(txtDescricao.getText());      
         obj.setPreco(Double.parseDouble(txtPreco.getText()));
         obj.setQtd_estoque(Integer.parseInt(txtQdtEstoque.getText()));
-        
-
        
         //Criar objeto de fornecedor
         Fornecedores f = new Fornecedores();
@@ -439,9 +444,6 @@ public class FormProdutos extends javax.swing.JFrame {
             new Utilitarios().LimparTela(painelDadosCadastro);
         }           
 
-        
-
-
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
@@ -449,8 +451,6 @@ public class FormProdutos extends javax.swing.JFrame {
 
         new Utilitarios().LimparTela(painelDadosCadastro);
         new Utilitarios().LimparTela(painelDadosConsulta);
-
-
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void txtPesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyPressed
@@ -480,17 +480,13 @@ public class FormProdutos extends javax.swing.JFrame {
          * Carregando Combobox Fornecedores seleciona o objeto Fornecedor(Todos
          * os dados do Fornecedor)
          */
-        FornecedoresDao daof = new FornecedoresDao();
-        List<Fornecedores> listafornecedores = daof.listarFornecedor();
-
-        cbFornecedores.removeAll();
-
-        for (Fornecedores f : listafornecedores) {
-
-            
-            cbFornecedores.addItem(f);
-
-        }
+//        FornecedoresDao daof = new FornecedoresDao();
+//        List<Fornecedores> listafornecedores = daof.listarFornecedor();
+//
+//        for (Fornecedores f : listafornecedores) {
+//            cbFornecedores.addItem(f);
+//        }
+        
     }//GEN-LAST:event_cbFornecedoresAncestorAdded
 
     private void btnRetornar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornar1ActionPerformed
@@ -499,6 +495,18 @@ public class FormProdutos extends javax.swing.JFrame {
         obj.retornar();
         this.dispose();
     }//GEN-LAST:event_btnRetornar1ActionPerformed
+
+    private void painelCadastroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelCadastroMouseClicked
+        // TODO add your handling code here:
+        cbFornecedores.removeAllItems();
+        
+        FornecedoresDao daof = new FornecedoresDao();
+        List<Fornecedores> listafornecedores = daof.listarFornecedor();
+
+        for (Fornecedores f : listafornecedores) {
+            cbFornecedores.addItem(f);
+        }
+    }//GEN-LAST:event_painelCadastroMouseClicked
 
     /**
      * @param args the command line arguments
@@ -530,4 +538,8 @@ public class FormProdutos extends javax.swing.JFrame {
     private javax.swing.JTextField txtPreco;
     private javax.swing.JTextField txtQdtEstoque;
     // End of variables declaration//GEN-END:variables
+
+    private String setText(String toString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
