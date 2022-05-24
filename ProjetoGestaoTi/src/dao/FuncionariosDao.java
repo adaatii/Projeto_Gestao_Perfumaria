@@ -66,7 +66,7 @@ public class FuncionariosDao {
             JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro: " + erro);
+            JOptionPane.showMessageDialog(null, "Erro: RG ou CPF já cadastrado!",null,JOptionPane.ERROR_MESSAGE);
         }
 
     }

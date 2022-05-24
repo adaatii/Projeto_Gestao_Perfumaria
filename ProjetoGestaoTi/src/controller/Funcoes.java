@@ -13,6 +13,7 @@ import view.FormMenu;
 public class Funcoes {
     public void retornar(){
         FormMenu menu = new FormMenu();
-        menu.setVisible(true);
+        //menu.setVisible(true);
+       
     }
 }

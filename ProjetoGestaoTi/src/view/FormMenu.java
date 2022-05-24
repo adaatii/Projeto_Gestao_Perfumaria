@@ -4,12 +4,7 @@
  */
 package view;
 
-import dao.FuncionariosDao;
-import java.security.interfaces.RSAKey;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-
 
 /**
  *
@@ -226,7 +221,6 @@ public class FormMenu extends javax.swing.JFrame {
        //Deixar a tela maximizada
 //       this.setExtendedState(this.MAXIMIZED_BOTH);
 //       this.setVisible(true);
-     
         
         lblUsuario.setText(usuarioLogado);
         
@@ -257,7 +251,7 @@ public class FormMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         FormClientes tela = new FormClientes();
         tela.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
         //this.dispose();
     }//GEN-LAST:event_mnClienteActionPerformed
 
@@ -265,49 +259,49 @@ public class FormMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         FormFuncionarios tela = new FormFuncionarios();
         tela.setVisible(true);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_mnFuncionarioActionPerformed
 
     private void mnFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnFornecedorActionPerformed
         // TODO add your handling code here:
         FormFornecedores tela = new FormFornecedores();
         tela.setVisible(true);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_mnFornecedorActionPerformed
 
     private void mnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnEstoqueActionPerformed
         // TODO add your handling code here:
         FormEstoque tela = new FormEstoque();
         tela.setVisible(true);
-        this.dispose();        
+       // this.dispose();        
     }//GEN-LAST:event_mnEstoqueActionPerformed
 
     private void mnProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnProdutoActionPerformed
         // TODO add your handling code here:
         FormProdutos tela = new FormProdutos();
         tela.setVisible(true);
-        this.dispose();
+       // this.dispose();
     }//GEN-LAST:event_mnProdutoActionPerformed
 
     private void mnHistoricoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnHistoricoVendaActionPerformed
         // TODO add your handling code here:
         FormHistorico tela = new FormHistorico();
         tela.setVisible(true);
-        this.dispose();        
+       // this.dispose();        
     }//GEN-LAST:event_mnHistoricoVendaActionPerformed
 
     private void mnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnVendaActionPerformed
         // TODO add your handling code here:
         FormVendas tela = new FormVendas();
         tela.setVisible(true);
-        this.dispose();             
+        //this.dispose();             
     }//GEN-LAST:event_mnVendaActionPerformed
 
     private void mnPosicaoDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnPosicaoDiaActionPerformed
         // TODO add your handling code here:
         FormTotalVendaDia tela = new FormTotalVendaDia();
         tela.setVisible(true);
-        this.dispose();           
+       // this.dispose();           
     }//GEN-LAST:event_mnPosicaoDiaActionPerformed
 
     /**

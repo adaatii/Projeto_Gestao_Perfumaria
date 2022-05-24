@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 18-Maio-2022 às 22:49
+-- Tempo de geração: 24-Maio-2022 às 13:10
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 7.4.29
 
@@ -115,8 +115,7 @@ CREATE TABLE `tb_funcionarios` (
 --
 
 INSERT INTO `tb_funcionarios` (`id`, `nome`, `rg`, `cpf`, `email`, `senha`, `cargo`, `nivel_acesso`, `telefone`, `celular`, `cep`, `endereco`, `numero`, `complemento`, `bairro`, `cidade`, `estado`) VALUES
-(1, 'Savio Castro', '55.556.666-6', '777.777.888-88', 'savio@fatec', '123456', 'Vendedor', 'Administrador', '(88) 8888 - 9999', '(55) 5 5666 - 6666', '12700 - 000', 'rua da papola', 123, '', 'por ai ', 'Cruzeiro', 'SP'),
-(2, 'Alberto PAulo', '55.556.666-6', '777.777.888-88', 'alberto@fatec', '123456', 'Vendedor', 'Usuário', '(88) 8888 - 9999', '(55) 5 5666 - 6666', '12700 - 000', 'rua da papola', 123, '', 'por ai ', 'Cruzeiro', 'SP');
+(1, 'Savio Castro', '55.556.666-6', '777.777.888-88', 'savio@fatec', '123456', 'Vendedor', 'Administrador', '(88) 8888 - 9999', '(55) 5 5666 - 6666', '12700 - 000', 'rua da papola', 123, '', 'por ai ', 'Cruzeiro', 'SP');
 
 -- --------------------------------------------------------
 
@@ -167,10 +166,12 @@ CREATE TABLE `tb_produtos` (
 --
 
 INSERT INTO `tb_produtos` (`id`, `descricao`, `preco`, `qtd_estoque`, `for_id`) VALUES
-(1, 'Mouse wireless', '230.00', 1, 2),
+(1, 'Mouse wireless', '230.00', 2, 2),
 (2, 'Notebook Inspiron', '2000.00', 6, 1),
 (3, 'Monitor ultrawide', '1800.00', 2, 1),
-(4, 'Teclado wireless', '130.00', 4, 1);
+(4, 'Teclado wireless', '130.00', 4, 1),
+(6, 'mouse', '21.00', 2, 1),
+(7, 'teclado gamer', '150.00', 10, 1);
 
 -- --------------------------------------------------------
 
@@ -208,19 +209,24 @@ INSERT INTO `tb_vendas` (`id`, `cliente_id`, `data_venda`, `total_venda`, `obser
 -- Índices para tabela `tb_clientes`
 --
 ALTER TABLE `tb_clientes`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `rg` (`rg`),
+  ADD UNIQUE KEY `cpf` (`cpf`);
 
 --
 -- Índices para tabela `tb_fornecedores`
 --
 ALTER TABLE `tb_fornecedores`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `cnpj` (`cnpj`);
 
 --
 -- Índices para tabela `tb_funcionarios`
 --
 ALTER TABLE `tb_funcionarios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `rg` (`rg`),
+  ADD UNIQUE KEY `cpf` (`cpf`);
 
 --
 -- Índices para tabela `tb_itensvendas`
@@ -276,7 +282,7 @@ ALTER TABLE `tb_itensvendas`
 -- AUTO_INCREMENT de tabela `tb_produtos`
 --
 ALTER TABLE `tb_produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `tb_vendas`
