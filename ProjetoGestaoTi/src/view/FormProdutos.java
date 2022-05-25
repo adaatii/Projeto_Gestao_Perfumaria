@@ -4,7 +4,7 @@
  */
 package view;
 
-import controller.Funcoes;
+
 import dao.FornecedoresDao;
 import dao.ProdutosDao;
 import model.Fornecedores;
@@ -476,23 +476,10 @@ public class FormProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPesquisaKeyPressed
 
     private void cbFornecedoresAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbFornecedoresAncestorAdded
-        /**
-         * Carregando Combobox Fornecedores seleciona o objeto Fornecedor(Todos
-         * os dados do Fornecedor)
-         */
-//        FornecedoresDao daof = new FornecedoresDao();
-//        List<Fornecedores> listafornecedores = daof.listarFornecedor();
-//
-//        for (Fornecedores f : listafornecedores) {
-//            cbFornecedores.addItem(f);
-//        }
-        
+
     }//GEN-LAST:event_cbFornecedoresAncestorAdded
 
     private void btnRetornar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornar1ActionPerformed
-        // TODO add your handling code here:
-        Funcoes obj = new Funcoes();
-        obj.retornar();
         this.dispose();
     }//GEN-LAST:event_btnRetornar1ActionPerformed
 

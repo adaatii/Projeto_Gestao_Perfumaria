@@ -4,7 +4,7 @@
  */
 package view;
 
-import controller.Funcoes;
+
 import dao.ItemVendaDao;
 import dao.ProdutosDao;
 import dao.VendasDao;
@@ -303,6 +303,7 @@ public class FormPagamentos extends javax.swing.JFrame {
             /****************************************************************************/
             
              JOptionPane.showMessageDialog(null, "Venda registrada com sucesso com sucesso!");
+             this.dispose();
 
         } else {
             JOptionPane.showMessageDialog(null, "Operação cancelada: valor menor que o total da compra.");
@@ -312,10 +313,7 @@ public class FormPagamentos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPagamentoActionPerformed
 
     private void btnRetornar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornar2ActionPerformed
-        // TODO add your handling code here:
-        Funcoes obj = new Funcoes();
-        obj.retornar();
-        this.dispose();
+       this.dispose();
     }//GEN-LAST:event_btnRetornar2ActionPerformed
 
     /**

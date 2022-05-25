@@ -4,7 +4,7 @@
  */
 package view;
 
-import controller.Funcoes;
+
 import dao.ProdutosDao;
 import dao.VendasDao;
 import java.time.LocalDate;
@@ -295,9 +295,6 @@ public class FormEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_tabelaEstoqueMouseClicked
 
     private void btnRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornarActionPerformed
-        // TODO add your handling code here:
-        Funcoes obj = new Funcoes();
-        obj.retornar();
         this.dispose();
     }//GEN-LAST:event_btnRetornarActionPerformed
 

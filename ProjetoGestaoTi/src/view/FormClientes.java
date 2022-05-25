@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Clientes;
 import model.Utilitarios;
-import controller.Funcoes;
+
 
 /**
  *
@@ -105,7 +105,7 @@ public class FormClientes extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(900, 615));
+        setPreferredSize(new java.awt.Dimension(1209, 616));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -152,6 +152,8 @@ public class FormClientes extends javax.swing.JFrame {
         painelCadastro.setBackground(new java.awt.Color(255, 255, 255));
 
         painelDadosCadastro.setBackground(new java.awt.Color(255, 255, 255));
+        painelDadosCadastro.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
+        painelDadosCadastro.setPreferredSize(new java.awt.Dimension(1209, 616));
 
         jLabel4.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel4.setText("Código:");
@@ -292,7 +294,7 @@ public class FormClientes extends javax.swing.JFrame {
                         .addGroup(painelDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(361, Short.MAX_VALUE))
+                        .addContainerGap(341, Short.MAX_VALUE))
                     .addGroup(painelDadosCadastroLayout.createSequentialGroup()
                         .addGroup(painelDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -670,9 +672,6 @@ public class FormClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPesquisaKeyPressed
 
     private void btnRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornarActionPerformed
-        // TODO add your handling code here:
-        Funcoes obj = new Funcoes();
-        obj.retornar();
         this.dispose();
     }//GEN-LAST:event_btnRetornarActionPerformed
 

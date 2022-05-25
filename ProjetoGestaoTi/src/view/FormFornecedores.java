@@ -4,7 +4,7 @@
  */
 package view;
 
-import controller.Funcoes;
+
 import dao.FornecedoresDao;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -619,9 +619,6 @@ public class FormFornecedores extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPesquisaKeyPressed
 
     private void btnRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornarActionPerformed
-        // TODO add your handling code here:
-        Funcoes obj = new Funcoes();
-        obj.retornar();
         this.dispose();
     }//GEN-LAST:event_btnRetornarActionPerformed
 

@@ -4,7 +4,7 @@
  */
 package view;
 
-import controller.Funcoes;
+
 import dao.VendasDao;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -200,10 +200,7 @@ public class FormDetalhesVenda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornarActionPerformed
-        // TODO add your handling code here:
-        Funcoes obj = new Funcoes();
-        obj.retornar();
-        this.dispose();
+       this.dispose();
     }//GEN-LAST:event_btnRetornarActionPerformed
 
     /**
