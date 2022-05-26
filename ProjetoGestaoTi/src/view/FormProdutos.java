@@ -4,7 +4,6 @@
  */
 package view;
 
-
 import dao.FornecedoresDao;
 import dao.ProdutosDao;
 import model.Fornecedores;
@@ -35,7 +34,7 @@ public class FormProdutos extends javax.swing.JFrame {
                 cont.getPreco(),
                 cont.getQtd_estoque(),
                 cont.getFornecedor().getNome()
-               
+
             });
         }
     }
@@ -378,7 +377,7 @@ public class FormProdutos extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // Carrega a lista
         listar();
-        
+
         FornecedoresDao daof = new FornecedoresDao();
         List<Fornecedores> listafornecedores = daof.listarFornecedor();
 
@@ -390,16 +389,16 @@ public class FormProdutos extends javax.swing.JFrame {
     private void tabelaProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProdutosMouseClicked
         // Pega os dados e envia para aba Cadastro
         painelCadastro.setSelectedIndex(0);
-        
+
         txtCodigo.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 0).toString());
-        txtDescricao.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 1).toString());       
+        txtDescricao.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 1).toString());
         txtPreco.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 2).toString());
         txtQdtEstoque.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 3).toString());
-     
+
         Fornecedores f = new Fornecedores();
         FornecedoresDao dao = new FornecedoresDao();
-        f= dao.consultaFornecedorNome(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 4).toString());
-        
+        f = dao.consultaFornecedorNome(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 4).toString());
+
         cbFornecedores.removeAllItems();
         cbFornecedores.getModel().setSelectedItem(f);
 
@@ -407,33 +406,37 @@ public class FormProdutos extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // Botão editar
+        int op;
+        Object[] options = {"Cancelar", "Confirmar"};
+        op = JOptionPane.showOptionDialog(null, "Deseja realmente editar?", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+        if (op == 1) {
 
-        Produtos obj = new Produtos();
-        obj.setId(Integer.parseInt(txtCodigo.getText()));
-        obj.setDescricao(txtDescricao.getText());      
-        obj.setPreco(Double.parseDouble(txtPreco.getText()));
-        obj.setQtd_estoque(Integer.parseInt(txtQdtEstoque.getText()));
-       
-        //Criar objeto de fornecedor
-        Fornecedores f = new Fornecedores();
-        f = (Fornecedores) cbFornecedores.getSelectedItem();
-        
-        obj.setFornecedor(f);
-        
-        ProdutosDao dao = new ProdutosDao();
-        dao.alterarProduto(obj);
+            Produtos obj = new Produtos();
+            obj.setId(Integer.parseInt(txtCodigo.getText()));
+            obj.setDescricao(txtDescricao.getText());
+            obj.setPreco(Double.parseDouble(txtPreco.getText()));
+            obj.setQtd_estoque(Integer.parseInt(txtQdtEstoque.getText()));
 
-        new Utilitarios().LimparTela(painelDadosCadastro);
+            //Criar objeto de fornecedor
+            Fornecedores f = new Fornecedores();
+            f = (Fornecedores) cbFornecedores.getSelectedItem();
 
+            obj.setFornecedor(f);
+
+            ProdutosDao dao = new ProdutosDao();
+            dao.alterarProduto(obj);
+
+            new Utilitarios().LimparTela(painelDadosCadastro);
+        }
 
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // Botão Excluir
         int op;
-        Object[] options = { "Cancelar", "Confirmar" };
-        op = JOptionPane.showOptionDialog(null, "Clique Confirmar para continuar", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
-        if(op == 1){
+        Object[] options = {"Cancelar", "Confirmar"};
+        op = JOptionPane.showOptionDialog(null, "Deseja realmente excluir?", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+        if (op == 1) {
             Produtos obj = new Produtos();
 
             obj.setId(Integer.parseInt(txtCodigo.getText()));
@@ -442,7 +445,7 @@ public class FormProdutos extends javax.swing.JFrame {
             dao.excluirProduto(obj);
 
             new Utilitarios().LimparTela(painelDadosCadastro);
-        }           
+        }
 
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -468,7 +471,7 @@ public class FormProdutos extends javax.swing.JFrame {
                 cont.getPreco(),
                 cont.getQtd_estoque(),
                 cont.getFornecedor().getNome()
-                    
+
             });
 
         }
@@ -486,7 +489,7 @@ public class FormProdutos extends javax.swing.JFrame {
     private void painelCadastroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelCadastroMouseClicked
         // TODO add your handling code here:
         cbFornecedores.removeAllItems();
-        
+
         FornecedoresDao daof = new FornecedoresDao();
         List<Fornecedores> listafornecedores = daof.listarFornecedor();
 

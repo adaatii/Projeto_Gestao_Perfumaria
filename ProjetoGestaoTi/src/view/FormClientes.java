@@ -11,7 +11,6 @@ import javax.swing.table.DefaultTableModel;
 import model.Clientes;
 import model.Utilitarios;
 
-
 /**
  *
  * @author adaatii
@@ -520,7 +519,7 @@ public class FormClientes extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         /**
          * Botão Salvar :
-         * 
+         *
          */
 
         Clientes obj = new Clientes();
@@ -538,18 +537,25 @@ public class FormClientes extends javax.swing.JFrame {
         obj.setCidade(txtCidade.getText());
         obj.setUf(cbUf.getSelectedItem().toString());
 
-        ClientesDao dao = new ClientesDao();
-        dao.cadastrarCliente(obj);
+        if (obj.getNome().isEmpty() || obj.getRg().equals("  .   .   - ") || obj.getCpf().equals("  .   .   - ")
+                || obj.getEndereco().isEmpty() || obj.getCep().isEmpty()
+                || obj.getCidade().isEmpty() || obj.getBairro().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Erro");
+        } else {
+            ClientesDao dao = new ClientesDao();
+            dao.cadastrarCliente(obj);
+             new Utilitarios().LimparTela(painelDadosCadastro);
 
-        new Utilitarios().LimparTela(painelDadosCadastro);
-        
+        }
+
+       
 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         /**
-        * Carrega a lista        
-        */
+         * Carrega a lista
+         */
         listar();
     }//GEN-LAST:event_formWindowActivated
 
@@ -578,41 +584,45 @@ public class FormClientes extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         /**
          * Botão editar
-         */ 
+         */
+        int op;
+        Object[] options = {"Cancelar", "Confirmar"};
+        op = JOptionPane.showOptionDialog(null, "Deseja realmente editar?", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+        if (op == 1) {
 
-        Clientes obj = new Clientes();
-        obj.setNome(txtNome.getText());
-        obj.setRg(txtRg.getText());
-        obj.setCpf(txtCpf.getText());
-        obj.setEmail(txtEmail.getText());
-        obj.setTelefone(txtTelefone.getText());
-        obj.setCelular(txtCelular.getText());
-        obj.setCep(txtCep.getText());
-        obj.setEndereco(txtEndereco.getText());
-        obj.setNumero(Integer.parseInt(txtNumero.getText()));
-        obj.setComplemento(txtComplemento.getText());
-        obj.setBairro(txtBairro.getText());
-        obj.setCidade(txtCidade.getText());
-        obj.setUf(cbUf.getSelectedItem().toString());
+            Clientes obj = new Clientes();
+            obj.setNome(txtNome.getText());
+            obj.setRg(txtRg.getText());
+            obj.setCpf(txtCpf.getText());
+            obj.setEmail(txtEmail.getText());
+            obj.setTelefone(txtTelefone.getText());
+            obj.setCelular(txtCelular.getText());
+            obj.setCep(txtCep.getText());
+            obj.setEndereco(txtEndereco.getText());
+            obj.setNumero(Integer.parseInt(txtNumero.getText()));
+            obj.setComplemento(txtComplemento.getText());
+            obj.setBairro(txtBairro.getText());
+            obj.setCidade(txtCidade.getText());
+            obj.setUf(cbUf.getSelectedItem().toString());
 
-        obj.setId(Integer.parseInt(txtCodigo.getText()));
+            obj.setId(Integer.parseInt(txtCodigo.getText()));
 
-        ClientesDao dao = new ClientesDao();
-        dao.alterarCliente(obj);
+            ClientesDao dao = new ClientesDao();
+            dao.alterarCliente(obj);
 
-        new Utilitarios().LimparTela(painelDadosCadastro);
-
+            new Utilitarios().LimparTela(painelDadosCadastro);
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         /**
          * Botão Excluir
-         */ 
-        
+         */
+
         int op;
-        Object[] options = { "Cancelar", "Confirmar" };
-        op = JOptionPane.showOptionDialog(null, "Clique Confirmar para continuar", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
-        if(op == 1){
+        Object[] options = {"Cancelar", "Confirmar"};
+        op = JOptionPane.showOptionDialog(null, "Deseja realmente excluir?", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+        if (op == 1) {
             Clientes obj = new Clientes();
 
             obj.setId(Integer.parseInt(txtCodigo.getText()));
@@ -621,8 +631,7 @@ public class FormClientes extends javax.swing.JFrame {
             dao.excluirCliente(obj);
 
             new Utilitarios().LimparTela(painelDadosCadastro);
-        }                
-       
+        }
 
 
     }//GEN-LAST:event_btnExcluirActionPerformed
@@ -640,35 +649,34 @@ public class FormClientes extends javax.swing.JFrame {
         /**
          * Pesquisar Cliente apenas digitando no campo txtPesquisa.
          */
-        
-        String nome = "%"+txtPesquisa.getText()+"%";
-        
+
+        String nome = "%" + txtPesquisa.getText() + "%";
+
         ClientesDao dao = new ClientesDao();
-        List<Clientes> lista  = dao.buscaClienteNome(nome);
-        DefaultTableModel dado = (DefaultTableModel)tabelaCliente.getModel();
+        List<Clientes> lista = dao.buscaClienteNome(nome);
+        DefaultTableModel dado = (DefaultTableModel) tabelaCliente.getModel();
         dado.setNumRows(0);
-        
-       
-            for(Clientes cont: lista){
-                dado.addRow(new Object[]{
-                   cont.getId(),
-                   cont.getNome(),
-                   cont.getRg(),
-                   cont.getCpf(),
-                   cont.getTelefone(),
-                   cont.getCelular(),
-                   cont.getEmail(),
-                   cont.getCep(),
-                   cont.getEndereco(),
-                   cont.getNumero(),               
-                   cont.getBairro(),
-                   cont.getCidade(),
-                   cont.getComplemento(),
-                   cont.getUf()            
-                });
-            
+
+        for (Clientes cont : lista) {
+            dado.addRow(new Object[]{
+                cont.getId(),
+                cont.getNome(),
+                cont.getRg(),
+                cont.getCpf(),
+                cont.getTelefone(),
+                cont.getCelular(),
+                cont.getEmail(),
+                cont.getCep(),
+                cont.getEndereco(),
+                cont.getNumero(),
+                cont.getBairro(),
+                cont.getCidade(),
+                cont.getComplemento(),
+                cont.getUf()
+            });
+
         }
-        
+
     }//GEN-LAST:event_txtPesquisaKeyPressed
 
     private void btnRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornarActionPerformed
@@ -678,7 +686,6 @@ public class FormClientes extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;

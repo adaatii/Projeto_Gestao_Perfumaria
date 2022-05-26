@@ -4,7 +4,6 @@
  */
 package view;
 
-
 import dao.FornecedoresDao;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -501,7 +500,6 @@ public class FormFornecedores extends javax.swing.JFrame {
         new Utilitarios().LimparTela(painelDadosCadastro);
 
 
-
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -514,7 +512,7 @@ public class FormFornecedores extends javax.swing.JFrame {
         painelCadastro.setSelectedIndex(0);
         txtCodigo.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 0).toString());
         txtNome.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 1).toString());
-        txtCnpj.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 2).toString());        
+        txtCnpj.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 2).toString());
         txtTelefone.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 3).toString());
         txtCelular.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 4).toString());
         txtEmail.setText(tabelaFornecedores.getValueAt(tabelaFornecedores.getSelectedRow(), 5).toString());
@@ -530,28 +528,32 @@ public class FormFornecedores extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // Botão editar
+        int op;
+        Object[] options = {"Cancelar", "Confirmar"};
+        op = JOptionPane.showOptionDialog(null, "Deseja realmente editar?", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+        if (op == 1) {
 
-        Fornecedores obj = new Fornecedores();
-        obj.setNome(txtNome.getText());
-        obj.setCnpj(txtCnpj.getText());       
-        obj.setEmail(txtEmail.getText());
-        obj.setTelefone(txtTelefone.getText());
-        obj.setCelular(txtCelular.getText());
-        obj.setCep(txtCep.getText());
-        obj.setEndereco(txtEndereco.getText());
-        obj.setNumero(Integer.parseInt(txtNumero.getText())); 
-        obj.setComplemento(txtComplemento.getText());
-        obj.setBairro(txtBairro.getText());
-        obj.setCidade(txtCidade.getText());
-        obj.setUf(cbUf.getSelectedItem().toString());
+            Fornecedores obj = new Fornecedores();
+            obj.setNome(txtNome.getText());
+            obj.setCnpj(txtCnpj.getText());
+            obj.setEmail(txtEmail.getText());
+            obj.setTelefone(txtTelefone.getText());
+            obj.setCelular(txtCelular.getText());
+            obj.setCep(txtCep.getText());
+            obj.setEndereco(txtEndereco.getText());
+            obj.setNumero(Integer.parseInt(txtNumero.getText()));
+            obj.setComplemento(txtComplemento.getText());
+            obj.setBairro(txtBairro.getText());
+            obj.setCidade(txtCidade.getText());
+            obj.setUf(cbUf.getSelectedItem().toString());
 
-        obj.setId(Integer.parseInt(txtCodigo.getText()));
+            obj.setId(Integer.parseInt(txtCodigo.getText()));
 
-        FornecedoresDao dao = new FornecedoresDao();
-        dao.alterarFornecedor(obj);
+            FornecedoresDao dao = new FornecedoresDao();
+            dao.alterarFornecedor(obj);
 
-        new Utilitarios().LimparTela(painelDadosCadastro);
-
+            new Utilitarios().LimparTela(painelDadosCadastro);
+        }
 
 
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -559,9 +561,9 @@ public class FormFornecedores extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // Botão Excluir
         int op;
-        Object[] options = { "Cancelar", "Confirmar" };
-        op = JOptionPane.showOptionDialog(null, "Clique Confirmar para continuar", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
-        if(op == 1){
+        Object[] options = {"Cancelar", "Confirmar"};
+        op = JOptionPane.showOptionDialog(null, "Deseja realmente excluir?", "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+        if (op == 1) {
             Fornecedores obj = new Fornecedores();
 
             obj.setId(Integer.parseInt(txtCodigo.getText()));
@@ -570,10 +572,7 @@ public class FormFornecedores extends javax.swing.JFrame {
             dao.excluirFornecedor(obj);
 
             new Utilitarios().LimparTela(painelDadosCadastro);
-        }           
-
-       
-
+        }
 
 
     }//GEN-LAST:event_btnExcluirActionPerformed
@@ -585,37 +584,35 @@ public class FormFornecedores extends javax.swing.JFrame {
         new Utilitarios().LimparTela(painelDadosConsulta);
 
 
-
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void txtPesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyPressed
-        String nome = "%"+txtPesquisa.getText()+"%";
-        
+        String nome = "%" + txtPesquisa.getText() + "%";
+
         FornecedoresDao dao = new FornecedoresDao();
-        List<Fornecedores> lista  = dao.buscaFornecedorNome(nome);
-        DefaultTableModel dado = (DefaultTableModel)tabelaFornecedores.getModel();
+        List<Fornecedores> lista = dao.buscaFornecedorNome(nome);
+        DefaultTableModel dado = (DefaultTableModel) tabelaFornecedores.getModel();
         dado.setNumRows(0);
-        
-       
-            for(Fornecedores cont: lista){
-                dado.addRow(new Object[]{
-                   cont.getId(),
-                   cont.getNome(),
-                   cont.getCnpj(),
-                   cont.getTelefone(),
-                   cont.getCelular(),
-                   cont.getEmail(),
-                   cont.getCep(),
-                   cont.getEndereco(),
-                   cont.getNumero(),               
-                   cont.getBairro(),
-                   cont.getCidade(),
-                   cont.getComplemento(),
-                   cont.getUf()            
-                });
-            
+
+        for (Fornecedores cont : lista) {
+            dado.addRow(new Object[]{
+                cont.getId(),
+                cont.getNome(),
+                cont.getCnpj(),
+                cont.getTelefone(),
+                cont.getCelular(),
+                cont.getEmail(),
+                cont.getCep(),
+                cont.getEndereco(),
+                cont.getNumero(),
+                cont.getBairro(),
+                cont.getCidade(),
+                cont.getComplemento(),
+                cont.getUf()
+            });
+
         }
-        
+
     }//GEN-LAST:event_txtPesquisaKeyPressed
 
     private void btnRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornarActionPerformed
