@@ -59,7 +59,7 @@ public class FornecedoresDao {
             
         } 
         catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro: "+erro);
+            JOptionPane.showMessageDialog(null, "CNPJ já registrado");
         }
         
     }

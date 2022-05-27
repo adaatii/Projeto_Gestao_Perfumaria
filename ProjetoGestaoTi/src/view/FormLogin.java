@@ -155,7 +155,7 @@ public class FormLogin extends javax.swing.JFrame {
             dao.efetuaLogin(email, senha);
             this.dispose();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: ");
+            JOptionPane.showMessageDialog(null, "Contatar o Administrador do Sistema");
             
         }
     
