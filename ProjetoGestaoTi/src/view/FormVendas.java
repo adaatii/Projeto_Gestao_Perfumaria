@@ -4,7 +4,6 @@
  */
 package view;
 
-
 import dao.ClientesDao;
 import dao.ProdutosDao;
 import java.awt.event.KeyEvent;
@@ -396,7 +395,7 @@ public class FormVendas extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelCarrinhoLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(254, 254, 254)
+                        .addGap(268, 268, 268)
                         .addComponent(txtValorExcluido, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE))
                 .addContainerGap())
@@ -517,12 +516,22 @@ public class FormVendas extends javax.swing.JFrame {
     private void btnPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagamentoActionPerformed
         //Botão Pagamento
 
-        FormPagamentos telap = new FormPagamentos();
-        telap.txtTotal.setText(String.valueOf(total));
-        telap.cliente = obj; // ID do cliente
-        telap.carrinho = carrinho;
-        telap.setVisible(true);
-        this.dispose();
+        if (txtCpf.getText().equals("   .   .   -  ")) {
+            JOptionPane.showMessageDialog(null, "Preencham o CPF para realiza a venda.");
+            txtCpf.requestFocus();
+        } else {
+            if (txtTotal.getText().equals("") || txtTotal.getText().equals("R$ 0.0")) {
+                JOptionPane.showMessageDialog(null, "Adicione produtos ao carrinho");
+                txtCodigoProduto.requestFocus();
+            } else {
+                FormPagamentos telap = new FormPagamentos();
+                telap.txtTotal.setText(String.valueOf(total));
+                telap.cliente = obj; // ID do cliente
+                telap.carrinho = carrinho;
+                telap.setVisible(true);
+                this.dispose();
+            }
+        }
 
 
     }//GEN-LAST:event_btnPagamentoActionPerformed
@@ -557,13 +566,12 @@ public class FormVendas extends javax.swing.JFrame {
         Produtos obj = new Produtos();
         ProdutosDao dao = new ProdutosDao();
 
-        obj = dao.buscaProdutosCodigo(Integer.parseInt(txtCodigoProduto.getText()));        
-      
-            txtDescricao.setText(obj.getDescricao());
-            txtPreco.setText(String.valueOf(obj.getPreco()));
-        
+        obj = dao.buscaProdutosCodigo(Integer.parseInt(txtCodigoProduto.getText()));
 
-        
+        txtDescricao.setText(obj.getDescricao());
+        txtPreco.setText(String.valueOf(obj.getPreco()));
+
+
     }//GEN-LAST:event_btnBuscarProdutoActionPerformed
 
     private void btnLimparClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparClienteActionPerformed
@@ -591,37 +599,34 @@ public class FormVendas extends javax.swing.JFrame {
         ProdutosDao dao = new ProdutosDao();
 
         obj = dao.buscaProdutosCodigo(Integer.parseInt(txtCodigoProduto.getText()));
-        
+
         qtd = Integer.parseInt(txtQtd.getText());
-          
-        
-        if(obj.getQtd_estoque() > 0 && obj.getQtd_estoque() >= qtd){
-        preco = Double.parseDouble(txtPreco.getText());
 
-        subtotal = qtd * preco;
+        if (obj.getQtd_estoque() > 0 && obj.getQtd_estoque() >= qtd) {
+            preco = Double.parseDouble(txtPreco.getText());
 
-        total += subtotal;
-        txtTotal.setText("R$ "+String.valueOf(total));
+            subtotal = qtd * preco;
 
-        //Adicionar o produto no carrinho
-        carrinho = (DefaultTableModel) tabelaItens.getModel();
+            total += subtotal;
+            txtTotal.setText("R$ " + String.valueOf(total));
 
-        carrinho.addRow(new Object[]{
-            txtCodigoProduto.getText(),
-            txtDescricao.getText(),
-            txtQtd.getText(),
-            txtPreco.getText(),
-            subtotal
-            
-        });
-        
-             new Utilitarios().LimparTela(painelDadosProdutos);
-        }else{
+            //Adicionar o produto no carrinho
+            carrinho = (DefaultTableModel) tabelaItens.getModel();
+
+            carrinho.addRow(new Object[]{
+                txtCodigoProduto.getText(),
+                txtDescricao.getText(),
+                txtQtd.getText(),
+                txtPreco.getText(),
+                subtotal
+
+            });
+
+            new Utilitarios().LimparTela(painelDadosProdutos);
+        } else {
             JOptionPane.showMessageDialog(null, "Quantidade maior que disponivel no estoque. O estoque é: " + obj.getQtd_estoque());
             txtQtd.setText("");
-       }
-
-       
+        }
 
 
     }//GEN-LAST:event_btnAdicionarItemActionPerformed

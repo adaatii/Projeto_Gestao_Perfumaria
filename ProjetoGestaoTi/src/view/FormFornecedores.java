@@ -103,8 +103,12 @@ public class FormFornecedores extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1215, 621));
+        setPreferredSize(new java.awt.Dimension(1191, 599));
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -112,6 +116,7 @@ public class FormFornecedores extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(14, 89, 235));
+        jPanel1.setPreferredSize(new java.awt.Dimension(179, 98));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,7 +141,7 @@ public class FormFornecedores extends javax.swing.JFrame {
                 .addComponent(btnRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(962, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,17 +165,17 @@ public class FormFornecedores extends javax.swing.JFrame {
         txtCodigo.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel5.setText("Nome:");
+        jLabel5.setText("* Nome:");
 
         txtNome.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel6.setText("E-mail:");
+        jLabel6.setText("* E-mail:");
 
         txtEmail.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel7.setText("Celular:");
+        jLabel7.setText("* Celular:");
 
         try {
             txtCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # #### - ####")));
@@ -190,7 +195,7 @@ public class FormFornecedores extends javax.swing.JFrame {
         txtTelefone.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel9.setText("CEP:");
+        jLabel9.setText("* CEP:");
 
         try {
             txtCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##### - ###")));
@@ -205,22 +210,22 @@ public class FormFornecedores extends javax.swing.JFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel10.setText("Endereço:");
+        jLabel10.setText("* Endereço:");
 
         txtEndereco.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel11.setText("N°:");
+        jLabel11.setText("* N°:");
 
         txtNumero.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel12.setText("Bairro:");
+        jLabel12.setText("* Bairro:");
 
         txtBairro.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel13.setText("Cidade:");
+        jLabel13.setText("* Cidade:");
 
         txtCidade.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
 
@@ -236,7 +241,7 @@ public class FormFornecedores extends javax.swing.JFrame {
         cbUf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RO", "AC", "AM", "RR", "PA", "AP", "TO", "MA", "PI", "CE", "RN", "PB", "PE", "AL", "SE", "BA", "MG", "ES", "RJ", "SP", "PR", "SC", "RS", "MS ", "MT", "GO", "DF" }));
 
         jLabel16.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel16.setText("CNPJ:");
+        jLabel16.setText("* CNPJ:");
 
         try {
             txtCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
@@ -257,7 +262,7 @@ public class FormFornecedores extends javax.swing.JFrame {
         painelDadosCadastroLayout.setHorizontalGroup(
             painelDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelDadosCadastroLayout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(painelDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -304,7 +309,7 @@ public class FormFornecedores extends javax.swing.JFrame {
                                 .addGap(21, 21, 21)
                                 .addComponent(btnPesquisar))))
                     .addComponent(cbUf, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
         painelDadosCadastroLayout.setVerticalGroup(
             painelDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -455,23 +460,28 @@ public class FormFornecedores extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("* Campos Obrigatórios");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(263, 263, 263)
+                .addGap(292, 292, 292)
                 .addComponent(btnSalvar)
-                .addGap(43, 43, 43)
+                .addGap(39, 39, 39)
                 .addComponent(btnEditar)
                 .addGap(43, 43, 43)
                 .addComponent(btnLimpar)
                 .addGap(44, 44, 44)
                 .addComponent(btnExcluir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(36, 36, 36))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(painelCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 1209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(painelCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 1209, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -483,14 +493,21 @@ public class FormFornecedores extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(painelCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnLimpar)
-                        .addComponent(btnExcluir)
-                        .addComponent(btnEditar)))
-                .addGap(0, 13, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnLimpar)
+                            .addComponent(btnExcluir)
+                            .addComponent(btnEditar))
+                        .addGap(0, 25, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(25, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addGap(17, 17, 17))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnEditar, btnExcluir, btnLimpar, btnSalvar});
@@ -502,8 +519,9 @@ public class FormFornecedores extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // Botão Salvar :
         if (txtNumero.getText().equals("") || txtNome.getText().isEmpty() || txtEndereco.getText().isEmpty()
-                || txtBairro.getText().isEmpty() || txtCidade.getText().isEmpty()
-                || txtCnpj.getText().equals("  .   .   /    -  ") || txtCep.getText().equals("      -    ")) {
+                || txtBairro.getText().isEmpty() || txtCidade.getText().isEmpty() || txtEmail.getText().isEmpty()
+                || txtCnpj.getText().equals("  .   .   /    -  ") || txtCep.getText().equals("      -    ")
+                || txtCelular.getText().equals("(  )        -     ")) {
             JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
         } else {
             Fornecedores obj = new Fornecedores();
@@ -710,6 +728,7 @@ public class FormFornecedores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
