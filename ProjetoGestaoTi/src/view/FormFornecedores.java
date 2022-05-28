@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import jdbc.TestaConexao;
 import model.Fornecedores;
 import model.Utilitarios;
 
@@ -675,18 +676,23 @@ public class FormFornecedores extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRetornarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        ViaCEP viaCep = new ViaCEP();
-        try {
-            viaCep.buscar(txtCep.getText().replace(" - ", ""));
-            txtBairro.setText(viaCep.getBairro());
-            txtEndereco.setText(viaCep.getLogradouro());
-            txtCidade.setText(viaCep.getLocalidade());
-            String uf = viaCep.getUf();
-            cbUf.setSelectedItem(uf);
+        TestaConexao obj = new TestaConexao();
+        if (obj.testarInternet("http://www.google.com.br")) {
+            ViaCEP viaCep = new ViaCEP();
+            try {
+                viaCep.buscar(txtCep.getText().replace(" - ", ""));
+                txtBairro.setText(viaCep.getBairro());
+                txtEndereco.setText(viaCep.getLogradouro());
+                txtCidade.setText(viaCep.getLocalidade());
+                String uf = viaCep.getUf();
+                cbUf.setSelectedItem(uf);
 
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Cep não encontrado");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Cep não encontrado");
 
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Sem Conexão com a internet");
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
