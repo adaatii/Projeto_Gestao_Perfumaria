@@ -698,18 +698,23 @@ public class FormFornecedores extends javax.swing.JFrame {
 
     private void txtCepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCepKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            ViaCEP viaCep = new ViaCEP();
-            try {
-                viaCep.buscar(txtCep.getText().replace(" - ", ""));
-                txtBairro.setText(viaCep.getBairro());
-                txtEndereco.setText(viaCep.getLogradouro());
-                txtCidade.setText(viaCep.getLocalidade());
-                String uf = viaCep.getUf();
-                cbUf.setSelectedItem(uf);
+            TestaConexao obj = new TestaConexao();
+            if (obj.testarInternet("http://www.google.com.br")) {
+                ViaCEP viaCep = new ViaCEP();
+                try {
+                    viaCep.buscar(txtCep.getText().replace(" - ", ""));
+                    txtBairro.setText(viaCep.getBairro());
+                    txtEndereco.setText(viaCep.getLogradouro());
+                    txtCidade.setText(viaCep.getLocalidade());
+                    String uf = viaCep.getUf();
+                    cbUf.setSelectedItem(uf);
 
-            } catch (ViaCEPException ex) {
-                JOptionPane.showMessageDialog(null, "Cep não encontrado");
-                Logger.getLogger(FormClientes.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Cep não encontrado");
+
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Sem Conexão com a internet");
             }
         }
     }//GEN-LAST:event_txtCepKeyPressed
