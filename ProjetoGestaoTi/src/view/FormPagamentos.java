@@ -63,7 +63,7 @@ public class FormPagamentos extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Tela de Pagamentos");
+        setTitle("Pagamentos");
 
         jPanel1.setBackground(new java.awt.Color(14, 89, 235));
 

@@ -39,7 +39,7 @@ public class FormLogin extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Bem vindo !");
+        setTitle("Login");
 
         jPanel1.setBackground(new java.awt.Color(14, 89, 235));
 

@@ -118,6 +118,7 @@ public class FormFuncionarios extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Funcionários");
         setMaximumSize(new java.awt.Dimension(1215, 621));
         setPreferredSize(new java.awt.Dimension(1191, 599));
         setResizable(false);
@@ -546,7 +547,6 @@ public class FormFuncionarios extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1209, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(292, 292, 292)
                 .addComponent(btnSalvar)
@@ -560,7 +560,9 @@ public class FormFuncionarios extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(36, 36, 36))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(painelCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 1209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(painelCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 1209, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

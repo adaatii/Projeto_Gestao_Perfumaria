@@ -107,6 +107,7 @@ public class FormFornecedores extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Fornecedores");
         setMaximumSize(new java.awt.Dimension(1215, 621));
         setPreferredSize(new java.awt.Dimension(1191, 599));
         setResizable(false);
