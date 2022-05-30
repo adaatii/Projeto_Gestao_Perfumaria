@@ -43,6 +43,7 @@ public class FormTotalVendaDia extends javax.swing.JFrame {
         btnPesquisar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Total de vendas por data");
 
         jPanel1.setBackground(new java.awt.Color(14, 89, 235));
 
