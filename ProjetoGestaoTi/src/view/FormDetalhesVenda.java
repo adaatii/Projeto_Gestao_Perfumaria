@@ -173,7 +173,15 @@ public class FormDetalhesVenda extends javax.swing.JFrame {
             new String [] {
                 "Produto", "Quantidade", "Valor do Produto", "Subtotal"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tabelaVendidos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
