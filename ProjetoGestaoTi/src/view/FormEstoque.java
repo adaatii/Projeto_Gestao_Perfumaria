@@ -5,15 +5,11 @@
 package view;
 
 import dao.ProdutosDao;
-import dao.VendasDao;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Produtos;
 import model.Utilitarios;
-import model.Vendas;
 
 /**
  *
@@ -71,6 +67,8 @@ public class FormEstoque extends javax.swing.JFrame {
         txtEstoqueAtual = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JButton();
         btnAdicionar = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaEstoque = new javax.swing.JTable();
 
@@ -153,12 +151,18 @@ public class FormEstoque extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jLabel12.setText("Código:");
+
+        txtCodigo.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout painelConsultaProdLayout = new javax.swing.GroupLayout(painelConsultaProd);
         painelConsultaProd.setLayout(painelConsultaProdLayout);
         painelConsultaProdLayout.setHorizontalGroup(
             painelConsultaProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelConsultaProdLayout.createSequentialGroup()
                 .addGroup(painelConsultaProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel12)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -169,29 +173,38 @@ public class FormEstoque extends javax.swing.JFrame {
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtDescricao))
+                    .addComponent(txtDescricao)
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(painelConsultaProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
         painelConsultaProdLayout.setVerticalGroup(
             painelConsultaProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelConsultaProdLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(painelConsultaProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar))
-                .addGap(15, 15, 15)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelConsultaProdLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addGroup(painelConsultaProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelConsultaProdLayout.createSequentialGroup()
+                        .addGroup(painelConsultaProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(painelConsultaProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelConsultaProdLayout.createSequentialGroup()
+                        .addComponent(btnPesquisar)
+                        .addGap(29, 29, 29)))
                 .addGroup(painelConsultaProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtEstoqueAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
                     .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdicionar))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         tabelaEstoque.setModel(new javax.swing.table.DefaultTableModel(
@@ -228,7 +241,7 @@ public class FormEstoque extends javax.swing.JFrame {
                 .addComponent(painelConsultaProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 28, Short.MAX_VALUE))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         pack();
@@ -237,7 +250,9 @@ public class FormEstoque extends javax.swing.JFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         String nome = "%" + txtDescricao.getText() + "%";
-
+        
+        if(!txtDescricao.getText().equals("")){
+            
         ProdutosDao dao = new ProdutosDao();
         List<Produtos> lista = dao.buscaProdutosNome(nome);
         DefaultTableModel dado = (DefaultTableModel) tabelaEstoque.getModel();
@@ -253,6 +268,28 @@ public class FormEstoque extends javax.swing.JFrame {
 
             });
 
+        }
+        }else if(!txtCodigo.getText().equals("")){
+        int cod = Integer.parseInt(txtCodigo.getText());
+        ProdutosDao dao = new ProdutosDao();
+            
+        List<Produtos> lista = dao.listarProdutosCodigo(cod);
+        DefaultTableModel dado = (DefaultTableModel) tabelaEstoque.getModel();
+        dado.setNumRows(0);
+
+        for (Produtos cont : lista) {
+            dado.addRow(new Object[]{
+                cont.getId(),
+                cont.getDescricao(),
+                cont.getPreco(),
+                cont.getQtd_estoque(),
+                cont.getFornecedor().getNome()
+
+            });
+
+        }
+        }else{
+            JOptionPane.showMessageDialog(null, "Para pesquisa preencha o Código ou a Descrição do produto.");
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
@@ -299,6 +336,7 @@ public class FormEstoque extends javax.swing.JFrame {
     private void tabelaEstoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaEstoqueMouseClicked
 
         idprod = Integer.parseInt(tabelaEstoque.getValueAt(tabelaEstoque.getSelectedRow(), 0).toString());
+        txtCodigo.setText(tabelaEstoque.getValueAt(tabelaEstoque.getSelectedRow(), 0).toString());
         txtDescricao.setText(tabelaEstoque.getValueAt(tabelaEstoque.getSelectedRow(), 1).toString());
         txtEstoqueAtual.setText(tabelaEstoque.getValueAt(tabelaEstoque.getSelectedRow(), 3).toString());
 
@@ -320,11 +358,13 @@ public class FormEstoque extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel painelConsultaProd;
     public javax.swing.JTable tabelaEstoque;
+    public javax.swing.JTextField txtCodigo;
     public javax.swing.JTextField txtDescricao;
     public javax.swing.JTextField txtEstoqueAtual;
     public javax.swing.JTextField txtQtd;

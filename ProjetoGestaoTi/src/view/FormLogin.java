@@ -5,6 +5,7 @@
 package view;
 
 import dao.FuncionariosDao;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -34,9 +35,9 @@ public class FormLogin extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        txtSenha = new javax.swing.JPasswordField();
         btnEntrar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
+        txtSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login");
@@ -65,15 +66,17 @@ public class FormLogin extends javax.swing.JFrame {
         );
 
         txtEmail.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        txtEmail.setText("diego@uol.com");
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtEmailKeyPressed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         jLabel6.setText("E-mail:");
 
         jLabel19.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         jLabel19.setText("Senha:");
-
-        txtSenha.setText("123456");
 
         btnEntrar.setBackground(new java.awt.Color(14, 89, 235));
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,6 +96,12 @@ public class FormLogin extends javax.swing.JFrame {
             }
         });
 
+        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSenhaKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,8 +116,8 @@ public class FormLogin extends javax.swing.JFrame {
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSenha)
-                            .addComponent(txtEmail)))
+                            .addComponent(txtEmail)
+                            .addComponent(txtSenha)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnEntrar)
                         .addGap(66, 66, 66)
@@ -127,14 +136,14 @@ public class FormLogin extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEntrar)
                     .addComponent(btnSair))
-                .addGap(0, 74, Short.MAX_VALUE))
+                .addGap(0, 73, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnEntrar, btnSair});
@@ -149,22 +158,46 @@ public class FormLogin extends javax.swing.JFrame {
             String email, senha;
             email = txtEmail.getText();
             senha = txtSenha.getText();
-            
+
             FuncionariosDao dao = new FuncionariosDao();
-            
+
             dao.efetuaLogin(email, senha);
             this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Contatar o Administrador do Sistema");
-            
+
         }
-    
+
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER && !txtEmail.getText().equals("")) {
+            txtSenha.requestFocus();
+        }
+    }//GEN-LAST:event_txtEmailKeyPressed
+
+    private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER && !txtEmail.getText().equals("")) {
+            try {
+                String email, senha;
+                email = txtEmail.getText();
+                senha = txtSenha.getText();
+
+                FuncionariosDao dao = new FuncionariosDao();
+
+                dao.efetuaLogin(email, senha);
+                this.dispose();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Contatar o Administrador do Sistema");
+
+            }
+        }
+    }//GEN-LAST:event_txtSenhaKeyPressed
 
     /**
      * @param args the command line arguments
