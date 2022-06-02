@@ -4,9 +4,9 @@
  */
 package view;
 
-
 import dao.ItemVendaDao;
 import dao.VendasDao;
+import java.awt.event.KeyEvent;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -102,6 +102,11 @@ public class FormHistorico extends javax.swing.JFrame {
         }
         txtDataInicial.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDataInicial.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        txtDataInicial.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDataInicialKeyPressed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel10.setText("Data Final:");
@@ -113,6 +118,11 @@ public class FormHistorico extends javax.swing.JFrame {
         }
         txtDataFinal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDataFinal.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        txtDataFinal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDataFinalKeyPressed(evt);
+            }
+        });
 
         btnPesquisar.setText("Pesquisar");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -203,26 +213,32 @@ public class FormHistorico extends javax.swing.JFrame {
             LocalDate data_inicial = LocalDate.parse(txtDataInicial.getText(), formatar);
             LocalDate data_final = LocalDate.parse(txtDataFinal.getText(), formatar);
 
-            VendasDao dao = new VendasDao();
-            List<Vendas> lista = dao.listarVendasPeriodo(data_inicial, data_final);
+            System.out.println(data_inicial.compareTo(data_final));
+            if (data_inicial.compareTo(data_final) == -1 || data_inicial.compareTo(data_final) == 0) {
+                VendasDao dao = new VendasDao();
+                List<Vendas> lista = dao.listarVendasPeriodo(data_inicial, data_final);
 
-            DefaultTableModel dados = (DefaultTableModel) tabelaHistorico.getModel();
-            dados.setNumRows(0);
+                DefaultTableModel dados = (DefaultTableModel) tabelaHistorico.getModel();
+                dados.setNumRows(0);
 
-            for (Vendas v : lista) {
-                dados.addRow(new Object[]{
-                    v.getId(),
-                    v.getData_venda(),
-                    v.getCliente().getNome(),
-                    v.getTotal_venda(),
-                    v.getObs()
+                for (Vendas v : lista) {
+                    dados.addRow(new Object[]{
+                        v.getId(),
+                        v.getData_venda(),
+                        v.getCliente().getNome(),
+                        v.getTotal_venda(),
+                        v.getObs()
 
-                });
+                    });
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "A data final deve ser maior que a data inicial!");
             }
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Digite a data inicial e final");
         }
+
 
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
@@ -262,6 +278,50 @@ public class FormHistorico extends javax.swing.JFrame {
     private void btnRetornar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornar1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnRetornar1ActionPerformed
+
+    private void txtDataFinalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDataFinalKeyPressed
+        //Botão buscar venda por periodo
+        //Receber as datas
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+                LocalDate data_inicial = LocalDate.parse(txtDataInicial.getText(), formatar);
+                LocalDate data_final = LocalDate.parse(txtDataFinal.getText(), formatar);
+
+                System.out.println(data_inicial.compareTo(data_final));
+                if (data_inicial.compareTo(data_final) == -1 || data_inicial.compareTo(data_final) == 0) {
+                    VendasDao dao = new VendasDao();
+                    List<Vendas> lista = dao.listarVendasPeriodo(data_inicial, data_final);
+
+                    DefaultTableModel dados = (DefaultTableModel) tabelaHistorico.getModel();
+                    dados.setNumRows(0);
+
+                    for (Vendas v : lista) {
+                        dados.addRow(new Object[]{
+                            v.getId(),
+                            v.getData_venda(),
+                            v.getCliente().getNome(),
+                            v.getTotal_venda(),
+                            v.getObs()
+
+                        });
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "A data final deve ser maior que a data inicial!");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Digite a data inicial e final");
+            }
+        }
+    }//GEN-LAST:event_txtDataFinalKeyPressed
+
+    private void txtDataInicialKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDataInicialKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txtDataFinal.requestFocus();
+        }
+    }//GEN-LAST:event_txtDataInicialKeyPressed
 
     /**
      * @param args the command line arguments

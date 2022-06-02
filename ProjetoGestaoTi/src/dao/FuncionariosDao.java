@@ -266,7 +266,7 @@ public class FuncionariosDao {
                 
             }else{
                 //Dados incorretos
-                JOptionPane.showMessageDialog(null, "Dados incorretos");
+                JOptionPane.showMessageDialog(null, "Email e/ou Senha inconrretos");
                 new FormLogin().setVisible(true);
             }
             

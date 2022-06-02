@@ -543,7 +543,12 @@ public class FormVendas extends javax.swing.JFrame {
             ClientesDao dao = new ClientesDao();
 
             obj = dao.buscaClienteCpf(txtCpf.getText());
-            txtNome.setText(obj.getNome());
+            if (obj.getNome() == null) {
+                JOptionPane.showMessageDialog(null, "CPF não encontrado");
+            } else {
+                txtNome.setText(obj.getNome());
+                txtCodigoProduto.requestFocus();
+            }
         }
     }//GEN-LAST:event_txtCpfKeyPressed
 
@@ -589,7 +594,12 @@ public class FormVendas extends javax.swing.JFrame {
         ClientesDao dao = new ClientesDao();
 
         obj = dao.buscaClienteCpf(txtCpf.getText());
-        txtNome.setText(obj.getNome());
+        if (obj.getNome() == null) {
+            JOptionPane.showMessageDialog(null, "CPF não encontrado");
+        } else {
+            txtNome.setText(obj.getNome());
+            txtCodigoProduto.requestFocus();
+        }
 
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 

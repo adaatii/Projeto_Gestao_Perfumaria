@@ -4,8 +4,8 @@
  */
 package view;
 
-
 import dao.VendasDao;
+import java.awt.event.KeyEvent;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
@@ -92,6 +92,11 @@ public class FormTotalVendaDia extends javax.swing.JFrame {
         }
         txtData.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtData.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        txtData.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDataKeyPressed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel5.setText("Valor:");
@@ -165,12 +170,12 @@ public class FormTotalVendaDia extends javax.swing.JFrame {
         try {
             //Receber a data
             DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate data_v = LocalDate.parse(txtData.getText(),formatar);
-            
+            LocalDate data_v = LocalDate.parse(txtData.getText(), formatar);
+
             double total_v;
             VendasDao dao = new VendasDao();
             total_v = dao.totalVendaDia(data_v);
-            
+
             txtTotal.setText("R$" + String.valueOf(total_v));
 
         } catch (Exception e) {
@@ -180,8 +185,27 @@ public class FormTotalVendaDia extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnRetornar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornar1ActionPerformed
-     this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnRetornar1ActionPerformed
+
+    private void txtDataKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDataKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                //Receber a data
+                DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                LocalDate data_v = LocalDate.parse(txtData.getText(), formatar);
+
+                double total_v;
+                VendasDao dao = new VendasDao();
+                total_v = dao.totalVendaDia(data_v);
+
+                txtTotal.setText("R$" + String.valueOf(total_v));
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Digite a data corretamente");
+            }
+        }
+    }//GEN-LAST:event_txtDataKeyPressed
 
     /**
      * @param args the command line arguments
