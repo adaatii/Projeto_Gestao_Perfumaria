@@ -29,7 +29,7 @@ public class ClientesDao {
 	}
 
 	// Metodo Cadastrar Cliente
-	public boolean cadastrarCliente(Clientes obj) {
+	public void cadastrarCliente(Clientes obj) {
 		try {
 			// Criar comando SQL insere nos campos da tabela Clientes os valores
 			// 1° pega o valor(Get) do campo e já atribui(Set) ao BD
@@ -59,15 +59,14 @@ public class ClientesDao {
 			JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "RG e/ou CPF já cadastrado(s)");
-			return false;
+			JOptionPane.showMessageDialog(null, "RG ou CPF já cadastrado!", null, JOptionPane.ERROR_MESSAGE);
+
 		}
-		return true;
 
 	}
 
 	// Metodo Alterar Cliente
-	public boolean alterarCliente(Clientes obj) {
+	public void alterarCliente(Clientes obj) {
 		try {
 			// Criar comando SQL altera nos campos da tabela Clientes os valores
 			String sql = "update tb_clientes set nome=?,rg=?,cpf=?,email=?,telefone=?,celular=?,cep=?,endereco=?,"
@@ -89,6 +88,7 @@ public class ClientesDao {
 			stmt.setString(12, obj.getCidade());
 			stmt.setString(13, obj.getUf());
 			stmt.setInt(14, obj.getId());
+			
 
 			// Executar o comando SQL
 			stmt.execute();
@@ -98,33 +98,34 @@ public class ClientesDao {
 
 		} catch (SQLException erro) {
 			JOptionPane.showMessageDialog(null, "Erro: " + erro);
-			return false;
+
 		}
-		return true;
 
 	}
 
 	// Metodo Excluir Cliente
-	public boolean excluirCliente(Clientes obj) {
+	public void excluirCliente(Clientes obj) {
 		try {
 			// Criar comando SQL deleta nos campos da tabela Clientes os valores
 
 			String sql = "delete from tb_clientes where id = ?";
+			
 
 			// Conectar banco de dados e organizar o comando SQL
 			PreparedStatement stmt = con.prepareStatement(sql);
+
 			stmt.setInt(1, obj.getId());
 			// Executar o comando SQL
-			stmt.execute();				
+			stmt.execute();
 			stmt.close();
 
 			JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
 
 		} catch (SQLException erro) {
 			JOptionPane.showMessageDialog(null, " Cliente não pode ser Excluido. Já vinculado a venda!");
-			return false;
+			
 		}
-		return true;
+		
 
 	}
 

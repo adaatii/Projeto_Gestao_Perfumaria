@@ -20,6 +20,7 @@ import model.Clientes;
 /**
  *
  * @author adaatii
+ * hdaushudhasudhuasd
  */
 public class VendasDao {
      private Connection con;

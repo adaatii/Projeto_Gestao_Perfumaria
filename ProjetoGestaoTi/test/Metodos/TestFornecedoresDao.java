@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dao;
+package Metodos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,23 +18,23 @@ import model.Fornecedores;
  *
  * @author adaatii
  */
-public class FornecedoresDao {
+public class TestFornecedoresDao {
 
 	private Connection con;
 
-	public FornecedoresDao() {
+	public TestFornecedoresDao() {
 
 		this.con = new ConnectionFactory().getConnection(); // Conexão com o BD
 
 	}
 
 	// Metodo Cadastrar Fornecedores
-	public void cadastrarFornecedores(Fornecedores obj) {
+	public boolean cadastrarFornecedores(Fornecedores obj) {
 		try {
 			// Criar comando SQL insere nos campos da tabela Clientes os valores
 			// 1° pega o valor(Get) do campo e já atribui(Set) ao BD
-			String sql = "insert into tb_fornecedores (nome,cnpj,email,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado)"
-					+ "values (?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into tb_fornecedores (nome,cnpj,email,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado,id)"
+					+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			// Conectar banco de dados e organizar o comando SQL
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -50,6 +50,7 @@ public class FornecedoresDao {
 			stmt.setString(10, obj.getBairro());
 			stmt.setString(11, obj.getCidade());
 			stmt.setString(12, obj.getUf());
+			stmt.setInt(13, obj.getId());
 
 			// Executar o comando SQL
 			stmt.execute();
@@ -59,8 +60,9 @@ public class FornecedoresDao {
 
 		} catch (SQLException erro) {
 			JOptionPane.showMessageDialog(null, "CNPJ já cadastrado!", null, JOptionPane.ERROR_MESSAGE);
-
+			return false;
 		}
+		return true;
 
 	}
 
