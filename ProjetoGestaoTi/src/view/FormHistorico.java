@@ -171,7 +171,7 @@ public class FormHistorico extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Data da Venda", "Cliente", "Total", "Observações"
+                "Código", "Data da Venda", "Cliente", "CPF", "Total", "Observações"
             }
         ));
         tabelaHistorico.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -226,6 +226,7 @@ public class FormHistorico extends javax.swing.JFrame {
                         v.getId(),
                         v.getData_venda(),
                         v.getCliente().getNome(),
+                        v.getCliente().getCpf(),
                         v.getTotal_venda(),
                         v.getObs()
 
@@ -248,9 +249,10 @@ public class FormHistorico extends javax.swing.JFrame {
         FormDetalhesVenda tela = new FormDetalhesVenda();
 
         tela.txtCliente.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 2).toString());
-        tela.txtTotalVenda.setText("R$ " + tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 3).toString());
+        tela.txtTotalVenda.setText("R$ " + tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 4).toString());
         tela.txtData.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 1).toString());
-        tela.txtObs.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 4).toString());
+        tela.txtObs.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 5).toString());
+        tela.txtCpf.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 3).toString());
 
         int id_venda = Integer.parseInt(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(), 0).toString());
         //Dados Itens Comprados
@@ -302,6 +304,7 @@ public class FormHistorico extends javax.swing.JFrame {
                             v.getId(),
                             v.getData_venda(),
                             v.getCliente().getNome(),
+                            v.getCliente().getCpf(),
                             v.getTotal_venda(),
                             v.getObs()
 

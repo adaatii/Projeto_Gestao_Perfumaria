@@ -185,7 +185,7 @@ public class ProdutosDao {
 	public void alterarProduto(Produtos obj) {
 		try {
 
-			String sql = "update tb_produtos set descricao=?,preco=?,qtd_estoque=?,for_id=? where id=?";
+			String sql = "update tb_produtos set descricao=?,preco=?,qtd_estoque=? where id=?"; //,for_id=?
 
 			// Conectar banco de dados e organizar o comando SQL
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -193,9 +193,9 @@ public class ProdutosDao {
 			stmt.setDouble(2, obj.getPreco());
 			stmt.setInt(3, obj.getQtd_estoque());
 
-			stmt.setInt(4, obj.getFornecedor().getId());
+			//stmt.setInt(4, obj.getFornecedor().getId());
 
-			stmt.setInt(5, obj.getId());
+			stmt.setInt(4, obj.getId());
 
 			// Executar o comando SQL
 			stmt.execute();
@@ -228,7 +228,7 @@ public class ProdutosDao {
 			JOptionPane.showMessageDialog(null, "Produto Excluido com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "Produto não pode ser Excluido. Já vinculado a venda!");
+			JOptionPane.showMessageDialog(null, "Produto não pode ser Excluido. Já vinculado a venda!",null, JOptionPane.WARNING_MESSAGE);
 		}
 	}
 
