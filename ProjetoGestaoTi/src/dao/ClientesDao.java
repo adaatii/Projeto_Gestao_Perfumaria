@@ -97,7 +97,7 @@ public class ClientesDao {
 			JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			JOptionPane.showMessageDialog(null, "RG ou CPF já cadastrado!", null, JOptionPane.ERROR_MESSAGE);
 
 		}
 
@@ -122,7 +122,7 @@ public class ClientesDao {
 			JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, " Cliente não pode ser Excluido. Já vinculado a venda!");
+			JOptionPane.showMessageDialog(null, " Cliente não pode ser Excluido. Já vinculado a venda!", null, JOptionPane.WARNING_MESSAGE);
 			
 		}
 		

@@ -92,7 +92,7 @@ public class VendasDao {
 
             //2° Criar o sql, organizar e executar
             //Comando SQL (seleciona tudo da tabela produtos)
-            String sql = "select v.id ,  date_format(v.data_venda,'%d/%m/%Y') as data_format , c.nome, v.total_venda, v.observacoes  from tb_vendas as v  "
+            String sql = "select v.id ,  date_format(v.data_venda,'%d/%m/%Y') as data_format , c.nome, v.total_venda, v.observacoes, c.cpf  from tb_vendas as v  "
                     + " inner join tb_clientes as c on(v.cliente_id = c.id) where v.data_venda BETWEEN ? AND ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, data_inicial.toString());
@@ -107,6 +107,7 @@ public class VendasDao {
                 obj.setId(rs.getInt("v.id"));
                 obj.setData_venda(rs.getString("data_format"));
                 c.setNome(rs.getString("c.nome"));
+                c.setCpf(rs.getString("c.cpf"));
                 obj.setTotal_venda(rs.getDouble("v.total_venda"));
                 obj.setObs(rs.getString("v.observacoes"));
 
