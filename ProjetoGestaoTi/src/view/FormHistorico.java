@@ -213,7 +213,7 @@ public class FormHistorico extends javax.swing.JFrame {
             LocalDate data_inicial = LocalDate.parse(txtDataInicial.getText(), formatar);
             LocalDate data_final = LocalDate.parse(txtDataFinal.getText(), formatar);
 
-            System.out.println(data_inicial.compareTo(data_final));
+            //System.out.println(data_inicial.compareTo(data_final));
             if (data_inicial.compareTo(data_final) <= 0){
                 VendasDao dao = new VendasDao();
                 List<Vendas> lista = dao.listarVendasPeriodo(data_inicial, data_final);
@@ -289,7 +289,7 @@ public class FormHistorico extends javax.swing.JFrame {
                 LocalDate data_inicial = LocalDate.parse(txtDataInicial.getText(), formatar);
                 LocalDate data_final = LocalDate.parse(txtDataFinal.getText(), formatar);
 
-                System.out.println(data_inicial.compareTo(data_final));
+                //System.out.println(data_inicial.compareTo(data_final));
                 if (data_inicial.compareTo(data_final) <= 0){
                     VendasDao dao = new VendasDao();
                     List<Vendas> lista = dao.listarVendasPeriodo(data_inicial, data_final);

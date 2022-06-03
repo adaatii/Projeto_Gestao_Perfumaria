@@ -1,6 +1,9 @@
 /dao/
-/view/
 /model/
-/br/
+/view/
 /jdbc/
-/ClientesTest.class
+/br/
+/EditarTest.class
+/ExcluirTest.class
+/CadastrarTest.class
+/Metodos/

@@ -539,10 +539,7 @@ public class FormFornecedores extends javax.swing.JFrame {
             obj.setBairro(txtBairro.getText());
             obj.setCidade(txtCidade.getText());
             obj.setUf(cbUf.getSelectedItem().toString());
-
-            if (obj.getEmail().equals("")) {
-                obj.setEmail("Não informado");
-            }
+           
 
             FornecedoresDao dao = new FornecedoresDao();
             dao.cadastrarFornecedores(obj);
@@ -580,7 +577,7 @@ public class FormFornecedores extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // Botão editar
         if (txtNumero.getText().equals("") || txtNome.getText().isEmpty() || txtEndereco.getText().isEmpty()
-                || txtBairro.getText().isEmpty() || txtCidade.getText().isEmpty()
+                || txtBairro.getText().isEmpty() || txtCidade.getText().isEmpty() || txtEmail.getText().isEmpty()
                 || txtCnpj.getText().equals("  .   .   /    -  ") || txtCep.getText().equals("      -    ")) {
             JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
         } else {

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dao;
+package Metodos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,24 +20,24 @@ import view.FormLogin;
  *
  * @author adaatii
  */
-public class FuncionariosDao {
+public class TestFuncionariosDao {
 
 	// Conexão BD
 	private Connection con;
 
-	public FuncionariosDao() {
+	public TestFuncionariosDao() {
 
 		this.con = new ConnectionFactory().getConnection();
 
 	}
 
 	// Método Cadastrar Funcionário
-	public void cadastrarFuncionarios(Funcionarios obj) {
+	public boolean cadastrarFuncionarios(Funcionarios obj) {
 		try {
 			// Criar comando SQL insere nos campos da tabela Clientes os valores
 			// 1° pega o valor(Get) do campo e já atribui(Set) ao BD
-			String sql = "insert into tb_funcionarios (nome,rg,cpf,email,senha,cargo,nivel_acesso,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado)"
-					+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into tb_funcionarios (nome,rg,cpf,email,senha,cargo,nivel_acesso,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado,id)"
+					+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			// Conectar banco de dados e organizar o comando SQL
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -57,6 +57,7 @@ public class FuncionariosDao {
 			stmt.setString(14, obj.getBairro());
 			stmt.setString(15, obj.getCidade());
 			stmt.setString(16, obj.getUf());
+			stmt.setInt(17, obj.getId());
 
 			// Executar o comando SQL
 			stmt.execute();
@@ -66,8 +67,9 @@ public class FuncionariosDao {
 
 		} catch (SQLException erro) {
 			JOptionPane.showMessageDialog(null, "RG ou CPF já cadastrado!", null, JOptionPane.ERROR_MESSAGE);
-
+			return false;
 		}
+		return true;
 
 	}
 
