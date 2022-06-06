@@ -219,7 +219,7 @@ public class FormProdutos extends javax.swing.JFrame {
         painelDadosConsulta.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel18.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel18.setText("Nome:");
+        jLabel18.setText("Descrição:");
 
         txtPesquisa.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         txtPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
