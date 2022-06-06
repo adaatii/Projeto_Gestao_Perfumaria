@@ -57,10 +57,10 @@ public class TestClientesDao {
 			stmt.execute();
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "RG ou CPF já cadastrado!", null, JOptionPane.ERROR_MESSAGE);
+			//JOptionPane.showMessageDialog(null, "RG ou CPF já cadastrado!", null, JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 		return true;
@@ -95,10 +95,10 @@ public class TestClientesDao {
 			stmt.execute();
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			//JOptionPane.showMessageDialog(null, "Erro: " + erro);
 			return false;
 		}
 		return true;
@@ -130,10 +130,10 @@ public class TestClientesDao {
 			stmt.execute();				
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, " Cliente não pode ser Excluido. Já vinculado a venda!");
+			//JOptionPane.showMessageDialog(null, " Cliente não pode ser Excluido. Já vinculado a venda!");
 			return false;
 		}
 		return true;

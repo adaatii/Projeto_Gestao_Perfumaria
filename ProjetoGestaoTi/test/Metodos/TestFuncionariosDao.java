@@ -63,10 +63,10 @@ public class TestFuncionariosDao {
 			stmt.execute();
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "RG ou CPF já cadastrado!", null, JOptionPane.ERROR_MESSAGE);
+			//JOptionPane.showMessageDialog(null, "RG ou CPF já cadastrado!", null, JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 		return true;
@@ -120,7 +120,7 @@ public class TestFuncionariosDao {
 	}
 
 	// Método Alterar Funcionário
-	public void alterarFuncionarios(Funcionarios obj) {
+	public boolean alterarFuncionarios(Funcionarios obj) {
 		try {
 			// Criar comando SQL altera nos campos da tabela Clientes os valores
 			String sql = "update tb_funcionarios set nome=?,rg=?,cpf=?,email=?,senha=?,cargo=?,nivel_acesso=?,telefone=?,celular=?,cep=?,endereco=?,"
@@ -150,16 +150,17 @@ public class TestFuncionariosDao {
 			stmt.execute();
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			//JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			return false;
 		}
-
+		return true;
 	}
 
 	// Método Excluir Funcionário
-	public void excluirFuncionarios(Funcionarios obj) {
+	public boolean excluirFuncionarios(Funcionarios obj) {
 		try {
 			// Criar comando SQL deleta nos campos da tabela Clientes os valores
 
@@ -173,11 +174,13 @@ public class TestFuncionariosDao {
 			stmt.execute();
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			//JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			return false;
 		}
+		return true;
 	}
 
 	// Metodo Buscar Funcionario por nome - retorna uma Lista

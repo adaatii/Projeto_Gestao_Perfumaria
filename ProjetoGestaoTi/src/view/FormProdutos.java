@@ -392,16 +392,18 @@ public class FormProdutos extends javax.swing.JFrame {
     }// GEN-LAST:event_btnSalvarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {// GEN-FIRST:event_formWindowActivated
-        
-        // Carrega a lista
-        listar();
+        if(txtCodigo.getText().equals("")) {
+        	 // Carrega a lista
+            listar();
 
-        FornecedoresDao daof = new FornecedoresDao();
-        List<Fornecedores> listafornecedores = daof.listarFornecedor();
+            FornecedoresDao daof = new FornecedoresDao();
+            List<Fornecedores> listafornecedores = daof.listarFornecedor();
 
-        for (Fornecedores f : listafornecedores) {
-            cbFornecedores.addItem(f);
+            for (Fornecedores f : listafornecedores) {
+                cbFornecedores.addItem(f);
+            }
         }
+       
 
     }// GEN-LAST:event_formWindowActivated
 

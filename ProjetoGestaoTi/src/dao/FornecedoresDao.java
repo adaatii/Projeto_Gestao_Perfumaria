@@ -82,7 +82,7 @@ public class FornecedoresDao {
 			JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, " Fornecedor não pode ser Excluido. Já vinculado a venda!", null, JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Fornecedor não pode ser Excluido. Já vinculado a venda!", null, JOptionPane.WARNING_MESSAGE);
 		}
 
 	}

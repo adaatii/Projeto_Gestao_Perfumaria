@@ -56,10 +56,10 @@ public class TestFornecedoresDao {
 			stmt.execute();
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "CNPJ já cadastrado!", null, JOptionPane.ERROR_MESSAGE);
+			//JOptionPane.showMessageDialog(null, "CNPJ já cadastrado!", null, JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 		return true;
@@ -67,7 +67,7 @@ public class TestFornecedoresDao {
 	}
 
 	// Método Excluir Fornecedores
-	public void excluirFornecedor(Fornecedores obj) {
+	public boolean excluirFornecedor(Fornecedores obj) {
 		try {
 			// Criar comando SQL deleta nos campos da tabela Clientes os valores
 
@@ -81,16 +81,18 @@ public class TestFornecedoresDao {
 			stmt.execute();
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			//JOptionPane.showMessageDialog(null, "Fornecedor não pode ser Excluido. Já vinculado a venda!");
+			return false;
 		}
+		return true;
 
 	}
 
 	// Metodo Alterar Fornecedores
-	public void alterarFornecedor(Fornecedores obj) {
+	public boolean alterarFornecedor(Fornecedores obj) {
 		try {
 			// Criar comando SQL altera nos campos da tabela Fornecedores os valores
 			String sql = "update tb_fornecedores set nome=?,cnpj=?,email=?,telefone=?,celular=?,cep=?,endereco=?,"
@@ -117,11 +119,13 @@ public class TestFornecedoresDao {
 			stmt.execute();
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			//JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			return false;
 		}
+		return true;
 
 	}
 

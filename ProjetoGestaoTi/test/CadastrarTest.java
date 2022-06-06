@@ -5,19 +5,14 @@
 
 import static org.junit.Assert.assertEquals;
 
-import javax.swing.JOptionPane;
-
 import model.Clientes;
 import model.Fornecedores;
 import model.Funcionarios;
-
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-
 import Metodos.TestClientesDao;
 import Metodos.TestFornecedoresDao;
 import Metodos.TestFuncionariosDao;
-
 import org.junit.FixMethodOrder;
 
 /**
@@ -53,7 +48,7 @@ public class CadastrarTest {
 		}
 		if (obj.getNome().isEmpty() || obj.getRg().isEmpty() || obj.getCpf().isEmpty() || obj.getCidade().isEmpty()
 				|| obj.getBairro().isEmpty() || obj.getCep().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
+			// JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
 			erro = 1;
 		} else {
 			TestClientesDao test = new TestClientesDao();
@@ -88,7 +83,7 @@ public class CadastrarTest {
 		}
 		if (obj.getNome().isEmpty() || obj.getRg().isEmpty() || obj.getCpf().isEmpty() || obj.getCidade().isEmpty()
 				|| obj.getBairro().isEmpty() || obj.getCep().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
+			// JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
 			erro = 1;
 		} else {
 			TestClientesDao test = new TestClientesDao();
@@ -123,7 +118,7 @@ public class CadastrarTest {
 		}
 		if (obj.getNome().isEmpty() || obj.getRg().isEmpty() || obj.getCpf().isEmpty() || obj.getCidade().isEmpty()
 				|| obj.getBairro().isEmpty() || obj.getCep().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
+			// JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
 			erro = 1;
 		} else {
 			TestClientesDao test = new TestClientesDao();
@@ -159,7 +154,7 @@ public class CadastrarTest {
 				|| obj.getCidade().isEmpty() || obj.getRg().isEmpty() || obj.getCpf().isEmpty()
 				|| obj.getCep().isEmpty() || obj.getEmail().isEmpty() || obj.getCargo().isEmpty()
 				|| obj.getSenha().isEmpty() || obj.getCelular().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
+			// JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
 			erro = 1;
 		} else {
 			TestFuncionariosDao test = new TestFuncionariosDao();
@@ -195,7 +190,7 @@ public class CadastrarTest {
 				|| obj.getCidade().isEmpty() || obj.getRg().isEmpty() || obj.getCpf().isEmpty()
 				|| obj.getCep().isEmpty() || obj.getEmail().isEmpty() || obj.getCargo().isEmpty()
 				|| obj.getSenha().isEmpty() || obj.getCelular().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
+			// JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
 			erro = 1;
 		} else {
 			TestFuncionariosDao test = new TestFuncionariosDao();
@@ -231,7 +226,7 @@ public class CadastrarTest {
 				|| obj.getCidade().isEmpty() || obj.getRg().isEmpty() || obj.getCpf().isEmpty()
 				|| obj.getCep().isEmpty() || obj.getEmail().isEmpty() || obj.getCargo().isEmpty()
 				|| obj.getSenha().isEmpty() || obj.getCelular().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
+			// JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
 			erro = 1;
 		} else {
 			TestFuncionariosDao test = new TestFuncionariosDao();
@@ -262,7 +257,7 @@ public class CadastrarTest {
 
 		if (obj.getNome().isEmpty() || obj.getCnpj().isEmpty() || obj.getCidade().isEmpty() || obj.getBairro().isEmpty()
 				|| obj.getCep().isEmpty() || obj.getEmail().isEmpty() || obj.getCelular().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
+			// JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
 			erro = 1;
 		} else {
 			TestFornecedoresDao test = new TestFornecedoresDao();
@@ -272,7 +267,7 @@ public class CadastrarTest {
 		}
 		assertEquals(0, erro);
 	}
-	
+
 	@Test
 	public void HTestCadastrarFornecedorDuplicado() {
 
@@ -293,7 +288,7 @@ public class CadastrarTest {
 
 		if (obj.getNome().isEmpty() || obj.getCnpj().isEmpty() || obj.getCidade().isEmpty() || obj.getBairro().isEmpty()
 				|| obj.getCep().isEmpty() || obj.getEmail().isEmpty() || obj.getCelular().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
+			// JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
 			erro = 1;
 		} else {
 			TestFornecedoresDao test = new TestFornecedoresDao();
@@ -303,7 +298,7 @@ public class CadastrarTest {
 		}
 		assertEquals(0, erro);
 	}
-	
+
 	@Test
 	public void ITestCadastrarFornecedorCampoObrigatorioVazio() {
 
@@ -324,7 +319,7 @@ public class CadastrarTest {
 
 		if (obj.getNome().isEmpty() || obj.getCnpj().isEmpty() || obj.getCidade().isEmpty() || obj.getBairro().isEmpty()
 				|| obj.getCep().isEmpty() || obj.getEmail().isEmpty() || obj.getCelular().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
+			// JOptionPane.showMessageDialog(null, "Preencha os campos Obrigatórios");
 			erro = 1;
 		} else {
 			TestFornecedoresDao test = new TestFornecedoresDao();
@@ -334,8 +329,6 @@ public class CadastrarTest {
 		}
 		assertEquals(1, erro);
 	}
-	
-	
 
 	// TODO add test methods here.
 	// The methods must be annotated with annotation @Test. For example:
