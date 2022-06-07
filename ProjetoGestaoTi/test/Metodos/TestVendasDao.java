@@ -32,7 +32,7 @@ public class TestVendasDao {
     }
     
     //cadastrar Venda
-    public void cadastrarVenda(Vendas obj){
+    public boolean cadastrarVenda(Vendas obj){
          try {
             
             String sql = "insert into tb_vendas (cliente_id,data_venda,total_venda,observacoes)values(?,?,?,?)";
@@ -52,7 +52,9 @@ public class TestVendasDao {
             
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro: " + erro);
+            return false;
         }
+         return true;
     }
     
     //retornar ultima venda
