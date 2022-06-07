@@ -54,7 +54,7 @@ public class TestProdutosDao {
 			//JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, erro);
+			//JOptionPane.showMessageDialog(null, erro);
 			return false;
 		}
 		return true;
@@ -184,7 +184,7 @@ public class TestProdutosDao {
 	/**
 	 * Método Alterar Produtos
 	 */
-	public void alterarProduto(Produtos obj) {
+	public boolean alterarProduto(Produtos obj) {
 		try {
 
 			String sql = "update tb_produtos set descricao=?,preco=?,qtd_estoque=? where id=?"; //,for_id=?
@@ -203,11 +203,13 @@ public class TestProdutosDao {
 			stmt.execute();
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			//JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			return false;
 		}
+		return true;
 	}
 
 	/**

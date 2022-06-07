@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import jdbc.ConnectionFactory;
 import model.Funcionarios;
 import view.FormMenu;
+import view.FormProdutos;
 import view.FormLogin;
 
 /**
@@ -257,6 +258,7 @@ public class FuncionariosDao {
 					menu.mnPosicaoDia.setVisible(false);
 					menu.mnHistoricoVenda.setVisible(false);
 					menu.setVisible(true);
+					
 
 				}
 

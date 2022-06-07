@@ -1,13 +1,19 @@
 import static org.junit.Assert.*;
+
+import java.util.List;
+
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import Metodos.TestClientesDao;
 import Metodos.TestFornecedoresDao;
 import Metodos.TestFuncionariosDao;
+import Metodos.TestProdutosDao;
+import dao.FornecedoresDao;
 import model.Clientes;
 import model.Fornecedores;
 import model.Funcionarios;
+import model.Produtos;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
@@ -217,6 +223,55 @@ public class EditarTest {
 
 		}
 		assertEquals(1, erro);
+	}
+	
+	@Test
+	public void JTestEditarProdutos() {
+		Produtos obj = new Produtos();
+		obj.setId(Integer.parseInt("13"));
+		obj.setDescricao("Mouse Oracle");
+		obj.setPreco(Double.parseDouble("200"));
+		obj.setQtd_estoque(Integer.parseInt("2"));
+
+		if (obj.getDescricao().isEmpty() || obj.getPreco() <= 0 || obj.getQtd_estoque() <= 0) {
+			erro = 1;
+		} else {
+			
+			TestProdutosDao dao = new TestProdutosDao();
+			assertEquals(true, dao.alterarProduto(obj));
+			erro = 0;
+		}
+		assertEquals(0, erro);
+
+	}
+
+	
+	@Test
+	public void LTestEditarProdutosCamposObrigatoriosVazio() {
+		try {
+			Produtos obj = new Produtos();
+			obj.setId(Integer.parseInt("13"));
+			obj.setDescricao("Mouse Oracle");
+			obj.setPreco(Double.parseDouble(""));	
+			obj.setQtd_estoque(Integer.parseInt("2"));
+
+			String preco = Double.toString(obj.getPreco());
+			String qtd_estoque = Double.toString(obj.getQtd_estoque());
+			String descricao = obj.getDescricao();
+
+			if (descricao.isEmpty() || preco.isEmpty() || qtd_estoque.isEmpty()) {				
+				erro = 1;				
+			} else {
+				TestProdutosDao dao = new TestProdutosDao();
+				assertEquals(true, dao.alterarProduto(obj));
+				erro = 0;
+				
+			}
+			assertEquals(1, erro);
+
+		} catch (Exception e) {		
+		}
+		
 	}
 
 }

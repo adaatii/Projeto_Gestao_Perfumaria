@@ -406,14 +406,17 @@ public class CadastrarTest {
 			Produtos obj = new Produtos();
 			obj.setId(Integer.parseInt("13"));
 			obj.setDescricao("Mouse");
-			obj.setPreco(Double.parseDouble(""));	
+			obj.setPreco(Double.parseDouble(""));
 			obj.setQtd_estoque(Integer.parseInt("2"));
 
 			String preco = Double.toString(obj.getPreco());
 			String qtd_estoque = Double.toString(obj.getQtd_estoque());
 			String descricao = obj.getDescricao();
 
-			if (!descricao.isEmpty() || !preco.isEmpty() || !qtd_estoque.isEmpty()) {
+			if (descricao.isEmpty() || preco.isEmpty() || qtd_estoque.isEmpty()) {
+				erro = 1;
+
+			} else {
 				// Criar um objeto de FOrnecedor
 				TestProdutosDao dao = new TestProdutosDao();
 				List<Produtos> lista = dao.listarProdutos();
@@ -426,15 +429,13 @@ public class CadastrarTest {
 
 				assertEquals(true, dao.cadastrarProduto(obj));
 				erro = 0;
-				
-			} else {
-				erro = 1;
+
 			}
 			assertEquals(1, erro);
 
-		} catch (Exception e) {		
+		} catch (Exception e) {
 		}
-		
+
 	}
 
 	// TODO add test methods here.
