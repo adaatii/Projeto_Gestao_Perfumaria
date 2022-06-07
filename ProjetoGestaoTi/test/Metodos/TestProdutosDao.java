@@ -215,7 +215,7 @@ public class TestProdutosDao {
 	/**
 	 * Método Excluir Produto
 	 */
-	public void excluirProduto(Produtos obj) {
+	public boolean excluirProduto(Produtos obj) {
 		try {
 
 			String sql = "delete from tb_produtos where id=?";
@@ -229,11 +229,13 @@ public class TestProdutosDao {
 			stmt.execute();
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Produto Excluido com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Produto Excluido com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "Produto não pode ser Excluido. Já vinculado a venda!",null, JOptionPane.WARNING_MESSAGE);
+			//JOptionPane.showMessageDialog(null, "Produto não pode ser Excluido. Já vinculado a venda!",null, JOptionPane.WARNING_MESSAGE);
+			return false;
 		}
+		return true;
 	}
 
 	/**
