@@ -5,6 +5,11 @@
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 import model.Clientes;
 import model.Fornecedores;
 import model.Funcionarios;
@@ -16,6 +21,8 @@ import org.junit.runners.MethodSorters;
 import Metodos.TestClientesDao;
 import Metodos.TestFornecedoresDao;
 import Metodos.TestFuncionariosDao;
+import Metodos.TestProdutosDao;
+import dao.FornecedoresDao;
 import dao.ProdutosDao;
 
 import org.junit.FixMethodOrder;
@@ -334,25 +341,101 @@ public class CadastrarTest {
 		}
 		assertEquals(1, erro);
 	}
-	
-	/*@Test
+
+	@Test
 	public void JTestCadastrarProdutos() {
 		Produtos obj = new Produtos();
-        obj.setDescricao(txtDescricao.getText());
-        obj.setPreco(Double.parseDouble(txtPreco.getText()));
-        obj.setQtd_estoque(Integer.parseInt(txtQdtEstoque.getText()));
+		obj.setId(Integer.parseInt("13"));
+		obj.setDescricao("Mouse Microsoft");
+		obj.setPreco(Double.parseDouble("137"));
+		obj.setQtd_estoque(Integer.parseInt("2"));
 
-        // Criar um objeto de FOrnecedor
-        Fornecedores f = new Fornecedores();
-        f = (Fornecedores) cbFornecedores.getSelectedItem();
-        obj.setFornecedor(f);
+		if (obj.getDescricao().isEmpty() || obj.getPreco() <= 0 || obj.getQtd_estoque() <= 0) {
+			erro = 1;
+		} else {
 
-        ProdutosDao dao = new ProdutosDao();
-        dao.cadastrarProduto(obj);
+			// Criar um objeto de FOrnecedor
+			TestProdutosDao dao = new TestProdutosDao();
+			List<Produtos> lista = dao.listarProdutos();
 
-        new Utilitarios().LimparTela(painelDadosCadastro);
+			FornecedoresDao daof = new FornecedoresDao();
+			List<Fornecedores> listafornecedores = daof.listarFornecedor();
+			Fornecedores f = new Fornecedores();
+			f = (Fornecedores) listafornecedores.get(1);
+			obj.setFornecedor(f);
 
-	}*/
+			assertEquals(true, dao.cadastrarProduto(obj));
+			erro = 0;
+		}
+		assertEquals(0, erro);
+
+	}
+
+	@Test
+	public void KTestCadastrarProdutosDescricaoDuplicada() {
+		Produtos obj = new Produtos();
+		obj.setId(Integer.parseInt("14"));
+		obj.setDescricao("Mouse Microsoft");
+		obj.setPreco(Double.parseDouble("137"));
+		obj.setQtd_estoque(Integer.parseInt("2"));
+
+		if (obj.getDescricao().isEmpty() || obj.getPreco() <= 0 || obj.getQtd_estoque() <= 0) {
+			erro = 1;
+		} else {
+
+			// Criar um objeto de FOrnecedor
+			TestProdutosDao dao = new TestProdutosDao();
+			List<Produtos> lista = dao.listarProdutos();
+
+			FornecedoresDao daof = new FornecedoresDao();
+			List<Fornecedores> listafornecedores = daof.listarFornecedor();
+			Fornecedores f = new Fornecedores();
+			f = (Fornecedores) listafornecedores.get(1);
+			obj.setFornecedor(f);
+
+			assertEquals(false, dao.cadastrarProduto(obj));
+			erro = 0;
+		}
+		assertEquals(0, erro);
+
+	}
+
+	@Test
+	public void LTestCadastrarProdutosCamposObrigatoriosVazio() {
+		try {
+			Produtos obj = new Produtos();
+			obj.setId(Integer.parseInt("13"));
+			obj.setDescricao("Mouse");
+			obj.setPreco(Double.parseDouble(""));	
+			obj.setQtd_estoque(Integer.parseInt("2"));
+
+			String preco = Double.toString(obj.getPreco());
+			String qtd_estoque = Double.toString(obj.getQtd_estoque());
+			String descricao = obj.getDescricao();
+
+			if (!descricao.isEmpty() || !preco.isEmpty() || !qtd_estoque.isEmpty()) {
+				// Criar um objeto de FOrnecedor
+				TestProdutosDao dao = new TestProdutosDao();
+				List<Produtos> lista = dao.listarProdutos();
+
+				FornecedoresDao daof = new FornecedoresDao();
+				List<Fornecedores> listafornecedores = daof.listarFornecedor();
+				Fornecedores f = new Fornecedores();
+				f = (Fornecedores) listafornecedores.get(1);
+				obj.setFornecedor(f);
+
+				assertEquals(true, dao.cadastrarProduto(obj));
+				erro = 0;
+				
+			} else {
+				erro = 1;
+			}
+			assertEquals(1, erro);
+
+		} catch (Exception e) {		
+		}
+		
+	}
 
 	// TODO add test methods here.
 	// The methods must be annotated with annotation @Test. For example:
