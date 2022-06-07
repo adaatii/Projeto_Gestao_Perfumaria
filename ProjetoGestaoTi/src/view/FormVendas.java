@@ -611,31 +611,35 @@ public class FormVendas extends javax.swing.JFrame {
         obj = dao.buscaProdutosCodigo(Integer.parseInt(txtCodigoProduto.getText()));
 
         qtd = Integer.parseInt(txtQtd.getText());
+        if (qtd > 0) {
+            if (obj.getQtd_estoque() > 0 && obj.getQtd_estoque() >= qtd) {
+                preco = Double.parseDouble(txtPreco.getText());
 
-        if (obj.getQtd_estoque() > 0 && obj.getQtd_estoque() >= qtd) {
-            preco = Double.parseDouble(txtPreco.getText());
+                subtotal = qtd * preco;
 
-            subtotal = qtd * preco;
+                total += subtotal;
+                txtTotal.setText("R$ " + String.valueOf(total));
 
-            total += subtotal;
-            txtTotal.setText("R$ " + String.valueOf(total));
+                //Adicionar o produto no carrinho
+                carrinho = (DefaultTableModel) tabelaItens.getModel();
 
-            //Adicionar o produto no carrinho
-            carrinho = (DefaultTableModel) tabelaItens.getModel();
+                carrinho.addRow(new Object[]{
+                    txtCodigoProduto.getText(),
+                    txtDescricao.getText(),
+                    txtQtd.getText(),
+                    txtPreco.getText(),
+                    subtotal
 
-            carrinho.addRow(new Object[]{
-                txtCodigoProduto.getText(),
-                txtDescricao.getText(),
-                txtQtd.getText(),
-                txtPreco.getText(),
-                subtotal
+                });
 
-            });
-
-            new Utilitarios().LimparTela(painelDadosProdutos);
-        } else {
-            JOptionPane.showMessageDialog(null, "Quantidade maior que disponivel no estoque. O estoque é: " + obj.getQtd_estoque());
-            txtQtd.setText("");
+                new Utilitarios().LimparTela(painelDadosProdutos);
+            } else {
+                JOptionPane.showMessageDialog(null, "Quantidade maior que disponivel no estoque. O estoque é: " + obj.getQtd_estoque());
+                txtQtd.setText("");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Quantidade deve ser maior que 0 ");
+                txtQtd.setText("");
         }
 
 
