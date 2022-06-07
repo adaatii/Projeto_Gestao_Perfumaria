@@ -60,7 +60,7 @@ public class TestClientesDao {
 			//JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 
 		} catch (SQLException erro) {
-			//JOptionPane.showMessageDialog(null, "RG ou CPF já cadastrado!", null, JOptionPane.ERROR_MESSAGE);
+			//JOptionPane.showMessageDialog(null, erro);
 			return false;
 		}
 		return true;

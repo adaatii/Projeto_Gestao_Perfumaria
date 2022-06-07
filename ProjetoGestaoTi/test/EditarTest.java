@@ -18,8 +18,8 @@ public class EditarTest {
 	public void ATestEditar() {
 		Clientes obj = new Clientes();
 		obj.setNome("Samuel");
-		obj.setRg("90.040.346-6");
-		obj.setCpf("123.040.717-80");
+		obj.setRg("90.570.346-7");
+		obj.setCpf("123.990.717-80");
 		obj.setEmail("");
 		obj.setTelefone("");
 		obj.setCelular("");
@@ -30,7 +30,7 @@ public class EditarTest {
 		obj.setBairro("jardim teste");
 		obj.setCidade("São Paulo");
 		obj.setUf("SP");
-		obj.setId(Integer.parseInt("40"));
+		obj.setId(Integer.parseInt("50"));
 
 		if (obj.getEmail().equals("")) {
 			obj.setEmail("Não informado");
@@ -67,7 +67,7 @@ public class EditarTest {
 		obj.setBairro("jardim teste");
 		obj.setCidade("Cruzeiro");
 		obj.setUf("SP");
-		obj.setId(Integer.parseInt("40"));
+		obj.setId(Integer.parseInt("50"));
 
 		if (obj.getEmail().equals("")) {
 			obj.setEmail("Não informado");
