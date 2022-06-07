@@ -34,8 +34,8 @@ public class CadastrarTest {
 
 		Clientes obj = new Clientes();
 		obj.setNome("Pedro");
-		obj.setRg("90.040.346-6");
-		obj.setCpf("123.040.717-80");
+		obj.setRg("90.570.346-7");
+		obj.setCpf("123.990.717-80");
 		obj.setEmail("");
 		obj.setTelefone("");
 		obj.setCelular("");
@@ -46,7 +46,7 @@ public class CadastrarTest {
 		obj.setBairro("jardim teste");
 		obj.setCidade("Cruzeiro");
 		obj.setUf("SP");
-		obj.setId(Integer.parseInt("40"));
+		obj.setId(Integer.parseInt("50"));
 
 		if (obj.getEmail().equals("")) {
 			obj.setEmail("Não informado");
@@ -69,8 +69,8 @@ public class CadastrarTest {
 
 		Clientes obj = new Clientes();
 		obj.setNome("Pedro");
-		obj.setRg("90.040.346-6");
-		obj.setCpf("123.040.717-80");
+		obj.setRg("90.570.346-7");
+		obj.setCpf("123.990.717-80");
 		obj.setEmail("");
 		obj.setTelefone("");
 		obj.setCelular("");
@@ -81,7 +81,7 @@ public class CadastrarTest {
 		obj.setBairro("jardim teste");
 		obj.setCidade("Cruzeiro");
 		obj.setUf("SP");
-		obj.setId(Integer.parseInt("40"));
+		obj.setId(Integer.parseInt("51"));
 
 		if (obj.getEmail().equals("")) {
 			obj.setEmail("Não informado");
@@ -116,7 +116,7 @@ public class CadastrarTest {
 		obj.setBairro("jardim teste");
 		obj.setCidade("Cruzeiro");
 		obj.setUf("SP");
-		obj.setId(Integer.parseInt("40"));
+		obj.setId(Integer.parseInt("50"));
 
 		if (obj.getEmail().equals("")) {
 			obj.setEmail("Não informado");
@@ -189,7 +189,7 @@ public class CadastrarTest {
 		obj.setBairro("Jardim do teste");
 		obj.setCidade("Cruzeiro");
 		obj.setUf("SP");
-		obj.setId(Integer.parseInt("4"));
+		obj.setId(Integer.parseInt("3"));
 
 		if (obj.getNome().isEmpty() || obj.getEndereco().isEmpty() || obj.getBairro().isEmpty()
 				|| obj.getCidade().isEmpty() || obj.getRg().isEmpty() || obj.getCpf().isEmpty()
@@ -225,7 +225,7 @@ public class CadastrarTest {
 		obj.setBairro("Jardim do teste");
 		obj.setCidade("Cruzeiro");
 		obj.setUf("SP");
-		obj.setId(Integer.parseInt("4"));
+		obj.setId(Integer.parseInt("3"));
 
 		if (obj.getNome().isEmpty() || obj.getEndereco().isEmpty() || obj.getBairro().isEmpty()
 				|| obj.getCidade().isEmpty() || obj.getRg().isEmpty() || obj.getCpf().isEmpty()
@@ -289,7 +289,7 @@ public class CadastrarTest {
 		obj.setBairro("jardim teste");
 		obj.setCidade("Acer");
 		obj.setUf("SP");
-		obj.setId(Integer.parseInt("3"));
+		obj.setId(Integer.parseInt("6"));
 
 		if (obj.getNome().isEmpty() || obj.getCnpj().isEmpty() || obj.getCidade().isEmpty() || obj.getBairro().isEmpty()
 				|| obj.getCep().isEmpty() || obj.getEmail().isEmpty() || obj.getCelular().isEmpty()) {
@@ -320,7 +320,7 @@ public class CadastrarTest {
 		obj.setBairro("jardim teste");
 		obj.setCidade("Acer");
 		obj.setUf("SP");
-		obj.setId(Integer.parseInt("3"));
+		obj.setId(Integer.parseInt("6"));
 
 		if (obj.getNome().isEmpty() || obj.getCnpj().isEmpty() || obj.getCidade().isEmpty() || obj.getBairro().isEmpty()
 				|| obj.getCep().isEmpty() || obj.getEmail().isEmpty() || obj.getCelular().isEmpty()) {

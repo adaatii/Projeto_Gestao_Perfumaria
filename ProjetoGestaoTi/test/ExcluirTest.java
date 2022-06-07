@@ -18,7 +18,7 @@ public class ExcluirTest {
 	public void ATestExcluirCliente() {
 		Clientes obj = new Clientes();
 
-		obj.setId(Integer.parseInt("40"));
+		obj.setId(Integer.parseInt("50"));
 
 		TestClientesDao test = new TestClientesDao();
 		assertEquals(true, test.excluirCliente(obj));
