@@ -1,10 +1,9 @@
-/CadastrarTest.class
-/EditarTest.class
-/ExcluirTest.class
-/br/
 /dao/
 /jdbc/
 /model/
 /view/
+/CadastrarTest.class
+/EditarTest.class
+/ExcluirTest.class
 /Metodos/
 /VendaTest.class

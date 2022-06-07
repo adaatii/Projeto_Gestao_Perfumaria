@@ -6,9 +6,12 @@ import org.junit.runners.MethodSorters;
 import Metodos.TestClientesDao;
 import Metodos.TestFornecedoresDao;
 import Metodos.TestFuncionariosDao;
+import Metodos.TestProdutosDao;
+import dao.ProdutosDao;
 import model.Clientes;
 import model.Fornecedores;
 import model.Funcionarios;
+import model.Produtos;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
@@ -62,6 +65,26 @@ public class ExcluirTest {
 
 		TestFuncionariosDao test = new TestFuncionariosDao();
 		assertEquals(true, test.excluirFuncionarios(obj));
+	}
+	
+	@Test
+	public void FTestExclirProduto() {
+		 Produtos obj = new Produtos();
+
+         obj.setId(Integer.parseInt("13"));
+
+         TestProdutosDao dao = new TestProdutosDao();
+         assertEquals(true, dao.excluirProduto(obj));
+	}
+	
+	@Test
+	public void GTestExclirProdutoVinculadoVenda() {
+		 Produtos obj = new Produtos();
+
+         obj.setId(Integer.parseInt("2"));
+
+         TestProdutosDao dao = new TestProdutosDao();
+         assertEquals(false, dao.excluirProduto(obj));
 	}
 
 }
