@@ -8,11 +8,16 @@ import static org.junit.Assert.assertEquals;
 import model.Clientes;
 import model.Fornecedores;
 import model.Funcionarios;
+import model.Produtos;
+import model.Utilitarios;
+
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import Metodos.TestClientesDao;
 import Metodos.TestFornecedoresDao;
 import Metodos.TestFuncionariosDao;
+import dao.ProdutosDao;
+
 import org.junit.FixMethodOrder;
 
 /**
@@ -329,6 +334,25 @@ public class CadastrarTest {
 		}
 		assertEquals(1, erro);
 	}
+	
+	/*@Test
+	public void JTestCadastrarProdutos() {
+		Produtos obj = new Produtos();
+        obj.setDescricao(txtDescricao.getText());
+        obj.setPreco(Double.parseDouble(txtPreco.getText()));
+        obj.setQtd_estoque(Integer.parseInt(txtQdtEstoque.getText()));
+
+        // Criar um objeto de FOrnecedor
+        Fornecedores f = new Fornecedores();
+        f = (Fornecedores) cbFornecedores.getSelectedItem();
+        obj.setFornecedor(f);
+
+        ProdutosDao dao = new ProdutosDao();
+        dao.cadastrarProduto(obj);
+
+        new Utilitarios().LimparTela(painelDadosCadastro);
+
+	}*/
 
 	// TODO add test methods here.
 	// The methods must be annotated with annotation @Test. For example:
