@@ -1,3 +1,10 @@
+<<<<<<< Updated upstream
+=======
+/dao/
+/jdbc/
+/model/
+/view/
+>>>>>>> Stashed changes
 /CadastrarTest.class
 /EditarTest.class
 /ExcluirTest.class
@@ -8,3 +15,7 @@
 /view/
 /Metodos/
 /VendaTest.class
+<<<<<<< Updated upstream
+=======
+/br/
+>>>>>>> Stashed changes

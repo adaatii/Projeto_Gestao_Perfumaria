@@ -16,8 +16,8 @@ import javax.swing.JOptionPane;
 import model.Fornecedores;
 
 /**
- *
  * @author adaatii
+ * @author diego Revisão de código
  */
 public class ProdutosDao {
 
@@ -30,8 +30,11 @@ public class ProdutosDao {
 	}
 
 	/**
-	 * Método Cadastrar Produtos
-	 */
+	 * Método Cadastrar Produtos:
+	 * Salva as infromações dos Produtos no banco de dados tabela Produtos
+	 * @param obj Produtos  cadastrar as informações
+	 */	
+	
 	public void cadastrarProduto(Produtos obj) {
 		try {
 
@@ -60,7 +63,9 @@ public class ProdutosDao {
 	}
 
 	/**
-	 * Método Listar Produtos
+	 * Método Lista na Produtos
+	 * traz as informações do banco de dados da tabela Produtos e retona em uma lista
+	 * @return Retorna a lista com todos os Produtos da tabela Produtos
 	 */
 	public List<Produtos> listarProdutos() {
 
@@ -100,8 +105,11 @@ public class ProdutosDao {
 
 	}
 
+
 	/**
-	 * Método Listar Produtos por nome
+	 * Método Lista na Produtos por nome
+	 * traz as informações do banco de dados da tabela Produtos e retona o produto informado
+	 * @return Retorna a lista com o Produto informado da tabela Produtos
 	 */
 	public List<Produtos> buscaProdutosNome(String nome) {
 
@@ -181,7 +189,9 @@ public class ProdutosDao {
 
 	/**
 	 * Método Alterar Produtos
-	 */
+	 * Salva as infromações dos Produtos no banco de dados na tabela Produtos
+	 * @param obj Produtos  altera as informações através do ID
+	 */	
 	public void alterarProduto(Produtos obj) {
 		try {
 
@@ -207,10 +217,12 @@ public class ProdutosDao {
 			JOptionPane.showMessageDialog(null, "Erro: " + erro);
 		}
 	}
-
+	
 	/**
-	 * Método Excluir Produto
-	 */
+	 * Método Excluir Produtos
+	 * Excluir as infromações dos Produtos no banco de dados na tabela Produtos
+	 * @param obj Produtos  Excluir as informações através do ID
+	 */	
 	public void excluirProduto(Produtos obj) {
 		try {
 
@@ -234,6 +246,7 @@ public class ProdutosDao {
 
 	/**
 	 * Método baixa de estoque
+	 * Faz a baixa do saldo em estoque
 	 */
 	public void baixarEstoque(int id, int qtd_nova) {
 		try {
@@ -254,6 +267,7 @@ public class ProdutosDao {
 
 	/**
 	 * Método Atualizar estoque
+	 * Faz a atualização do estoque 
 	 */
 	public void atualizarEstoque(int id, int qtd_nova) {
 		try {
@@ -273,6 +287,7 @@ public class ProdutosDao {
 
 	/**
 	 * Metodo que retorna o estoque atual de um produto
+	 * @return Retorna o saldo do estoque atual
 	 */
 	public int retornaEstoqueAtual(int id) {
 		try {
@@ -294,8 +309,11 @@ public class ProdutosDao {
 		}
 	}
 
+	
 	/**
-	 * Método Listar Produtos por nome
+	 * Método Lista na Produtos por ID
+	 * traz as informações do banco de dados da tabela Produtos e retona o produto pelo ID
+	 * @return Retorna o Produto informado da tabela Produtos pelo ID
 	 */
 	public List<Produtos> listarProdutosCodigo(int id) {
 

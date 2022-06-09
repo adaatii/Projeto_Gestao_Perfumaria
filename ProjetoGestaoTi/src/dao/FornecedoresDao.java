@@ -15,8 +15,8 @@ import jdbc.ConnectionFactory;
 import model.Fornecedores;
 
 /**
- *
  * @author adaatii
+ * @author diego Revisão de código
  */
 public class FornecedoresDao {
 
@@ -27,7 +27,11 @@ public class FornecedoresDao {
 		this.con = new ConnectionFactory().getConnection(); // Conexão com o BD
 
 	}
-
+	/**
+	 * Método Cadastrar Fornecedores:
+	 * Salva as infromações dos Fornecedores no banco de dados tabela clientes
+	 * @param obj Fornecedores conecta FornecedoresDao para registar as informações
+	 */	
 	// Metodo Cadastrar Fornecedores
 	public void cadastrarFornecedores(Fornecedores obj) {
 		try {
@@ -63,7 +67,11 @@ public class FornecedoresDao {
 		}
 
 	}
-
+	/**
+	* Método excluir
+	* Exclui as informações da tabela fornecedores no banco de dados com as especificações informada pelo usuário
+	* @param obj Fornecedores conecta FornecedoresDao e exlui as informações
+	*/
 	// Método Excluir Fornecedores
 	public void excluirFornecedor(Fornecedores obj) {
 		try {
@@ -86,7 +94,11 @@ public class FornecedoresDao {
 		}
 
 	}
-
+	/**
+	 * Método editar
+	 * Altera as informações no banco de dados na tabela fornecedores com as especificações informada pelo usuário
+	 * @param obj Fornecedores conecta FornecedoresDao e altera as informações
+	 */
 	// Metodo Alterar Fornecedores
 	public void alterarFornecedor(Fornecedores obj) {
 		try {
@@ -122,7 +134,11 @@ public class FornecedoresDao {
 		}
 
 	}
-
+	/**
+	 * Método Lista na tabela
+	 * traz as informações do banco de dados da tabela fornrcedores e retona em uma lista
+	 * @return Retorna a lista com todos os fornecedores da tabela fornecedores
+	 */
 	// Metodo Listar Fornecedores
 	public List<Fornecedores> listarFornecedor() {
 
@@ -165,6 +181,12 @@ public class FornecedoresDao {
 
 	}
 
+	/**
+	 * Método Lista na tabela
+	 * traz as informações do banco de dados da tabela fornrcedores e retona em uma lista
+	 * @return Retorna a lista com todos os fornecedores por nome da tabela fornecedores
+	 */
+	
 	// Metodo Buscar Fornecedor por nome - retorna uma Lista
 	public List<Fornecedores> buscaFornecedorNome(String nome) {
 
@@ -207,7 +229,11 @@ public class FornecedoresDao {
 		}
 
 	}
-
+	/**
+	 * Método busca por nome
+	 * traz as informações do banco de dados da tabela fornecedores por nome
+	 *  @return Retorna o fornecedorer informado pelo usuário da tabela fornecedores
+	 */
 	// Método consulta Fornecedores Por nome
 	public Fornecedores consultaFornecedorNome(String nome) {
 		try {

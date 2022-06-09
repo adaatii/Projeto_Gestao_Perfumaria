@@ -17,8 +17,8 @@ import view.FormMenu;
 import view.FormLogin;
 
 /**
- *
  * @author adaatii
+ * @author diego Revisão de código
  */
 public class FuncionariosDao {
 
@@ -26,11 +26,14 @@ public class FuncionariosDao {
 	private Connection con;
 
 	public FuncionariosDao() {
-
 		this.con = new ConnectionFactory().getConnection();
-
 	}
 
+	/**
+	 * Método Cadastrar funcionário:
+	 * Salva as infromações dos funcionários no banco de dados tabela clientes
+	 * @param obj Funcionarios conecta com FuncionariosDao para cadastrar as informações
+	 */	
 	// Método Cadastrar Funcionário
 	public void cadastrarFuncionarios(Funcionarios obj) {
 		try {
@@ -71,6 +74,11 @@ public class FuncionariosDao {
 
 	}
 
+	/**
+	 * Método Lista na tabela
+	 * traz as informações do banco de dados da tabela funcionário e retona em uma lista
+	 * @return Retorna a lista com todos os funcionário da tabela funcionário
+	 */
 	// Método Lista Funcionário
 	public List<Funcionarios> listarFuncionarios() {
 
@@ -117,6 +125,11 @@ public class FuncionariosDao {
 
 	}
 
+	/**
+	 * Método editar
+	 * Altera as informações no banco de dados na tabela funcioário com as especificações informada pelo usuário
+	 * @param obj Funcionarios conecta com FuncionariosDao para alterar as informações
+	 */
 	// Método Alterar Funcionário
 	public void alterarFuncionarios(Funcionarios obj) {
 		try {
@@ -155,7 +168,11 @@ public class FuncionariosDao {
 		}
 
 	}
-
+	/**
+	* Método excluir
+	* Exclui as informações da tabela funcioário no banco de dados com as especificações informada pelo usuário
+	* @param obj Funcionarios conecta com FuncionariosDao para excluir as informações
+	*/
 	// Método Excluir Funcionário
 	public void excluirFuncionarios(Funcionarios obj) {
 		try {
@@ -178,6 +195,11 @@ public class FuncionariosDao {
 		}
 	}
 
+	/**
+	 * Método busca por nome
+	 * traz as informações do banco de dados da tabela funcionário por nome
+	 *  @return Retorna a lista com o funcionário informado da tabela funcionário
+	 */
 	// Metodo Buscar Funcionario por nome - retorna uma Lista
 	public List<Funcionarios> buscaFuncionarioNome(String nome) {
 
@@ -224,7 +246,11 @@ public class FuncionariosDao {
 		}
 
 	}
-
+	/**
+	 * Método Efetua Login
+	 * sistema faz a comparação com banco de dados com as informações do usuáro
+	 * Retorna a informação se o usuário está autorizado cadastrado
+	 */
 	// Método Efetua Login
 	public void efetuaLogin(String email, String senha) {
 		try {
@@ -257,7 +283,10 @@ public class FuncionariosDao {
 					menu.mnPosicaoDia.setVisible(false);
 					menu.mnHistoricoVenda.setVisible(false);
 					menu.setVisible(true);
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 				}
 
 			} else {
