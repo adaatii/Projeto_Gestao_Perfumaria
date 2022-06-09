@@ -241,7 +241,7 @@ public class TestProdutosDao {
 	/**
 	 * Método baixa de estoque
 	 */
-	public void baixarEstoque(int id, int qtd_nova) {
+	public boolean baixarEstoque(int id, int qtd_nova) {
 		try {
 			String sql = "update tb_produtos set qtd_estoque=? where id=?";
 
@@ -254,7 +254,9 @@ public class TestProdutosDao {
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro: " + e);
+			return false;
 		}
+		return true;
 
 	}
 

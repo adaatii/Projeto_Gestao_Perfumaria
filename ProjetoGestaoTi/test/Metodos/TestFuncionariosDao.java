@@ -231,7 +231,7 @@ public class TestFuncionariosDao {
 	}
 
 	// Método Efetua Login
-	public void efetuaLogin(String email, String senha) {
+	public boolean efetuaLogin(String email, String senha) {
 		try {
 			// 1° passo -SQL
 			String sql = "select*from tb_funcionarios where email=? and senha=?";
@@ -246,34 +246,39 @@ public class TestFuncionariosDao {
 
 				// Usuario Admin
 				if (rs.getString("nivel_acesso").equals("Administrador")) {
-					JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
-					FormMenu menu = new FormMenu();
-					menu.usuarioLogado = rs.getString("nome");
-					menu.setVisible(true);
+					//JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
+					//FormMenu menu = new FormMenu();
+					//menu.usuarioLogado = rs.getString("nome");
+					//menu.setVisible(true);
+					return true;
 				}
 				// Usuario normal
 				else if (rs.getString("nivel_acesso").equals("Usuário")) {
-					JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
-					FormMenu menu = new FormMenu();
-					menu.usuarioLogado = rs.getString("nome");
+					//JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
+					//FormMenu menu = new FormMenu();
+					//menu.usuarioLogado = rs.getString("nome");					
 
 					// Desabilitando menus
 
-					menu.mnPosicaoDia.setVisible(false);
-					menu.mnHistoricoVenda.setVisible(false);
-					menu.setVisible(true);
+					//menu.mnPosicaoDia.setVisible(false);
+					//menu.mnHistoricoVenda.setVisible(false);
+					//menu.setVisible(true);
+					return true;
 
 				}
 
 			} else {
 				// Dados incorretos
-				JOptionPane.showMessageDialog(null, "Email e/ou Senha inconrretos");
-				new FormLogin().setVisible(true);
+				//JOptionPane.showMessageDialog(null, "Email e/ou Senha inconrretos");
+				//new FormLogin().setVisible(true);
+				return false;
 			}
 
 		} catch (SQLException erro) {
 			JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			return false;
 		}
+		return true;
 
 	}
 }
