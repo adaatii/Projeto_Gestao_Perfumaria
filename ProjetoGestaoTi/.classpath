@@ -7,21 +7,21 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/Pacotes/junit-4.13.2.jar">
+	<classpathentry kind="lib" path="/home/adaatii/Documentos/Github/Projeto_Controle_Vendas_Loja_TI/Pacotes/junit-4.13.2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/Pacotes/hamcrest-core-1.3.jar">
+	<classpathentry kind="lib" path="/home/adaatii/Documentos/Github/Projeto_Controle_Vendas_Loja_TI/Pacotes/hamcrest-core-1.3.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/Pacotes/mysql-connector-java-8.0.28.jar">
+	<classpathentry kind="lib" path="/usr/share/java/mysql-connector-java-8.0.29.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/diego/OneDrive/Documentos/GitHub/Projeto_Controle_Vendas_Loja_TI/Pacotes/json-20160810.jar"/>
+	<classpathentry kind="lib" path="/home/adaatii/Documentos/Github/Projeto_Controle_Vendas_Loja_TI/Pacotes/json-20160810.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

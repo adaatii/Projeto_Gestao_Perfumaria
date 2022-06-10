@@ -17,8 +17,8 @@ import model.Produtos;
 
 
 /**
+ *
  * @author adaatii
- * @author diego Revisão de código
  */
 public class ItemVendaDao {
     private Connection con;
@@ -28,11 +28,7 @@ public class ItemVendaDao {
         this.con = new ConnectionFactory().getConnection(); //Conexão com o BD
 
     }
-	/**
-	 * Método Cadastrar itens:
-	 * Salva as infromações dos itens vendidos no banco de dados na tabela tb_itensvendas
-	 * @param obj ItemVenda conecta com ItemVendaDao para cadastrar as informações dos itens vendidos
-	 */	    
+    
     public void cadastrarItem(ItemVenda obj){
         try {
             
@@ -44,18 +40,19 @@ public class ItemVendaDao {
             stmt.setInt(2, obj.getProduto().getId());
             stmt.setInt(3, obj.getQtd());
             stmt.setDouble(4, obj.getSubtotal());
+           
+            
             //Executar o comando SQL
             stmt.execute();
             stmt.close();
+            
+            
+            
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro: " + erro);
         }
     }
-	/**
-	 * Método para Lista Itens Vendidos por ID
-	 * traz as informações do banco de dados da tabela itens vendas por id
-	 *  @return Retorna a lista com o todas as vendas relacionadas pelo id informado
-	 */   
+    
     //Método para Lista Itens Vendidos por ID
     
      public List<ItemVenda> listarItensVenda(int venda_id) {

@@ -8,7 +8,6 @@ package model;
  *
  * @author adaatii
  */
-
 public class Clientes{
     //Atributos
     private int id;
@@ -26,14 +25,6 @@ public class Clientes{
     private String cidade;
     private String uf;
     
-    /**
-     * Método Clientes
-     * modelo de cliente que contem os atributuos:id;nome;rg;cpf;email;telefone;celular;cep;endereco
-     * numero;complemento;bairro;cidade;uf
-     */
-    public Clientes() {
-		super();
-	}
     
     //Getters e Setters
 
@@ -41,7 +32,7 @@ public class Clientes{
         return id;
     }
 
-	public void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -148,4 +139,8 @@ public class Clientes{
     public void setUf(String uf) {
         this.uf = uf;
     }
+    
+    
+    
+    
 }

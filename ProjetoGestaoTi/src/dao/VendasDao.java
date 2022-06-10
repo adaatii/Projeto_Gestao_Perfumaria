@@ -18,8 +18,9 @@ import model.Clientes;
 
 
 /**
+ *
  * @author adaatii
- * @author diego Revisão de código
+ * hdaushudhasudhuasd
  */
 public class VendasDao {
      private Connection con;
@@ -29,11 +30,6 @@ public class VendasDao {
         this.con = new ConnectionFactory().getConnection(); //Conexão com o BD
 
     }
-	/**
-	 * Método Cadastrar Vendas:
-	 * Salva as infromações dos Produtos no banco de dados tabela Vendas
-	 * @param obj Vendas  cadastrar a venda realizada
-	 */	
     
     //cadastrar Venda
     public void cadastrarVenda(Vendas obj){
@@ -86,11 +82,7 @@ public class VendasDao {
     }
     
     //Métodos que lista vendas por datas
-	/**
-	 * Método Lista na Vendas por data_inicial  e data_final
-	 * traz as informações do banco de dados da tabela Vendas e retona a venda do dia
-	 * @return Retorna o total vendido no dia
-	 */
+    
     public List<Vendas> listarVendasPeriodo(LocalDate data_inicial, LocalDate data_final) {
 
         try {
