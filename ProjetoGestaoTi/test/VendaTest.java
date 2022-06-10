@@ -88,16 +88,17 @@ public class VendaTest {
 //                System.out.println(qtd_atualizada);
 
 				dao_produtos.baixarEstoque(objp.getId(), qtd_atualizada);
+				
 
 				TestItemVendaDao daoitem = new TestItemVendaDao();
 				daoitem.cadastrarItem(item);
 
 			}
 
-			JOptionPane.showMessageDialog(null, "Venda registrada com sucesso com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Venda registrada com sucesso com sucesso!");
 
 		} else {
-			JOptionPane.showMessageDialog(null, "Operação cancelada: valor menor que o total da compra.");
+			//JOptionPane.showMessageDialog(null, "Operação cancelada: valor menor que o total da compra.");
 		}
 
 	}
@@ -177,14 +178,34 @@ public class VendaTest {
 
 			}
 
-			JOptionPane.showMessageDialog(null, "Venda registrada com sucesso com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Venda registrada com sucesso com sucesso!");
 			erro = 0;
 
 		} else {
-			JOptionPane.showMessageDialog(null, "Operação cancelada: valor menor que o total da compra.");
+			//JOptionPane.showMessageDialog(null, "Operação cancelada: valor menor que o total da compra.");
 			erro = 1;
 		}
 		assertEquals(1, erro);
+	}
+	
+	@Test
+	public void CTestBaixaDeEstoque() {
+		int qtd_estoque, qtd_comprada, qtd_atualizada;
+		
+		Produtos objp = new Produtos();
+		TestProdutosDao dao_produtos = new TestProdutosDao();
+		
+
+		objp.setId(Integer.parseInt("1"));
+		
+		// Baixa no estoque
+		qtd_estoque = dao_produtos.retornaEstoqueAtual(objp.getId());
+		qtd_comprada = Integer.parseInt("1");
+		qtd_atualizada = qtd_estoque - qtd_comprada;
+//        System.out.println(qtd_estoque);
+//        System.out.println(qtd_atualizada);
+
+		assertEquals(true, dao_produtos.baixarEstoque(objp.getId(), qtd_atualizada)); 
 	}
 
 }

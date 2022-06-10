@@ -219,6 +219,7 @@ public class TestClientesDao {
 			}
 
 			return lista;
+			
 
 		} catch (SQLException erro) {
 			JOptionPane.showMessageDialog(null, "Erro: " + erro);

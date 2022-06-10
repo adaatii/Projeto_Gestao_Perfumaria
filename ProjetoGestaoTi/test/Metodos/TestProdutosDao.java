@@ -32,10 +32,10 @@ public class TestProdutosDao {
 	/**
 	 * Método Cadastrar Produtos
 	 */
-	public void cadastrarProduto(Produtos obj) {
+	public boolean cadastrarProduto(Produtos obj) {
 		try {
 
-			String sql = "insert into tb_produtos (descricao,preco,qtd_estoque,for_id)values(?,?,?,?)";
+			String sql = "insert into tb_produtos (descricao,preco,qtd_estoque,for_id,id)values(?,?,?,?,?)";
 
 			// Conectar banco de dados e organizar o comando SQL
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -44,18 +44,20 @@ public class TestProdutosDao {
 			stmt.setInt(3, obj.getQtd_estoque());
 			
 			stmt.setInt(4, obj.getFornecedor().getId());
+			stmt.setInt(5, obj.getId());
 			
 
 			// Executar o comando SQL
 			stmt.execute();
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "Descrição de Produto já cadastrada", null, JOptionPane.ERROR_MESSAGE);
-		
+			//JOptionPane.showMessageDialog(null, erro);
+			return false;
 		}
+		return true;
 	
 	}
 
@@ -182,7 +184,7 @@ public class TestProdutosDao {
 	/**
 	 * Método Alterar Produtos
 	 */
-	public void alterarProduto(Produtos obj) {
+	public boolean alterarProduto(Produtos obj) {
 		try {
 
 			String sql = "update tb_produtos set descricao=?,preco=?,qtd_estoque=? where id=?"; //,for_id=?
@@ -201,17 +203,19 @@ public class TestProdutosDao {
 			stmt.execute();
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			//JOptionPane.showMessageDialog(null, "Erro: " + erro);
+			return false;
 		}
+		return true;
 	}
 
 	/**
 	 * Método Excluir Produto
 	 */
-	public void excluirProduto(Produtos obj) {
+	public boolean excluirProduto(Produtos obj) {
 		try {
 
 			String sql = "delete from tb_produtos where id=?";
@@ -225,17 +229,19 @@ public class TestProdutosDao {
 			stmt.execute();
 			stmt.close();
 
-			JOptionPane.showMessageDialog(null, "Produto Excluido com sucesso!");
+			//JOptionPane.showMessageDialog(null, "Produto Excluido com sucesso!");
 
 		} catch (SQLException erro) {
-			JOptionPane.showMessageDialog(null, "Produto não pode ser Excluido. Já vinculado a venda!",null, JOptionPane.WARNING_MESSAGE);
+			//JOptionPane.showMessageDialog(null, "Produto não pode ser Excluido. Já vinculado a venda!",null, JOptionPane.WARNING_MESSAGE);
+			return false;
 		}
+		return true;
 	}
 
 	/**
 	 * Método baixa de estoque
 	 */
-	public void baixarEstoque(int id, int qtd_nova) {
+	public boolean baixarEstoque(int id, int qtd_nova) {
 		try {
 			String sql = "update tb_produtos set qtd_estoque=? where id=?";
 
@@ -248,7 +254,9 @@ public class TestProdutosDao {
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro: " + e);
+			return false;
 		}
+		return true;
 
 	}
 

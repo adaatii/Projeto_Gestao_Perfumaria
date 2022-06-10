@@ -429,11 +429,7 @@ public class FormProdutos extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEditarActionPerformed
        
              
-        /*String forn = cbFornecedores.getSelectedItem().toString();
-        
-        if(!forn.equals(fornecedor)){
-            JOptionPane.showMessageDialog(null, "Fornecedor não pode ser alterado");
-        }else{  */      
+       
         // Botão editar
         int op;
         Object[] options = {"Cancelar", "Confirmar"};
