@@ -15,19 +15,27 @@ import jdbc.ConnectionFactory;
 import model.Clientes;
 
 /**
- *
  * @author adaatii
+ * @author diego Revisão de código
  */
 public class ClientesDao {
 
 	private Connection con;
 
+	/**
+	 * Método ClienteDao:
+	 * Cadastra, altera, exclui e lista as infromações dos clientes no banco de dados na tabela clientes
+	 */
 	public ClientesDao() {
 
 		this.con = new ConnectionFactory().getConnection(); // Conexão com o BD
 
 	}
-
+	/**
+	 * Método Cadastrar cliente:
+	 * Salva as infromações dos clientes no banco de dados tabela clientes
+	 * @param obj Cliente com ClienteDao para registar as informações
+	 */
 	// Metodo Cadastrar Cliente
 	public void cadastrarCliente(Clientes obj) {
 		try {
@@ -64,7 +72,11 @@ public class ClientesDao {
 		}
 
 	}
-
+	/**
+	 * Método editar
+	 * Altera as informações no banco de dados na tabela cliente com as especificações informada pelo usuário
+	 * @param  obj Cliente com ClienteDao e altera as informações
+	 */
 	// Metodo Alterar Cliente
 	public void alterarCliente(Clientes obj) {
 		try {
@@ -102,7 +114,11 @@ public class ClientesDao {
 		}
 
 	}
-
+	/**
+	* Método excluir
+	* Exclui as informações da tabela cliente no banco de dados com as especificações informada pelo usuário
+	* @param  obj Cliente com ClienteDao e exclui as informações
+	*/
 	// Metodo Excluir Cliente
 	public void excluirCliente(Clientes obj) {
 		try {
@@ -128,7 +144,11 @@ public class ClientesDao {
 		
 
 	}
-
+	/**
+	 * Método Listar
+	 * traz as informações do banco de dados da tabela clientes e retona em uma lista
+	 * @return Retorna a lista com todos os clientes da tabela cliente
+	 */
 	// Metodo Listar Clientes
 	public List<Clientes> listarCliente() {
 
@@ -172,6 +192,11 @@ public class ClientesDao {
 
 	}
 
+	/**
+	 * Método busca por nome
+	 * traz as informações do banco de dados da tabela clientes por nome
+	 *  @return Retorna a lista com o cliente informado da tabela cliente
+	 */
 	// Metodo Buscar Cliente por nome - retorna uma Lista
 	public List<Clientes> buscaClienteNome(String nome) {
 
@@ -215,7 +240,11 @@ public class ClientesDao {
 		}
 
 	}
-
+	/**
+	 * Método busca CPF
+	 * traz as informações do banco de dados da tabela clientes por CPF
+	 * @return obj objeto de cliente  conecta no ClienteDao
+	 */
 	// Metodo Buscar Cliente por CPF - retorna uma Lista
 	public Clientes buscaClienteCpf(String cpf) {
 

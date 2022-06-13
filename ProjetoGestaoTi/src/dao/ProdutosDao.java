@@ -14,23 +14,24 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import model.Fornecedores;
-
 /**
- *
  * @author adaatii
+ * @author diego Revisão de código
  */
 public class ProdutosDao {
 
 	private Connection con;
-
-	public ProdutosDao() {
-
-		this.con = new ConnectionFactory().getConnection(); // Conexão com o BD
-
+    /**
+     * Método ProdutosDao
+     * Cadastra, exclui e lista produtos no banco de dados na tabela produtos
+     */
+	public ProdutosDao() {this.con = new ConnectionFactory().getConnection(); // Conexão com o BD
 	}
 
 	/**
-	 * Método Cadastrar Produtos
+	 * Método Cadastrar Produtos:
+	 * Salva as infromações dos Produtos no banco de dados tabela Produtos
+	 * @param obj Produtos  cadastrar as informações
 	 */
 	public void cadastrarProduto(Produtos obj) {
 		try {
@@ -60,7 +61,9 @@ public class ProdutosDao {
 	}
 
 	/**
-	 * Método Listar Produtos
+	 * Método Lista na Produtos
+	 * traz as informações do banco de dados da tabela Produtos e retona em uma lista
+	 * @return Retorna a lista com todos os Produtos da tabela Produtos
 	 */
 	public List<Produtos> listarProdutos() {
 
@@ -101,7 +104,9 @@ public class ProdutosDao {
 	}
 
 	/**
-	 * Método Listar Produtos por nome
+	 * Método Lista na Produtos por nome
+	 * traz as informações do banco de dados da tabela Produtos e retona o produto informado
+	 * @return Retorna a lista com o Produto informado da tabela Produtos
 	 */
 	public List<Produtos> buscaProdutosNome(String nome) {
 

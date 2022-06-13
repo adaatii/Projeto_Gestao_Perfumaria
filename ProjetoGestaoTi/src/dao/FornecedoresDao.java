@@ -22,16 +22,22 @@ public class FornecedoresDao {
 
 	private Connection con;
 
-	public FornecedoresDao() {
+    /**
+     * Método FornecedoresDao
+     * Cadastra, altera, exclui e lista as infromações dos fornecedores no banco de dados na tabela fornecedores
+     */
+	public FornecedoresDao() {this.con = new ConnectionFactory().getConnection();} // Conexão com o BD	
 
-		this.con = new ConnectionFactory().getConnection(); // Conexão com o BD
-
-	}
-
+	/**
+	 * Método Cadastrar Fornecedores:
+	 * cadastra na tabela Fornecedores os atributuos
+     * (nome,cnpj,email,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado)"
+	 * @param obj Fornecedores conecta com FornecedoresDao para registar as informações na tabela tabela fornecedores
+	 */
 	// Metodo Cadastrar Fornecedores
 	public void cadastrarFornecedores(Fornecedores obj) {
 		try {
-			// Criar comando SQL insere nos campos da tabela Clientes os valores
+			// Criar comando SQL insere nos campos da tabela fornecedores os valores
 			// 1° pega o valor(Get) do campo e já atribui(Set) ao BD
 			String sql = "insert into tb_fornecedores (nome,cnpj,email,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado)"
 					+ "values (?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -64,10 +70,15 @@ public class FornecedoresDao {
 
 	}
 
+	/**
+	* Método excluir
+	* Exclui as informações da tabela Fornecedores no banco de dados com as especificações informada pelo usuário
+	* @param  obj Fornecedores com FornecedoresDao e exclui as informações
+	*/	
 	// Método Excluir Fornecedores
 	public void excluirFornecedor(Fornecedores obj) {
 		try {
-			// Criar comando SQL deleta nos campos da tabela Clientes os valores
+			// Criar comando SQL deleta nos campos da tabela fornecedores os valores
 
 			String sql = "delete from tb_fornecedores where id = ?";
 
@@ -86,7 +97,11 @@ public class FornecedoresDao {
 		}
 
 	}
-
+	/**
+	 * Método editar
+	 * Altera as informações no banco de dados na tabela fornecedores com as especificações informada pelo usuário
+	 * @param  obj Fornecedores com FornecedoresDao e altera as informações
+	 */
 	// Metodo Alterar Fornecedores
 	public void alterarFornecedor(Fornecedores obj) {
 		try {
@@ -122,7 +137,11 @@ public class FornecedoresDao {
 		}
 
 	}
-
+	/**
+	 * Método Listar
+	 * traz as informações do banco de dados da tabela fornecedores e retona em uma lista
+	 * @return Retorna a lista com todos os fornecedores da tabela cliente
+	 */
 	// Metodo Listar Fornecedores
 	public List<Fornecedores> listarFornecedor() {
 
@@ -164,7 +183,11 @@ public class FornecedoresDao {
 		}
 
 	}
-
+	/**
+	 * Método listar por nome
+	 * traz as informações do banco de dados da tabela fornecedores por nome
+	 *  @return Retorna a lista com o fornecedores informado da tabela fornecedores
+	 */
 	// Metodo Buscar Fornecedor por nome - retorna uma Lista
 	public List<Fornecedores> buscaFornecedorNome(String nome) {
 
@@ -207,7 +230,11 @@ public class FornecedoresDao {
 		}
 
 	}
-
+	/**
+	 * Método busca por nome
+	 * traz as informações do banco de dados da tabela fornecedores por nome
+	 *  @return Retorna os dados do fornecedor informado
+	 */
 	// Método consulta Fornecedores Por nome
 	public Fornecedores consultaFornecedorNome(String nome) {
 		try {

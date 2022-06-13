@@ -25,8 +25,15 @@ public class Clientes{
     private String cidade;
     private String uf;
     
+    /**
+     * Método Clientes
+     * modelo de cliente que contem os atributuos:id;nome;rg;cpf;email;telefone;celular;cep;endereco
+     * numero;complemento;bairro;cidade;uf
+     */
     
-    //Getters e Setters
+    public Clientes() {
+    	
+    }
 
     public int getId() {
         return id;
