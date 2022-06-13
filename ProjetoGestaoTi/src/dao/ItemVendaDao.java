@@ -14,21 +14,22 @@ import javax.swing.JOptionPane;
 import jdbc.ConnectionFactory;
 import model.ItemVenda;
 import model.Produtos;
-
-
 /**
- *
  * @author adaatii
+ * @author diego Revisão de código
  */
 public class ItemVendaDao {
     private Connection con;
-
-    public ItemVendaDao() {
-
-        this.con = new ConnectionFactory().getConnection(); //Conexão com o BD
-
-    }
-    
+    /**
+     * Método ItemVendaDao
+     * Registra todas as vendas realizadas no banco de dados na tabela itensvendas 
+     */
+    public ItemVendaDao() {this.con = new ConnectionFactory().getConnection();} //Conexão com o BD
+	/**
+	 * Método registar vendas:
+	 * Salva as infromações dos itens vendidos no banco de dados na tabela tabela itensvendas
+	 * @param obj ItemVenda conecta com ItemVendaDao para cadastrar as informações dos itens vendidos
+	 */
     public void cadastrarItem(ItemVenda obj){
         try {
             
@@ -53,8 +54,13 @@ public class ItemVendaDao {
         }
     }
     
-    //Método para Lista Itens Vendidos por ID
+	/**
+	 * Método para Lista Itens Vendidos por ID
+	 * traz as informações do banco de dados da tabela itens vendas por id
+	 *  @return Retorna a lista com o todas as vendas relacionadas pelo id informado
+	 */   
     
+    //Método para Lista Itens Vendidos por ID  
      public List<ItemVenda> listarItensVenda(int venda_id) {
 
         try {

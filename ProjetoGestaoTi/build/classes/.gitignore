@@ -1,9 +1,11 @@
+/dao/
+/jdbc/
+/model/
+/view/
+/CadastrarTest.class
 /EditarTest.class
 /ExcluirTest.class
 /Metodos/
 /VendaTest.class
-/TestBuscar.class
-/BuscarTest.class
-/Buscar_ConsultarTest.class
-/LoginTest.class
-/view/
+/br/
+/imagens/

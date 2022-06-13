@@ -16,22 +16,26 @@ import model.Funcionarios;
 import view.FormMenu;
 import view.FormProdutos;
 import view.FormLogin;
-
 /**
- *
  * @author adaatii
+ * @author diego Revisão de código
  */
 public class FuncionariosDao {
 
 	// Conexão BD
 	private Connection con;
+    /**
+     * Método FuncionariosDao
+     * Cadastra, altera, exclui e lista as infromações dos funcionario no banco de dados na tabela funcionario
+     */
 
-	public FuncionariosDao() {
-
-		this.con = new ConnectionFactory().getConnection();
-
-	}
-
+	public FuncionariosDao() {this.con = new ConnectionFactory().getConnection();}
+    /**
+     * Método Funcionário
+     * modelo de Funcionário que contem os atributuos:
+     * (nome,rg,cpf,email,senha,cargo,nivel_acesso,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado)"
+	 * @param obj Funcionário conecta com FuncionarioDao para registar as informações na tabela tabela funcionario
+	 */
 	// Método Cadastrar Funcionário
 	public void cadastrarFuncionarios(Funcionarios obj) {
 		try {
@@ -71,7 +75,11 @@ public class FuncionariosDao {
 		}
 
 	}
-
+	/**
+	 * Método Listar
+	 * traz as informações do banco de dados da tabela funcionários e retona em uma lista
+	 * @return Retorna a lista com todos os funcionários da tabela cliente
+	 */
 	// Método Lista Funcionário
 	public List<Funcionarios> listarFuncionarios() {
 
@@ -117,7 +125,11 @@ public class FuncionariosDao {
 		}
 
 	}
-
+	/**
+	 * Método editar
+	 * Altera as informações no banco de dados na tabela funcioário com as especificações informada pelo usuário
+	 * @param obj Funcionarios conecta com FuncionariosDao para alterar as informações
+	 */
 	// Método Alterar Funcionário
 	public void alterarFuncionarios(Funcionarios obj) {
 		try {
@@ -156,7 +168,11 @@ public class FuncionariosDao {
 		}
 
 	}
-
+	/**
+	* Método excluir
+	* Exclui as informações da tabela funcioário no banco de dados com as especificações informada pelo usuário
+	* @param obj Funcionarios conecta com FuncionariosDao para excluir as informações
+	*/
 	// Método Excluir Funcionário
 	public void excluirFuncionarios(Funcionarios obj) {
 		try {
@@ -178,7 +194,11 @@ public class FuncionariosDao {
 			JOptionPane.showMessageDialog(null, "Erro: " + erro);
 		}
 	}
-
+	/**
+	 * Método busca por nome
+	 * traz as informações do banco de dados da tabela funcionário por nome
+	 *  @return Retorna a lista com o funcionário informado da tabela funcionário
+	 */
 	// Metodo Buscar Funcionario por nome - retorna uma Lista
 	public List<Funcionarios> buscaFuncionarioNome(String nome) {
 
@@ -225,7 +245,11 @@ public class FuncionariosDao {
 		}
 
 	}
-
+	/**
+	 * Método Efetua Login
+	 * sistema faz a comparação com banco de dados com as informações do usuáro
+	 * Retorna a informação se o usuário está autorizado cadastrado
+	 */
 	// Método Efetua Login
 	public void efetuaLogin(String email, String senha) {
 		try {
