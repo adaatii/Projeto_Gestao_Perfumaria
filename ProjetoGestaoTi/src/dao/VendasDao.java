@@ -18,19 +18,26 @@ import model.Clientes;
 
 
 /**
- *
  * @author adaatii
- * hdaushudhasudhuasd
+ * @author diego Revisão de código
  */
 public class VendasDao {
      private Connection con;
-    
+ 	/**
+ 	 * Método Cadastrar Vendas:
+ 	 * Salva as infromações dos Produtos no banco de dados tabela Vendas
+ 	 */	
     public VendasDao() {
         
         this.con = new ConnectionFactory().getConnection(); //Conexão com o BD
 
     }
     
+	/**
+	 * Método Cadastrar Vendas:
+	 * Salva as infromações dos Produtos no banco de dados tabela Vendas
+	 * @param obj Vendas  cadastrar a venda realizada
+	 */	
     //cadastrar Venda
     public void cadastrarVenda(Vendas obj){
          try {
@@ -56,7 +63,11 @@ public class VendasDao {
     }
     
     //retornar ultima venda
-    
+	/**
+	 * Método ultima venda
+	 * traz as informações do banco de dados da tabela Produtos e retona em uma lista
+	 * @return Retorna a lista com todos os Produtos da tabela Produtos
+	 */    
     public int retornaUltimaVenda(){
         try {
             int idvenda = 0;
@@ -82,7 +93,11 @@ public class VendasDao {
     }
     
     //Métodos que lista vendas por datas
-    
+	/**
+	 * Método lista vendas por datas
+	 * traz as informações do banco de dados da tabela vendas e retona em uma lista com todas as vendas no período
+	 * @return Retorna a lista com todos os Produtos vendidos da tabela de vendas
+	 */
     public List<Vendas> listarVendasPeriodo(LocalDate data_inicial, LocalDate data_final) {
 
         try {
@@ -125,7 +140,11 @@ public class VendasDao {
         }
 
     }
-    
+	/**
+	 * Método lista vendas por datas
+	 * traz as informações do banco de dados da tabela vendas o total de vendas do dia
+	 * @return Retorna o total das vendas no dia	
+	 */    
     //Método para calcular o total das vendas no dia selecionado
     public double totalVendaDia(LocalDate data_venda){
         try {

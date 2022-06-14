@@ -333,9 +333,6 @@ public class FormMenu extends javax.swing.JFrame {
        // this.dispose();           
     }//GEN-LAST:event_mnPosicaoDiaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel2;

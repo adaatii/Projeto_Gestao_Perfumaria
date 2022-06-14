@@ -347,10 +347,6 @@ public class FormEstoque extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnRetornarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnPesquisar;

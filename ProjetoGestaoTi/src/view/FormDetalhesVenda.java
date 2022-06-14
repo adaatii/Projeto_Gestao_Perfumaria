@@ -229,10 +229,6 @@ public class FormDetalhesVenda extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_btnRetornarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRetornar;
     private javax.swing.JLabel jLabel1;

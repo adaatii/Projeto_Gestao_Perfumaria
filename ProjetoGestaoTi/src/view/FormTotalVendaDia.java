@@ -186,9 +186,9 @@ public class FormTotalVendaDia extends javax.swing.JFrame {
 
     private void btnRetornar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornar1ActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btnRetornar1ActionPerformed
+    }
 
-    private void txtDataKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDataKeyPressed
+    private void txtDataKeyPressed(java.awt.event.KeyEvent evt) {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 //Receber a data
@@ -205,11 +205,7 @@ public class FormTotalVendaDia extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Digite a data corretamente");
             }
         }
-    }//GEN-LAST:event_txtDataKeyPressed
-
-    /**
-     * @param args the command line arguments
-     */
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPesquisar;

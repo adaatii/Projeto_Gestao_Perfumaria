@@ -5,11 +5,19 @@
 package model;
 
 /**
- *
- * @author adaatii
- */
+*
+* @author adaatii
+* @author diego 
+* Revisão de código
+*/
 public class Fornecedores extends Clientes {
-
+/**
+ * Método Fornecedores
+ * Fornecedores que contem o atributuo:CNPJ
+ */
+	public Fornecedores() {
+	}
+		
     //Atributos
     private String cnpj;
     

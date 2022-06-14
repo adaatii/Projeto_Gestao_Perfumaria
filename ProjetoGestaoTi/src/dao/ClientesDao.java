@@ -24,7 +24,7 @@ public class ClientesDao {
 
 	/**
 	 * Método ClienteDao:
-	 * Cadastra, altera, exclui e lista as infromações dos clientes no banco de dados na tabela clientes
+	 * Cadastra, altera, exclui e lista as informações dos clientes no banco de dados na tabela clientes
 	 */
 	public ClientesDao() {
 
@@ -33,7 +33,7 @@ public class ClientesDao {
 	}
 	/**
 	 * Método Cadastrar cliente:
-	 * Salva as infromações dos clientes no banco de dados tabela clientes
+	 * Salva as informações dos clientes no banco de dados tabela clientes
 	 * @param obj Cliente com ClienteDao para registar as informações
 	 */
 	// Metodo Cadastrar Cliente

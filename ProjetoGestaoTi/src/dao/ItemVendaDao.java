@@ -27,7 +27,7 @@ public class ItemVendaDao {
     public ItemVendaDao() {this.con = new ConnectionFactory().getConnection();} //Conexão com o BD
 	/**
 	 * Método registar vendas:
-	 * Salva as infromações dos itens vendidos no banco de dados na tabela tabela itensvendas
+	 * Salva as informações dos itens vendidos no banco de dados na tabela tabela itensvendas
 	 * @param obj ItemVenda conecta com ItemVendaDao para cadastrar as informações dos itens vendidos
 	 */
     public void cadastrarItem(ItemVenda obj){

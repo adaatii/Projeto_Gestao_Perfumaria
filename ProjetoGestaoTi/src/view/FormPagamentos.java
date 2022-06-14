@@ -401,9 +401,6 @@ public class FormPagamentos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPixKeyPressed
 
-    /**
-     * @param args the command line arguments
-     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnPagamento;

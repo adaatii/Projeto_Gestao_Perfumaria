@@ -5,9 +5,11 @@
 package model;
 
 /**
- *
- * @author adaatii
- */
+*
+* @author adaatii
+* @author diego 
+* Revisão de código
+*/
 public class Funcionarios extends Clientes{
     
     //Atributos

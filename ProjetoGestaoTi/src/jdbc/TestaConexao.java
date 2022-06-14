@@ -12,9 +12,16 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author adaatii
+ * @author diego
+ * Revisão de código
  */
 public class TestaConexao {
 
+    /**
+     * Método teste de conexão
+     * Testa a conexão com o banco de dados 
+     * Retorna a informação se teve sucesso na conexão com o banco
+     */
     public static void main(String[] args) {
 
         try {
@@ -28,6 +35,12 @@ public class TestaConexao {
 
         }
     }
+
+    /**
+     * Método teste de conexão con internet
+     * Testa se a conexão com o a internet para busca do WEBSERVICE 
+     * @return Retorna a informação se teve sucesso na conexão com o banco
+     */
 
     public static boolean testarInternet(String address) {
         try {

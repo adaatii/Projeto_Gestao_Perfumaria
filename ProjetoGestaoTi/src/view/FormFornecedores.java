@@ -717,9 +717,6 @@ public class FormFornecedores extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtCepKeyPressed
 
-    /**
-     * @param args the command line arguments
-     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;

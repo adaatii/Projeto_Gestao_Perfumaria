@@ -9,9 +9,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- *
- * @author adaatii
- */
+*
+* @author adaatii
+* @author diego 
+* Revisão de código
+*/
 public class Utilitarios {
     
     //metodo limpar Campos
