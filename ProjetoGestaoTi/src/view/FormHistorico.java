@@ -326,10 +326,6 @@ public class FormHistorico extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtDataInicialKeyPressed
 
-    /**
-     * @param args the command line arguments
-     */
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnRetornar1;

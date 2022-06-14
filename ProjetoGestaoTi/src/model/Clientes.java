@@ -7,6 +7,8 @@ package model;
 /**
  *
  * @author adaatii
+ * @author diego 
+ * Revisão de código
  */
 public class Clientes{
     //Atributos

@@ -25,12 +25,13 @@ public class ProdutosDao {
      * Método ProdutosDao
      * Cadastra, exclui e lista produtos no banco de dados na tabela produtos
      */
-	public ProdutosDao() {this.con = new ConnectionFactory().getConnection(); // Conexão com o BD
+	public ProdutosDao() {
+		this.con = new ConnectionFactory().getConnection(); // Conexão com o BD
 	}
 
 	/**
 	 * Método Cadastrar Produtos:
-	 * Salva as infromações dos Produtos no banco de dados tabela Produtos
+	 * Salva as informações dos Produtos no banco de dados tabela Produtos
 	 * @param obj Produtos  cadastrar as informações
 	 */
 	public void cadastrarProduto(Produtos obj) {
@@ -144,10 +145,13 @@ public class ProdutosDao {
 			JOptionPane.showMessageDialog(null, "Erro: " + erro);
 			return null;
 		}
-
 	}
 	// Busca Produto por código
-
+	/**
+	 * Método Busca Produto por código
+	 * traz as informações do banco de dados da tabela Produtos retornando o produto informado pelo ID
+	 * @return Retorna o produto informado.
+	 */
 	public Produtos buscaProdutosCodigo(int id) {
 
 		try {
@@ -185,7 +189,8 @@ public class ProdutosDao {
 	}
 
 	/**
-	 * Método Alterar Produtos
+	 * Método Alterar Produtos 
+	 * Altera as informações desejadas no banco de dados
 	 */
 	public void alterarProduto(Produtos obj) {
 		try {
@@ -215,6 +220,7 @@ public class ProdutosDao {
 
 	/**
 	 * Método Excluir Produto
+	 * Exclui as informações desejadas no banco de dados caso não tenha venda registrada
 	 */
 	public void excluirProduto(Produtos obj) {
 		try {
@@ -239,6 +245,7 @@ public class ProdutosDao {
 
 	/**
 	 * Método baixa de estoque
+	 * Realiza a baixa de estoque no momento da venda
 	 */
 	public void baixarEstoque(int id, int qtd_nova) {
 		try {
@@ -259,6 +266,7 @@ public class ProdutosDao {
 
 	/**
 	 * Método Atualizar estoque
+	 * Incrementa valores de quantidade no estoque
 	 */
 	public void atualizarEstoque(int id, int qtd_nova) {
 		try {
@@ -298,9 +306,11 @@ public class ProdutosDao {
 			throw new RuntimeException(e);
 		}
 	}
-
+	
 	/**
-	 * Método Listar Produtos por nome
+	 * Método Lista na Produtos por código
+	 * traz as informações do banco de dados da tabela Produtos e retona o produto informado
+	 * @return Retorna a lista com o Produto informado da tabela Produtos
 	 */
 	public List<Produtos> listarProdutosCodigo(int id) {
 

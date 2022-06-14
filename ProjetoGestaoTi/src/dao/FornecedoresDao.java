@@ -15,8 +15,8 @@ import jdbc.ConnectionFactory;
 import model.Fornecedores;
 
 /**
- *
  * @author adaatii
+ * @author diego Revisão de código
  */
 public class FornecedoresDao {
 
@@ -24,7 +24,7 @@ public class FornecedoresDao {
 
     /**
      * Método FornecedoresDao
-     * Cadastra, altera, exclui e lista as infromações dos fornecedores no banco de dados na tabela fornecedores
+     * Cadastra, altera, exclui e lista as informações dos fornecedores no banco de dados na tabela fornecedores
      */
 	public FornecedoresDao() {this.con = new ConnectionFactory().getConnection();} // Conexão com o BD	
 
