@@ -279,8 +279,8 @@ public class FuncionariosDao {
 
 					// Desabilitando menus
 
-					menu.mnPosicaoDia.setVisible(false);
-					menu.mnHistoricoVenda.setVisible(false);
+					menu.mnPosicaoDia.setVisible(false);					
+					menu.mnFuncionario.setVisible(false);
 					menu.setVisible(true);
 					
 

@@ -478,14 +478,16 @@ public class FormFuncionarios extends javax.swing.JFrame {
         painelDadosConsultaLayout.setHorizontalGroup(
             painelDadosConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelDadosConsultaLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addGroup(painelDadosConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(painelDadosConsultaLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelDadosConsultaLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         painelDadosConsultaLayout.setVerticalGroup(
             painelDadosConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

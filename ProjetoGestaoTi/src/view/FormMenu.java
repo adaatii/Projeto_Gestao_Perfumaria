@@ -350,7 +350,7 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnCliente;
     private javax.swing.JMenuItem mnEstoque;
     private javax.swing.JMenuItem mnFornecedor;
-    private javax.swing.JMenuItem mnFuncionario;
+    public javax.swing.JMenuItem mnFuncionario;
     public javax.swing.JMenuItem mnHistoricoVenda;
     public javax.swing.JMenuItem mnPosicaoDia;
     private javax.swing.JMenuItem mnProduto;

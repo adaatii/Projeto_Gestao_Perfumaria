@@ -139,7 +139,7 @@ public class FormClientes extends javax.swing.JFrame {
         );
 
         painelCadastro.setBackground(new java.awt.Color(255, 255, 255));
-        painelCadastro.setPreferredSize(new java.awt.Dimension(1209, 442));
+        painelCadastro.setPreferredSize(new java.awt.Dimension(1185, 593));
 
         painelDadosCadastro.setBackground(new java.awt.Color(255, 255, 255));
         painelDadosCadastro.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
@@ -422,14 +422,16 @@ public class FormClientes extends javax.swing.JFrame {
         painelDadosConsultaLayout.setHorizontalGroup(
             painelDadosConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelDadosConsultaLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addGroup(painelDadosConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(painelDadosConsultaLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelDadosConsultaLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         painelDadosConsultaLayout.setVerticalGroup(
             painelDadosConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
