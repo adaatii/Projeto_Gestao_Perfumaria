@@ -51,6 +51,7 @@ public class FormHistorico extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Histórico de Vendas");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(14, 89, 235));
 
